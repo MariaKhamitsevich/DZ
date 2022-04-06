@@ -58,14 +58,15 @@ struct Cat {
     }
 }
 
-//var myCat = Cat(name: "Моника", age: 2, nicknames: ["Моня", "Китя", "Красавица"])
-//
-//myCat.callTheCat(calling: 7, whatFor: "кушать")
-//myCat.addTheNickname(["Буся"])
-//myCat.callTheCat(calling: 3, whatFor: "домой")
-//
-//var anotherCat = Cat(name: nil, age: 4, nicknames: [])
-//anotherCat.callTheCat(calling: 2, whatFor: "кушать")
+// Проверка корректности работы
+var myCat = Cat(name: "Моника", age: 2, nicknames: ["Моня", "Китя", "Красавица"])
+
+myCat.callTheCat(calling: 7, whatFor: "кушать")
+myCat.addTheNickname(["Буся"])
+myCat.callTheCat(calling: 3, whatFor: "домой")
+
+var anotherCat = Cat(name: nil, age: 4, nicknames: [])
+anotherCat.callTheCat(calling: 2, whatFor: "кушать")
 
 
 
@@ -91,7 +92,7 @@ class Library {
     }
     
 }
-
+// Проверка
 let library = Library(libraryByGentre: ["Fantasy": ["Harry Potter", "Alice in Wonderland"], "Science": ["Chemistry", "Biology", "Phisics"]])
 library.inventory()
 
@@ -136,6 +137,7 @@ struct ArrayOfInteger {
     }
 }
 
+//Проверка
 var arr1 = ArrayOfInteger(arrayOfNumbers: [1, 4, 7])
 arr1.chooseEven()
 arr1.chooseUneven()

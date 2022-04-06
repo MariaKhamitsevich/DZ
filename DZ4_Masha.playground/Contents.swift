@@ -19,7 +19,10 @@ struct Cat {
         self.nicknames = nicknames
     }
     
-    mutating func callTheCat(calling number: Int, whatFor: String) {
+    mutating func callTheCat(calling number: Int, whatFor: String) -> Void {
+        if number <= 0 {
+         return
+        }
         self.nicknames.insert(self.name ?? "Котик")
         var numberIterations = 0
         
@@ -29,7 +32,8 @@ struct Cat {
             
             if numberIterations >= number {
                 break
-            } 
+            }
+            return
         }
         
         if number > self.nicknames.count {
@@ -70,20 +74,70 @@ struct Cat {
 // Создать массив со своим типом данных и вывести его значения в цикле for in и while
 
 
-let library = ["Fantasy": ["Harry Potter", "Alice in Wonderland"], "Science": ["Chemistry", "Biology", "Phisics"]]
+// Класс Библиотека
+class Library {
+    var libraryByGentre: [String : [String]] = ["": ["No books"]]
+    
+    init(libraryByGentre: [String: [String]]) {
+        self.libraryByGentre = libraryByGentre
+    }
+        
+        func inventory() {
+            for element in libraryByGentre {
+                for value in element.value {
+                    print("\(value) is \(element.key)")
+                }
+        }
+    }
+    
+}
 
-for element in library {
-    for value in element.value {
-        print("\(value) is \(element.key)")
+let library = Library(libraryByGentre: ["Fantasy": ["Harry Potter", "Alice in Wonderland"], "Science": ["Chemistry", "Biology", "Phisics"]])
+library.inventory()
+
+
+// Структура массива, которая позволяет отсортировать элементы по четности
+struct ArrayOfInteger {
+    var arrayOfNumbers: [Int]
+    var arrayOfEvenNumbers: [Int] = []
+    var arrayOfUnevenNumbers: [Int] = []
+    
+    init(arrayOfNumbers: [Int]) {
+        self.arrayOfNumbers = arrayOfNumbers
+    }
+    
+    mutating func chooseEven() {
+        for element in arrayOfNumbers {
+            if element % 2 == 0 {
+                arrayOfEvenNumbers.append(element)
+            }
+        }
+        print(arrayOfEvenNumbers)
+        // Обнуляем массив, чтобы при повторном вызове функции у нас не повторялись значения (но можно было создать сет вместо массива)
+        arrayOfEvenNumbers = []
+    }
+    
+    mutating func chooseUneven() {
+        var counter = 0
+        
+        while counter < arrayOfNumbers.count {
+            if arrayOfNumbers[counter] % 2 != 0 {
+                arrayOfUnevenNumbers.append(arrayOfNumbers[counter])
+            }
+            counter += 1
+        }
+        
+        print(arrayOfUnevenNumbers)
+        arrayOfUnevenNumbers = []
+    }
+    
+    mutating func addTheElement(_ add: Int) {
+        self.arrayOfNumbers.append(add)
     }
 }
 
-
-let arrayOfNumbers = [1, 4, 23, 14]
-var arrayOfEvenNumbers: [Int] = []
-
-for element in arrayOfNumbers {
-    if element % 2 == 0 {
-        arrayOfEvenNumbers = arrayOfEvenNumbers.append(element)
-    }
-}
+var arr1 = ArrayOfInteger(arrayOfNumbers: [1, 4, 7])
+arr1.chooseEven()
+arr1.chooseUneven()
+arr1.addTheElement(12)
+arr1.chooseEven()

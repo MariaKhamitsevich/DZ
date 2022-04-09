@@ -114,3 +114,33 @@ shop1.discountInPercent
 //    4.2 второй класс - менеджер с оверрайдом финальным функции работа
 //    4.3 третий класс - директор с финал классом и доп полем
 // и у каждого приватный метод
+
+
+class Employee {
+    enum DaysOfTheWeek: Int {
+        case monday = 1
+        case wuesday
+        case wednesday
+        case thursday
+        case friday
+        case saturday
+        case sunday
+    }
+    let name: String
+    let surname: String
+    var fullName: String {
+        "\(name) \(surname)"
+    }
+    
+    init(name: String, surname: String) {
+        self.name = name
+        self.surname = surname
+    }
+    
+    private func doWork() -> String {
+        "Employee \(fullName) do something"
+    }
+    func setWeekend(day1: DaysOfTheWeek, day2: DaysOfTheWeek) {
+        print("Your weekend set at \(day1) and \(day2)")
+    }
+}

@@ -148,8 +148,8 @@ class Employee {
     }
 }
 
-//var empl1 = Employee(name: "Liza", surname: "Sam")
-//empl1.printTheResponsibilities()
+var empl1 = Employee(name: "Liza", surname: "Sam")
+empl1.printTheResponsibilities()
 
 class Meneger: Employee {
     
@@ -190,3 +190,6 @@ final class Director: Meneger {
     }
     
 }
+
+var empl2 = Director(name: "Karl", surname: "Ivanov", workExperience: 4)
+empl2.printDescription()

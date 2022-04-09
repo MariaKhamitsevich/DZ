@@ -140,7 +140,53 @@ class Employee {
     private func doWork() -> String {
         "Employee \(fullName) do something"
     }
+    func printTheResponsibilities() {
+        print(doWork())
+    }
     func setWeekend(day1: DaysOfTheWeek, day2: DaysOfTheWeek) {
         print("Your weekend set at \(day1) and \(day2)")
     }
+}
+
+//var empl1 = Employee(name: "Liza", surname: "Sam")
+//empl1.printTheResponsibilities()
+
+class Meneger: Employee {
+    
+    private var subordinates: [String]
+    
+    init(name: String, surname: String, subordinates: [String]) {
+        self.subordinates = subordinates
+        super.init(name: name, surname: surname)
+    }
+    
+    override func printTheResponsibilities() {
+        print("Meneger should be attentive")
+    }
+    private func countSubordinates() -> Int {
+        subordinates.count
+    }
+    
+    func printDescription() {
+        print("Meneger \(fullName) has \(countSubordinates()) subordinates")
+    }
+    }
+
+final class Director: Meneger {
+    var workExperience: Int
+    
+    init(name: String, surname: String, workExperience: Int) {
+        self.workExperience = workExperience
+        super.init(name: name, surname: surname, subordinates: [])
+    }
+    
+    // Вместо приватного метода создала приватное вычисляемое свойство
+    private var textAbout: String {
+        "Work experience of \(fullName) is \(workExperience) years"
+    }
+    
+    override func printDescription() {
+        print(textAbout)
+    }
+    
 }

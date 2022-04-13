@@ -132,6 +132,48 @@ class CitroenXantia: Citroen {
     }
 }
 
+
+struct Lada: CarsRequirements {
+    var releaseYear: UInt
+    
+    var volumeOfMotor: Double
+    
+    var owner: String
+    
+    var insuranceCost: Int {
+        get {
+            insureTheCar()
+        }
+        set {
+            print("You could't chanhe the insurence cost")
+        }
+    }
+    
+    init(releaseYear: UInt, volumeOfMotor: Double, owner: String) {
+        self.releaseYear = releaseYear
+        self.volumeOfMotor = volumeOfMotor
+        self.owner = owner
+    }
+    
+    func insureTheCar() -> Int {
+        switch volumeOfMotor {
+        case ...1.6 where releaseYear <= 2000:
+            return 40
+        case ...1.6 where releaseYear > 2000:
+            return 35
+        case ...1.8:
+            return 45
+        default:
+            return 50
+        }
+    }
+    
+    
+}
+var car1: CarsRequirements = CitroenXantia(releaseYear: 1998, volumeOfMotor: 1.8, owner: "Misha", daysOfInsure: ._0)
+car1 = Lada(releaseYear: 2005, volumeOfMotor: 1.7, owner: "Misha")
+car1.insuranceCost
+
 // 3. Создать протокол с инамом
 // 4. Пример сущности с соответствием нескольким протоколам
 // 5. Пример класса с наследованием и соответствием протоколу, которому суперкласс не соответствует

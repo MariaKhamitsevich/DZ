@@ -170,12 +170,124 @@ struct Lada: CarsRequirements {
     
     
 }
-var car1: CarsRequirements = CitroenXantia(releaseYear: 1998, volumeOfMotor: 1.8, owner: "Misha", daysOfInsure: ._0)
-car1 = Lada(releaseYear: 2005, volumeOfMotor: 1.7, owner: "Misha")
-car1.insuranceCost
+var carOfMisha: CarsRequirements = CitroenXantia(releaseYear: 1998, volumeOfMotor: 1.8, owner: "Misha", daysOfInsure: ._0)
+carOfMisha = Lada(releaseYear: 2005, volumeOfMotor: 1.7, owner: "Misha")
+carOfMisha.insuranceCost
+
 
 // 3. Создать протокол с инамом
 // 4. Пример сущности с соответствием нескольким протоколам
+
+protocol AtomicMass {
+    var numberOfProtones: Int {get}
+    var calculatedMass: Int {get}
+    
+    func calculateMass() -> Int
+}
+
+protocol ElementDescription {
+    var elementDescription: String {get}
+}
+
+enum Halogens: AtomicMass, ElementDescription {
+    
+    case fluorine(neutrons: Int)
+    case chlorine(neutrons: Int)
+    case bromine(neutrons: Int)
+    case iodine(neutrons: Int)
+    case astatine(neutrons: Int)
+    
+    var numberOfProtones: Int {
+        switch self {
+        case .fluorine:
+            return 9
+        case .chlorine:
+            return 17
+        case .bromine:
+            return 35
+        case .iodine:
+            return 53
+        case .astatine:
+            return 85
+        }
+    }
+    var calculatedMass: Int {
+        calculateMass()
+    }
+    
+    func calculateMass() -> Int {
+        switch self {
+        case let .fluorine(neutrons: neutrons):
+            return self.numberOfProtones + neutrons
+        case let .chlorine(neutrons: neutrons):
+            return self.numberOfProtones + neutrons
+        case let .bromine(neutrons: neutrons):
+            return self.numberOfProtones + neutrons
+        case let .iodine(neutrons: neutrons):
+            return self.numberOfProtones + neutrons
+        case let .astatine(neutrons: neutrons):
+            return self.numberOfProtones + neutrons
+        }
+    }
+    
+    var elementDescription: String {
+        "Isotop of \(self) has \(numberOfProtones) protones and \(calculateMass()) atomic mass"
+    }
+}
+
+let isotopOfChlorine: Halogens = .chlorine(neutrons: 18)
+print(isotopOfChlorine.elementDescription)
+
 // 5. Пример класса с наследованием и соответствием протоколу, которому суперкласс не соответствует
+
+protocol RussianCars {
+    static var mainOffice: String {get}
+}
+
+class Zhiguli: CarsRequirements {
+    var releaseYear: UInt
+    
+    var volumeOfMotor: Double
+    
+    var owner: String
+    
+    var insuranceCost: Int {
+        get {insureTheCar()
+        }
+        set {
+            print("Sorry, you have fixed value for your car and could't change it")
+        }
+    }
+    
+    init(releaseYear: UInt, volumeOfMotor: Double, owner: String) {
+        self.releaseYear = releaseYear
+        self.volumeOfMotor = volumeOfMotor
+        self.owner = owner
+    }
+    
+    func insureTheCar() -> Int {
+        return 60
+    }
+    
+}
+
+extension Zhiguli: RussianCars {
+    static var mainOffice: String = "Moscow"
+}
+
 // 6. Приводить типы через as? и (as! с использованием is)
 
+var arrayOfCars: [CarsRequirements] = []
+arrayOfCars.append(myCar)
+arrayOfCars.append(carOfMisha)
+
+for i in arrayOfCars {
+    if let car = i as? Lada {
+        print("\(car.owner) is owner of Lada")
+    } else if i is CitroenXantia {
+        i as! CitroenXantia
+        print("\(i.volumeOfMotor) is volume of motor of Citroen Xantia")
+    } else if let car = i as? Citroen {
+        print("You should pay \(car.insuranceCost) for insurance of Citroen")
+    }
+}

@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--ZooBazaar-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="My_Project" customModuleProvider="target" sceneMemberID="viewController">
@@ -85,6 +85,7 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="makeTouch" destination="BYZ-38-t0r" eventType="touchUpInside" id="FXd-Wk-DR5"/>
+                                    <segue destination="Y37-Jw-SbH" kind="show" id="Uiz-Lf-Jtm"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FDe-RE-IzW">
@@ -159,7 +160,7 @@
                             <constraint firstItem="zV5-bQ-9js" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="zEu-JD-ngZ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="y0z-ej-dT0"/>
+                    <navigationItem key="navigationItem" title="ZooBazaar" id="y0z-ej-dT0"/>
                     <connections>
                         <outlet property="confirmButton" destination="fzx-EB-TFM" id="Dgf-9W-eOe"/>
                         <outlet property="credentialsStackView" destination="xJT-zW-KzO" id="q9a-fX-pwX"/>
@@ -172,7 +173,77 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="919.20000000000005" y="66.502463054187189"/>
+            <point key="canvasLocation" x="914" y="80"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="4CW-iz-8vp">
+            <objects>
+                <viewController id="FmT-07-fbB" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RoA-d9-u0Q" customClass="ProfileViewController.swift">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="dCc-ME-KIm"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" selectedImage="person.fill" catalog="system" id="s9x-JT-fxy"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="txK-eg-Q1M" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1684" y="817"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="T4d-Ez-cwx">
+            <objects>
+                <viewController id="Hvh-5o-b0z" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="A1f-Cf-8oN" customClass="FavoritesViewController.swift">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="STi-m2-OCp"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" selectedImage="suit.heart.fill" catalog="system" id="Ztz-fm-DHF"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pHI-bv-dRg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2494" y="395"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="mb1-VK-q6h">
+            <objects>
+                <viewController id="jeC-vU-ATB" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZUn-vG-v4O" customClass="HomeScreenViewController.swift">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="SpS-6v-S73"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" selectedImage="house.fill" catalog="system" id="uye-O5-DqM"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cjb-bc-yq0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2494" y="-275"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="3jO-Qu-ZXH">
+            <objects>
+                <tabBarController id="Y37-Jw-SbH" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="B9r-E5-i8U">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="YGc-A7-CNu"/>
+                    </navigationItem>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="p7E-8t-pF9">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="jeC-vU-ATB" kind="relationship" relationship="viewControllers" id="wHG-5n-CMc"/>
+                        <segue destination="Hvh-5o-b0z" kind="relationship" relationship="viewControllers" id="MBO-Yn-qpg"/>
+                        <segue destination="FmT-07-fbB" kind="relationship" relationship="viewControllers" id="uy1-Fy-kHd"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pVd-77-Sx6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1684" y="80"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="27r-hI-Tfh">
@@ -190,11 +261,14 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j5j-s8-4IS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-23.199999999999999" y="66.502463054187189"/>
+            <point key="canvasLocation" x="175" y="80"/>
         </scene>
     </scenes>
     <resources>
+        <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
+        <image name="suit.heart.fill" catalog="system" width="128" height="109"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

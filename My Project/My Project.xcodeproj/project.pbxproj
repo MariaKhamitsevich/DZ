@@ -17,6 +17,8 @@
 		4C274AC62809D9CB00C83C29 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C274AC42809D9CB00C83C29 /* Main.storyboard */; };
 		4C274AC82809D9CD00C83C29 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C274AC72809D9CD00C83C29 /* Assets.xcassets */; };
 		4C274ACB2809D9CD00C83C29 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C274AC92809D9CD00C83C29 /* LaunchScreen.storyboard */; };
+		4CDDE0782811845D00F4F83A /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDDE0772811845D00F4F83A /* LogInViewController.swift */; };
+		4CDDE07C2811958500F4F83A /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDDE07B2811958500F4F83A /* ContactsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		4C274AC72809D9CD00C83C29 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4C274ACA2809D9CD00C83C29 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4C274ACC2809D9CD00C83C29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4CDDE0772811845D00F4F83A /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		4CDDE07B2811958500F4F83A /* ContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,7 +55,9 @@
 				4C274AC22809D9CB00C83C29 /* ViewController.swift */,
 				4C1C4F20281097A0005ED52B /* FavoritesViewController.swift */,
 				4C1C4F1E2810976D005ED52B /* ProfileViewController.swift */,
+				4CDDE0772811845D00F4F83A /* LogInViewController.swift */,
 				4C1C4F1C2810971C005ED52B /* HomeScreenViewController.swift */,
+				4CDDE07B2811958500F4F83A /* ContactsViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -163,6 +169,8 @@
 				4C274AC32809D9CB00C83C29 /* ViewController.swift in Sources */,
 				4C1C4F21281097A0005ED52B /* FavoritesViewController.swift in Sources */,
 				4C2165CB280FE8980038A726 /* CustomView.swift in Sources */,
+				4CDDE0782811845D00F4F83A /* LogInViewController.swift in Sources */,
+				4CDDE07C2811958500F4F83A /* ContactsViewController.swift in Sources */,
 				4C274ABF2809D9CB00C83C29 /* AppDelegate.swift in Sources */,
 				4C274AC12809D9CB00C83C29 /* SceneDelegate.swift in Sources */,
 				4C1C4F1D2810971C005ED52B /* HomeScreenViewController.swift in Sources */,

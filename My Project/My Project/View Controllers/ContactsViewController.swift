@@ -1,29 +1,25 @@
 //
-//  ProfileViewController.swift
+//  ContactsViewController.swift
 //  My Project
 //
-//  Created by  Maria Khamitsevich on 20.04.22.
+//  Created by  Maria Khamitsevich on 21.04.22.
 //
 
 import UIKit
 
-class ProfileViewController: UIViewController {
+class ContactsViewController: UIViewController {
 
-    @IBOutlet var profileLogInButton: UIButton!
-    
+    @IBOutlet var telephoneLabel: UILabel!
+    @IBOutlet var emailLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        telephoneLabel.text = "Telephone:"
+        emailLabel.text = "Email:"
+        view.backgroundColor = UIColor(red: 255/255, green: 190/255, blue: 189/255, alpha: 1)
         // Do any additional setup after loading the view.
     }
     
-   
-    @IBAction func pressProfileLogInButton(_ sender: UIButton) {
-        let storyboard = UIStoryboard(name: "Main", bundle: .main)
-        let controller = storyboard.instantiateViewController(withIdentifier: "LogInViewController")
-        self.navigationController?.pushViewController(controller, animated: true)
-    }
-    
+
     /*
     // MARK: - Navigation
 

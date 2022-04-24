@@ -11,9 +11,15 @@ class FavoritesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+//        let storyboard = UIStoryboard(name: "Main", bundle: .main)
+//        let controller = storyboard.instantiateViewController(withIdentifier: "HomeScreenViewController")
+//        if let controller = controller as? HomeScreenViewController {
+//            view.backgroundColor = controller.view.backgroundColor
+//        }
         // Do any additional setup after loading the view.
     }
+    
     
 
     /*

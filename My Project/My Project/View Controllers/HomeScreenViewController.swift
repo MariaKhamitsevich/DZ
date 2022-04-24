@@ -7,14 +7,24 @@
 
 import UIKit
 
-class HomeScreenViewController: UIViewController {
+protocol SetBackgroundColor: AnyObject {
+    func setBackgroundColor(red: Float, green: Float, blue: Float, alpha: Double)
+}
+
+class HomeScreenViewController: UIViewController, SetBackgroundColor {
+    
+    var redShadeOfBackground: Float = 255
+    var greenShadeOfBackground: Float = 190
+    var blueShadeOfBackGround: Float = 189
+    
 
     @IBOutlet var homeScreenLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         homeScreenLabel.text = "Wellcome to ZooBazaar!"
-        view.backgroundColor = UIColor(red: 255/255, green: 190/255, blue: 189/255, alpha: 1)
+        view.backgroundColor = UIColor(red: CGFloat(redShadeOfBackground / 255), green: CGFloat(greenShadeOfBackground / 255), blue: CGFloat(blueShadeOfBackGround / 255), alpha: 1)
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
 
         // Do any additional setup after loading the view.
     }
@@ -22,7 +32,36 @@ class HomeScreenViewController: UIViewController {
     @IBAction func showMenu(_ sender: UIButton) {
         let storybord = UIStoryboard(name: "Main", bundle: .main)
         let controller = storybord.instantiateViewController(withIdentifier: "ContactsViewController")
+        if let controller = controller as? ContactsViewController {
+        controller.backgroundDelegate = self
+            controller.view.backgroundColor = view.backgroundColor
+            controller.redValue = redShadeOfBackground
+            controller.greenValue = greenShadeOfBackground
+            controller.blueValue = blueShadeOfBackGround
+
+        
         self.present(controller, animated: true)
+        }
+    }
+    
+//    override func viewWillDisappear(_ animated: Bool) {
+//        let storybord = UIStoryboard(name: "Main", bundle: .main)
+//        let controller = storybord.instantiateViewController(withIdentifier: "MainTabBar")
+//        if let controller = controller as? UITabBarController {
+//            controller.view.backgroundColor = view.backgroundColor
+//        }
+        
+    func setBackgroundColor(red: Float, green: Float, blue: Float, alpha: Double) {
+        let backgroundColor = UIColor(red: CGFloat(red / 255), green: CGFloat(green / 255), blue: CGFloat(blue / 255), alpha: alpha)
+        let tabBarViewControllers = self.tabBarController?.viewControllers
+        tabBarViewControllers?.forEach({ navigationController in
+            if let navigationController = navigationController as? UINavigationController {
+                navigationController.viewControllers.forEach({$0.view.backgroundColor = backgroundColor})
+            }
+        })
+        self.redShadeOfBackground = red
+        self.greenShadeOfBackground = green
+        self.blueShadeOfBackGround = blue
     }
     
     /*

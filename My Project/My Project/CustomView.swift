@@ -7,6 +7,5 @@
 
 import UIKit
 
-final class CustomView: UIView {
-    
-}
+
+

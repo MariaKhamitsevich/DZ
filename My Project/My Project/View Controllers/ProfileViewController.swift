@@ -7,20 +7,28 @@
 
 import UIKit
 
+protocol ChangeLabelTitle: AnyObject {
+    func changeTitle(title: String)
+}
+
 class ProfileViewController: UIViewController {
 
     @IBOutlet var profileLogInButton: UIButton!
+    @IBOutlet var wellcomeLabel: UILabel!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
     
-   
+    
     @IBAction func pressProfileLogInButton(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Main", bundle: .main)
         let controller = storyboard.instantiateViewController(withIdentifier: "LogInViewController")
+        if let controller = controller as? LogInViewController {
+        controller.loginDelegate = self
+        }
         self.navigationController?.pushViewController(controller, animated: true)
     }
     
@@ -34,4 +42,13 @@ class ProfileViewController: UIViewController {
     }
     */
 
+}
+
+
+extension ProfileViewController: ChangeLabelTitle {
+    
+    func changeTitle(title: String) {
+
+        wellcomeLabel.text = "Wellcome, \(title)!"
+}
 }

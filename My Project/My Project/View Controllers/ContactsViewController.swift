@@ -50,9 +50,9 @@ class ContactsViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         backgroundDelegate?.setBackgroundColor(red: redSlider.value,
-                                               green: greenSlider.value,
-                                               blue: blueSlider.value,
-                                               alpha: 1)
+            green: greenSlider.value,
+            blue: blueSlider.value,
+            alpha: 1)
     }
     
     private func setColor() {

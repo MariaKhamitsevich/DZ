@@ -7,6 +7,8 @@
 
 import UIKit
 
+
+
 class LogInViewController: UIViewController {
     
     @IBOutlet var hiddenLabel: UILabel!
@@ -15,6 +17,9 @@ class LogInViewController: UIViewController {
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var pencilImage: UIImageView!
     @IBOutlet var mainSwitch: UISwitch!
+    
+    var loginDelegate: ChangeLabelTitle?
+    var loginText = "Wellcome"
     
     @IBOutlet var credentialsStackView: UIStackView!
     override func viewDidLoad() {
@@ -30,6 +35,10 @@ class LogInViewController: UIViewController {
         passwordTextField.backgroundColor = UIColor(red: 251/251, green: 0, blue: 0, alpha: 0.1)
         mainSwitch.isOn = false
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        
     }
     
     func enableTextFields(_ isEnabled: Bool) {
@@ -61,6 +70,9 @@ class LogInViewController: UIViewController {
             passwordTextField.isEnabled = false
             hiddenLabel.text = "Please, enter your login!"
             hiddenLabel.textColor = UIColor(white: 0.5, alpha: 0.5)
+        }
+        if let text = loginTextField.text {
+        loginText = text
         }
     }
   
@@ -114,7 +126,9 @@ class LogInViewController: UIViewController {
     // MARK: Confirm Button Action
     //Press Confirm button
     @IBAction func makeTouch() {
-
+        
+        loginDelegate?.changeTitle(title: loginText)
+        self.navigationController?.popViewController(animated: true)
     }
     /*
     // MARK: - Navigation
@@ -127,3 +141,6 @@ class LogInViewController: UIViewController {
     */
 
 }
+
+
+

@@ -23,7 +23,7 @@ class ProfileViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    
+    // MARK: Pushing on LogIn Screen (LogInViewControllers)
     @IBAction func pressProfileLogInButton(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Main", bundle: .main)
         let controller = storyboard.instantiateViewController(withIdentifier: "LogInViewController")
@@ -32,20 +32,10 @@ class ProfileViewController: UIViewController {
         }
         self.navigationController?.pushViewController(controller, animated: true)
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 
-
+// Extension for make possible use delegate from LogInViewController
 extension ProfileViewController: ChangeLabelTitle {
     
     func changeTitle(title: String) {

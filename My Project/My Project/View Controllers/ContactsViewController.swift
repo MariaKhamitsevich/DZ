@@ -12,6 +12,7 @@ class ContactsViewController: UIViewController {
     @IBOutlet var telephoneLabel: UILabel!
     @IBOutlet var emailLabel: UILabel!
     
+    // stackView for changing backgroundColor
     @IBOutlet var redLabel: UILabel!
     @IBOutlet var greenLabel: UILabel!
     @IBOutlet var blueLabel: UILabel!
@@ -21,12 +22,9 @@ class ContactsViewController: UIViewController {
     
     weak var backgroundDelegate: SetBackgroundColor?
     
-    
+//   Stored properties for sliders values and its display
     var redValue: Float = 0
-    
-
     var greenValue: Float = 0
-
     var blueValue: Float = 0
     
 
@@ -47,6 +45,9 @@ class ContactsViewController: UIViewController {
         greenLabel.text = String(Int(greenValue))
         blueLabel.text = String(Int(blueValue))
     }
+    
+    // MARK: Using delegate for change backgroundColor
+    // written in willDisappear for to leave the opportunity to compare with the old color
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         backgroundDelegate?.setBackgroundColor(red: redSlider.value,

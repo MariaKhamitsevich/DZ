@@ -56,7 +56,16 @@ class HomeScreenViewController: UIViewController, SetBackgroundColor {
         let tabBarViewControllers = self.tabBarController?.viewControllers
         tabBarViewControllers?.forEach({ navigationController in
             if let navigationController = navigationController as? UINavigationController {
-                navigationController.viewControllers.forEach({$0.view.backgroundColor = backgroundColor})
+                for viewControllers in navigationController.viewControllers {
+                    if let viewControllers = viewControllers as? HomeScreenViewController {
+                        viewControllers.view.backgroundColor = backgroundColor
+                    } else if let viewControllers = viewControllers as? FavoritesViewController {
+                        viewControllers.view.backgroundColor = backgroundColor
+                    } else if let viewControllers = viewControllers as? ProfileViewController {
+                        viewControllers.view.backgroundColor = backgroundColor
+                    }
+                }
+//                navigationController.viewControllers.forEach({$0.view.backgroundColor = backgroundColor})
             }
         })
         self.redShadeOfBackground = red

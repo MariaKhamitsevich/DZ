@@ -7,7 +7,15 @@
 
 import UIKit
 
-class HomeScreenViewController: UIViewController {
+protocol SetBackgroundColor: AnyObject {
+    func setBackgroundColor(red: Float, green: Float, blue: Float, alpha: Double)
+}
+
+class HomeScreenViewController: UIViewController, SetBackgroundColor {
+    
+    var redShadeOfBackground: Float = 255
+    var greenShadeOfBackground: Float = 190
+    var blueShadeOfBackGround: Float = 189
     
     override func loadView() {
         view = HomeScreenView()
@@ -23,7 +31,22 @@ class HomeScreenViewController: UIViewController {
     
     
     @objc func runToSettings(_ sender: UIButton) {
-      present(SettingsViewController(), animated: true)
+        let controller = SettingsViewController()
+        controller.backgroundDelegate = self
+        controller.view.backgroundColor = view.backgroundColor
+        controller.redValue = redShadeOfBackground
+        controller.greenValue = greenShadeOfBackground
+        controller.blueValue = blueShadeOfBackGround
+      present(controller, animated: true)
     }
 
+    
+    func setBackgroundColor(red: Float, green: Float, blue: Float, alpha: Double) {
+        let backgroundColor = UIColor(red: CGFloat(red / 255), green: CGFloat(green / 255), blue: CGFloat(blue / 255), alpha: alpha)
+        view.backgroundColor = backgroundColor
+        
+        self.redShadeOfBackground = red
+        self.greenShadeOfBackground = green
+        self.blueShadeOfBackGround = blue
+}
 }

@@ -110,7 +110,7 @@ class SettingsView: UIView {
     }
     
     // colorValueStack
-    private lazy var colorsValueStack: UIStackView = {
+    lazy var colorsValueStack: UIStackView = {
             let stackView = UIStackView()
             stackView.addArrangedSubview(redValueLabel)
             stackView.addArrangedSubview(greenValueLabel)
@@ -122,43 +122,37 @@ class SettingsView: UIView {
             return stackView
     }()
     
-    private var redValueLabel: UILabel {
-        get {
+    lazy var redValueLabel: UILabel = {
             let label = UILabel()
             label.text = "0"
             label.textColor = UIColor(red: 188/255, green: 22/255, blue: 72/255, alpha: 1)
-            label.textAlignment = .left
+            label.textAlignment = .center
             label.font = UIFont.boldSystemFont(ofSize: 16)
 
             return label
-        }
-    }
+    }()
     
-    private var greenValueLabel: UILabel {
-        get {
+    lazy var greenValueLabel: UILabel = {
             let label = UILabel()
             label.text = "0"
             label.textColor = UIColor(red: 188/255, green: 22/255, blue: 72/255, alpha: 1)
-            label.textAlignment = .left
+            label.textAlignment = .center
             label.font = UIFont.boldSystemFont(ofSize: 16)
             
             return label
-        }
-    }
+    }()
 
-    private var blueValueLabel: UILabel {
-        get {
+    lazy var blueValueLabel: UILabel = {
             let label = UILabel()
             label.text = "0"
             label.textColor = UIColor(red: 188/255, green: 22/255, blue: 72/255, alpha: 1)
-            label.textAlignment = .left
+            label.textAlignment = .center
             label.font = UIFont.boldSystemFont(ofSize: 16)
 
             return label
-        }
-    }
+    }()
     
-    private lazy var colorSlidersStack: UIStackView = {
+    lazy var colorSlidersStack: UIStackView = {
         let stackView = UIStackView()
         stackView.addArrangedSubview(redSlider)
         stackView.addArrangedSubview(greenSlider)
@@ -170,38 +164,45 @@ class SettingsView: UIView {
         return stackView
     }()
     
-    private var redSlider: UISlider {
-        get {
-            let slider = UISlider()
-            slider.minimumValue = 0
-            slider.maximumValue = 255
-            slider.value = 0
-            
-            return slider
-        }
-    }
+    lazy var redSlider: UISlider = {
+        let slider = UISlider()
+        slider.minimumValue = 0
+        slider.maximumValue = 255
+        slider.value = 0
+        slider.tag = 0
+        slider.isContinuous = true
+        slider.isEnabled = true
+        slider.isUserInteractionEnabled = true
+        
+        return slider
+    }()
     
-    private var greenSlider: UISlider {
-        get {
+    lazy var greenSlider: UISlider = {
             let slider = UISlider()
             slider.minimumValue = 0
             slider.maximumValue = 255
             slider.value = 0
+            slider.tag = 1
+            slider.isContinuous = true
+            slider.isEnabled = true
             
+            slider.isUserInteractionEnabled = true
+
             return slider
-        }
-    }
+    }()
     
-    private var blueSlider: UISlider {
-        get {
+    lazy var blueSlider: UISlider = {
             let slider = UISlider()
             slider.minimumValue = 0
             slider.maximumValue = 255
             slider.value = 0
+            slider.tag = 2
+            slider.isContinuous = true
+            slider.isEnabled = true
+            slider.isUserInteractionEnabled = true
             
             return slider
-        }
-    }
+    }()
     // MARK: Init
     
     override init(frame: CGRect) {
@@ -320,7 +321,17 @@ class SettingsView: UIView {
                attribute: .height,
                multiplier: 1,
                constant: 16)
+            
+            let widthConstraint = NSLayoutConstraint(
+                item: label,
+               attribute: .width,
+               relatedBy: .equal,
+                toItem: .none,
+               attribute: .width,
+               multiplier: 1,
+               constant: 40)
             heighConstraint.isActive = true
+            widthConstraint.isActive = true
         }
         
         [topConstraint,
@@ -344,6 +355,14 @@ class SettingsView: UIView {
            attribute: .trailingMargin,
            multiplier: 1,
            constant: 24)
+        let treallingConstraint = NSLayoutConstraint(
+            item: colorSlidersStack,
+           attribute: .trailing,
+           relatedBy: .equal,
+           toItem: self,
+           attribute: .trailingMargin,
+           multiplier: 1,
+           constant: -24)
         
         for label in colorSlidersStack.arrangedSubviews {
             let heighConstraint = NSLayoutConstraint(
@@ -354,10 +373,13 @@ class SettingsView: UIView {
                attribute: .height,
                multiplier: 1,
                constant: 16)
+         
             heighConstraint.isActive = true
+            
         }
         
         [topConstraint,
-         leadingConstraint].forEach({ $0.isActive = true })
+         leadingConstraint, treallingConstraint].forEach({ $0.isActive = true })
     }
+    
 }

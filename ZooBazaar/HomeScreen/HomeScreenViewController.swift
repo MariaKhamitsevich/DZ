@@ -15,11 +15,15 @@ class HomeScreenViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .green
-        // Do any additional setup after loading the view.
+        if let view = view as? HomeScreenView {
+           view.settingsButton.addTarget(self, action: #selector(runToSettings), for: .touchUpInside)
+        }
+        
     }
     
-   
     
+    @objc func runToSettings(_ sender: UIButton) {
+      present(SettingsViewController(), animated: true)
+    }
 
 }

@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol SetValuesForSliders: AnyObject {
+    func setValues(red: Float, green: Float, blue: Float)
+}
+
 class SettingsView: UIView {
    
     //MARK: Properties
@@ -203,6 +207,10 @@ class SettingsView: UIView {
             
             return slider
     }()
+    
+    
+    weak var colorsDelegate: SetColorsValues?
+    
     // MARK: Init
     
     override init(frame: CGRect) {
@@ -213,6 +221,19 @@ class SettingsView: UIView {
         addSubview(colorsValueStack)
         addSubview(colorSlidersStack)
         setAllConstraints()
+        
+        colorsDelegate?.setColorsValues(red: redSlider.value/255, green: greenSlider.value/255, blue: blueSlider.value/255)
+        
+        let controllerSettings = SettingsViewController()
+            controllerSettings.colorsValuesDelegate = self
+
+        
+        for subview in colorSlidersStack.subviews {
+            if let subview = subview as? UISlider {
+                subview.addTarget(self, action: #selector(slidersAction), for: .valueChanged)
+            }
+        
+    }
     }
     
     required init?(coder: NSCoder) {
@@ -382,4 +403,41 @@ class SettingsView: UIView {
          leadingConstraint, treallingConstraint].forEach({ $0.isActive = true })
     }
     
+        private func setColor() {
+            
+                backgroundColor = UIColor(
+                    red: CGFloat(redSlider.value / 255),
+                    green: CGFloat(greenSlider.value / 255),
+                    blue: CGFloat(blueSlider.value / 255),
+                    alpha: 1)
+            
+        }
+        
+    @objc func slidersAction(_ sender: Any) {
+        guard let slider = sender as? UISlider else { return }
+        
+        setColor()
+        
+        switch slider.tag {
+        case 0: redValueLabel.text = String(Int(redSlider.value))
+        case 1: greenValueLabel.text = String(Int(greenSlider.value))
+        case 2: blueValueLabel.text = String(Int(blueSlider.value))
+        default: break
+        }
+        
+    }
+        
+    
+}
+
+extension SettingsView: SetValuesForSliders {
+    
+    func setValues(red: Float, green: Float, blue: Float) {
+        redSlider.value = red
+        greenSlider.value = green
+        blueSlider.value = blue
+        redValueLabel.text = String(Int(redSlider.value))
+        greenValueLabel.text = String(Int(greenSlider.value))
+        blueValueLabel.text = String(Int(blueSlider.value))
+    }
 }

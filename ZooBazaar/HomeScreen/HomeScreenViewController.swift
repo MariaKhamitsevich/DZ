@@ -1,9 +1,3 @@
-//
-//  HomeScreenViewController.swift
-//  ZooBazaar
-//
-//  Created by  Maria Khamitsevich on 26.04.22.
-//
 
 import UIKit
 

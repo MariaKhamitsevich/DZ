@@ -9,8 +9,31 @@ import UIKit
 
 class HomeScreenView: UIView {
 
-    let wellcomeLabel = UILabel()
-    let settingsButton = UIButton()
+    private lazy var wellcomeLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Welcome to ZooBazaar!"
+        label.textColor = UIColor(red: 188/255, green: 22/255, blue: 72/255, alpha: 1)
+        label.textAlignment = .center
+        label.font = UIFont.boldSystemFont(ofSize: 24)
+        label.numberOfLines = 1
+        
+        return label
+    }()
+    
+    lazy var settingsButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "ellipsis"), for: .normal)
+        button.imageView?.tintColor = UIColor(red: 188/255, green: 22/255, blue: 72/255, alpha: 1)
+        
+        return button
+    }()
+    
+    lazy var basketImage: UIImageView = {
+        let image = UIImageView(image: UIImage(named: "basket"), highlightedImage: UIImage(named: "basket"))
+        image.tintColor = UIColor(red: 188/255, green: 22/255, blue: 72/255, alpha: 1)
+        
+        return image
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -18,11 +41,11 @@ class HomeScreenView: UIView {
         
         addSubview(wellcomeLabel)
         addSubview(settingsButton)
+        addSubview(basketImage)
         
         
         setAllConstrains()
-        setAllProperties()
-        [wellcomeLabel, settingsButton].forEach({$0.translatesAutoresizingMaskIntoConstraints = false})
+        [wellcomeLabel, settingsButton, basketImage].forEach({$0.translatesAutoresizingMaskIntoConstraints = false})
     }
     
     required init?(coder: NSCoder) {
@@ -32,12 +55,10 @@ class HomeScreenView: UIView {
     private func setAllConstrains() {
         wellcomeLabelConstrains()
         settingsButtonConstraints()
+        basketImageConstraints()
     }
     
-    private func setAllProperties() {
-        wellcomeLabelProperties()
-        settingsButtonProperties()
-    }
+    
     
     private func wellcomeLabelConstrains() {
         let topConstraint = NSLayoutConstraint(
@@ -80,13 +101,6 @@ class HomeScreenView: UIView {
          heighConstraint].forEach({ $0.isActive = true })
     }
     
-    private func wellcomeLabelProperties() {
-        wellcomeLabel.text = "Welcome to ZooBazaar!"
-        wellcomeLabel.textColor = UIColor(red: 188/255, green: 22/255, blue: 72/255, alpha: 1)
-        wellcomeLabel.textAlignment = .center
-        wellcomeLabel.font = UIFont.boldSystemFont(ofSize: 24)
-        wellcomeLabel.numberOfLines = 1
-    }
     
     private func settingsButtonConstraints() {
         let topConstraint = NSLayoutConstraint(
@@ -131,10 +145,46 @@ class HomeScreenView: UIView {
         widthConstraint].forEach({ $0.isActive = true })
     }
     
-    private func settingsButtonProperties() {
-
-        settingsButton.setImage(UIImage(systemName: "ellipsis"), for: .normal)
-        settingsButton.imageView?.tintColor = UIColor(red: 188/255, green: 22/255, blue: 72/255, alpha: 1)
-       
+    private func basketImageConstraints() {
+        let topConstraint = NSLayoutConstraint(
+            item: basketImage,
+            attribute: .top,
+            relatedBy: .equal,
+            toItem: self,
+            attribute: .topMargin,
+            multiplier: 1,
+            constant: 16)
+        
+        let traillingConstraint = NSLayoutConstraint(
+            item: basketImage,
+            attribute: .trailing,
+            relatedBy: .equal,
+            toItem: settingsButton,
+            attribute: .trailingMargin,
+            multiplier: 1,
+            constant: -24)
+        
+        let heighConstraint = NSLayoutConstraint(
+            item: basketImage,
+            attribute: .height,
+            relatedBy: .equal,
+            toItem: .none,
+            attribute: .height,
+            multiplier: 1,
+            constant: 16)
+        
+        let widthConstraint = NSLayoutConstraint(
+            item: basketImage,
+            attribute: .width,
+            relatedBy: .equal,
+            toItem: .none,
+            attribute: .width,
+             multiplier: 1,
+             constant: 16)
+        
+        [topConstraint,
+         traillingConstraint,
+         heighConstraint,
+        widthConstraint].forEach({ $0.isActive = true })
     }
 }

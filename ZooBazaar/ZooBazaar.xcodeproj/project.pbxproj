@@ -56,18 +56,10 @@
 			path = SettingsScreen;
 			sourceTree = "<group>";
 		};
-		4C6CCBF1281CEF7B00DB3FA5 /* FavoritesScreen */ = {
-			isa = PBXGroup;
-			children = (
-				4C1DAB092819453E0043B08D /* FavoritesViewController.swift */,
-			);
-			path = FavoritesScreen;
-			sourceTree = "<group>";
-		};
 		4CED642928187D250052A2C2 = {
 			isa = PBXGroup;
 			children = (
-				4C6CCBF1281CEF7B00DB3FA5 /* FavoritesScreen */,
+				4C1DAB092819453E0043B08D /* FavoritesViewController.swift */,
 				4C1DAB06281928E40043B08D /* SettingsScreen */,
 				4CED644D28187E8E0052A2C2 /* HomeScreen */,
 				4CED643428187D250052A2C2 /* ZooBazaar */,

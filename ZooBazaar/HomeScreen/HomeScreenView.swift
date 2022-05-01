@@ -35,6 +35,36 @@ class HomeScreenView: UIView {
         return image
     }()
     
+    private lazy var productsImagesStack: UIStackView = {
+        let stack = UIStackView()
+        stack.addArrangedSubview(catsProductsImage)
+        stack.addArrangedSubview(dogsProductsImage)
+        stack.addArrangedSubview(rodentsProductsImage)
+        stack.axis = .vertical
+        stack.alignment = .center
+        stack.spacing = 8
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        
+        return stack
+    }()
+    
+    private lazy var catsProductsImage: UIImageView = {
+        let image = UIImageView(image: UIImage(named: "cats products"), highlightedImage: UIImage(named: "cats products"))
+        
+        return image
+    }()
+    private lazy var dogsProductsImage: UIImageView = {
+        let image = UIImageView(image: UIImage(named: "dogs"), highlightedImage: UIImage(named: "dogs"))
+        
+        return image
+    }()
+    private lazy var rodentsProductsImage: UIImageView = {
+        let image = UIImageView(image: UIImage(named: "Mouse"), highlightedImage: UIImage(named: "Mouse"))
+        
+        return image
+    }()
+    
+    //MARK: Init
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = UIColor(red: 255/255, green: 190/255, blue: 189/255, alpha: 1)
@@ -42,6 +72,7 @@ class HomeScreenView: UIView {
         addSubview(wellcomeLabel)
         addSubview(settingsButton)
         addSubview(basketImage)
+        addSubview(productsImagesStack)
         
         
         setAllConstrains()
@@ -56,9 +87,8 @@ class HomeScreenView: UIView {
         wellcomeLabelConstrains()
         settingsButtonConstraints()
         basketImageConstraints()
+        productsImagesStackConstraints()
     }
-    
-    
     
     private func wellcomeLabelConstrains() {
         let topConstraint = NSLayoutConstraint(
@@ -186,5 +216,63 @@ class HomeScreenView: UIView {
          traillingConstraint,
          heighConstraint,
         widthConstraint].forEach({ $0.isActive = true })
+    }
+    
+    private func productsImagesStackConstraints() {
+        let topConstraint = NSLayoutConstraint(
+            item: productsImagesStack,
+            attribute: .top,
+            relatedBy: .equal,
+            toItem: wellcomeLabel,
+            attribute: .topMargin,
+            multiplier: 1,
+            constant: 24)
+        
+        let traillingConstraint = NSLayoutConstraint(
+            item: productsImagesStack,
+            attribute: .trailing,
+            relatedBy: .equal,
+            toItem: self,
+            attribute: .trailingMargin,
+            multiplier: 1,
+            constant: -24)
+        
+        let leadingConstraint = NSLayoutConstraint(
+            item: productsImagesStack,
+            attribute: .leading,
+            relatedBy: .equal,
+            toItem: self,
+            attribute: .leadingMargin,
+            multiplier: 1,
+            constant: 24)
+        
+        for image in productsImagesStack.arrangedSubviews {
+        let heighConstraint = NSLayoutConstraint(
+            item: image,
+            attribute: .height,
+            relatedBy: .equal,
+            toItem: .none,
+            attribute: .height,
+            multiplier: 1,
+            constant: 200)
+            
+            heighConstraint.isActive = true
+        }
+        
+        for image in productsImagesStack.arrangedSubviews {
+            let widthConstraint = NSLayoutConstraint(
+                item: image,
+                attribute: .width,
+                relatedBy: .equal,
+                toItem: .none,
+                attribute: .width,
+                multiplier: 1,
+                constant: 240)
+            widthConstraint.isActive = true
+        }
+        
+        [topConstraint,
+         traillingConstraint,
+         leadingConstraint].forEach({ $0.isActive = true })
     }
 }

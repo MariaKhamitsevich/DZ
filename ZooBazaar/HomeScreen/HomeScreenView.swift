@@ -6,6 +6,12 @@
 //
 
 import UIKit
+protocol PushToTable:AnyObject {
+    func pushToCatsTable(controller: UITableViewController)
+    func pushToDogsTable(controller: UITableViewController)
+    func pushToRodentsTable(controller: UITableViewController)
+
+}
 
 class HomeScreenView: UIView {
 
@@ -64,6 +70,8 @@ class HomeScreenView: UIView {
         return image
     }()
     
+    weak var pushingDelegate: PushToTable?
+    
     //MARK: Init
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -74,8 +82,8 @@ class HomeScreenView: UIView {
         addSubview(basketImage)
         addSubview(productsImagesStack)
         
-        
         setAllConstrains()
+        setupImageGesture()
         [wellcomeLabel, settingsButton, basketImage].forEach({$0.translatesAutoresizingMaskIntoConstraints = false})
     }
     
@@ -274,5 +282,18 @@ class HomeScreenView: UIView {
         [topConstraint,
          traillingConstraint,
          leadingConstraint].forEach({ $0.isActive = true })
+    }
+    
+    private func setupImageGesture() {
+        catsProductsImage.isUserInteractionEnabled = true
+        dogsProductsImage.isUserInteractionEnabled = true
+        rodentsProductsImage.isUserInteractionEnabled = true
+        
+        let tapCatsImageGesture = UITapGestureRecognizer(target: self, action: #selector(pushToCatsTable))
+        catsProductsImage.addGestureRecognizer(tapCatsImageGesture)
+    }
+    
+    @objc private func pushToCatsTable(_ gesture: UITapGestureRecognizer) {
+        pushingDelegate?.pushToCatsTable(controller: CatsProductsTableViewController())
     }
 }

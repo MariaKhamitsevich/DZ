@@ -19,6 +19,7 @@ class HomeScreenViewController: UIViewController, SetBackgroundColor {
         super.viewDidLoad()
         if let view = view as? HomeScreenView {
            view.settingsButton.addTarget(self, action: #selector(runToSettings), for: .touchUpInside)
+            view.pushingDelegate = self
         }
         
     }
@@ -43,4 +44,18 @@ class HomeScreenViewController: UIViewController, SetBackgroundColor {
         self.greenShadeOfBackground = green
         self.blueShadeOfBackGround = blue
 }
+}
+
+extension HomeScreenViewController: PushToTable {
+    func pushToCatsTable(controller: UITableViewController) {
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    func pushToDogsTable(controller: UITableViewController) {
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    func pushToRodentsTable(controller: UITableViewController) {
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
 }

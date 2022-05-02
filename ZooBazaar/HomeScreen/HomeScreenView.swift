@@ -7,9 +7,8 @@
 
 import UIKit
 protocol PushToTable:AnyObject {
-    func pushToCatsTable(controller: UITableViewController)
-    func pushToDogsTable(controller: UITableViewController)
-    func pushToRodentsTable(controller: UITableViewController)
+    func pushToTable(controller: UITableViewController)
+    
 
 }
 
@@ -234,7 +233,7 @@ class HomeScreenView: UIView {
             toItem: wellcomeLabel,
             attribute: .topMargin,
             multiplier: 1,
-            constant: 24)
+            constant: 32)
         
         let traillingConstraint = NSLayoutConstraint(
             item: productsImagesStack,
@@ -262,7 +261,7 @@ class HomeScreenView: UIView {
             toItem: .none,
             attribute: .height,
             multiplier: 1,
-            constant: 200)
+            constant: 180)
             
             heighConstraint.isActive = true
         }
@@ -275,7 +274,7 @@ class HomeScreenView: UIView {
                 toItem: .none,
                 attribute: .width,
                 multiplier: 1,
-                constant: 240)
+                constant: 220)
             widthConstraint.isActive = true
         }
         
@@ -294,6 +293,6 @@ class HomeScreenView: UIView {
     }
     
     @objc private func pushToCatsTable(_ gesture: UITapGestureRecognizer) {
-        pushingDelegate?.pushToCatsTable(controller: CatsProductsTableViewController())
+        pushingDelegate?.pushToTable(controller: CatsProductsTableViewController())
     }
 }

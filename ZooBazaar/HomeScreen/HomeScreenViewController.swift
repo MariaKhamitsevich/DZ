@@ -47,15 +47,7 @@ class HomeScreenViewController: UIViewController, SetBackgroundColor {
 }
 
 extension HomeScreenViewController: PushToTable {
-    func pushToCatsTable(controller: UITableViewController) {
-        self.navigationController?.pushViewController(controller, animated: true)
-    }
-    
-    func pushToDogsTable(controller: UITableViewController) {
-        self.navigationController?.pushViewController(controller, animated: true)
-    }
-    
-    func pushToRodentsTable(controller: UITableViewController) {
+    func pushToTable(controller: UITableViewController) {
         self.navigationController?.pushViewController(controller, animated: true)
     }
 }

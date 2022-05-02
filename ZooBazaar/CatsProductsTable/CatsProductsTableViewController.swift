@@ -8,11 +8,14 @@
 import UIKit
 
 class CatsProductsTableViewController: UITableViewController {
+    
+    var products = [Product(name: "Roal Canin", description: "After 1 year", image: UIImage(named: "roal canin"), price: "17 rouble", isFirstweight: true, isSecondweight: true, isThirdweight: true, isFourthweight: true)]
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.separatorStyle = .none
         tableView.rowHeight = UITableView.automaticDimension
+        tableView.register(CatsProductsTableViewCell.self, forCellReuseIdentifier: "CatsProductsTableViewCell")
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -25,23 +28,21 @@ class CatsProductsTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return products.count
     }
 
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
+        override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CatsProductsTableViewCell") as! CatsProductsTableViewCell
+            cell.updateValues(product: products[indexPath.row])
 
         return cell
     }
-    */
+   
 
     /*
     // Override to support conditional editing of the table view.

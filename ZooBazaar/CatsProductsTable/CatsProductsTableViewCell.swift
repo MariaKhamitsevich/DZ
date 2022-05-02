@@ -7,11 +7,20 @@
 
 import UIKit
 
-struct CategoryOfProducts {
-    let nameOfCategory: String
-    let imageForCategory: UIImage
+struct Product {
+    let name: String
+    let description: String
+    let image: UIImage!
     let price: String
-    let weight: String?
+    var priceForKg: String {
+        get {
+            "\(price) per kg"
+        }
+    }
+    let isFirstweight: Bool
+    let isSecondweight: Bool
+    let isThirdweight: Bool
+    let isFourthweight: Bool
 }
 
 class CatsProductsTableViewCell: UITableViewCell {
@@ -35,6 +44,7 @@ class CatsProductsTableViewCell: UITableViewCell {
     
     private lazy var productPriceLabel: UILabel = {
         let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 12)
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
@@ -44,6 +54,7 @@ class CatsProductsTableViewCell: UITableViewCell {
         let label = UILabel()
         label.numberOfLines = 4
         label.textAlignment = .left
+        label.font = UIFont.systemFont(ofSize: 12)
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
@@ -57,10 +68,14 @@ class CatsProductsTableViewCell: UITableViewCell {
         stack.addArrangedSubview(thirdWeight)
         stack.addArrangedSubview(fourthWeight)
         stack.alignment = .leading
-        stack.axis = .vertical
+        stack.axis = .horizontal
         stack.spacing = 16
+        for label in stack.arrangedSubviews {
+            if let label = label as? UILabel {
+                label.font = UIFont.systemFont(ofSize: 12)
+            }
+        }
         stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.isHidden = true
         
         return stack
     }()
@@ -68,6 +83,7 @@ class CatsProductsTableViewCell: UITableViewCell {
         let label = UILabel()
         label.text = "300 g"
         label.textColor = .purple
+        label.tag = 0
         label.isHidden = true
         
         return label
@@ -76,6 +92,7 @@ class CatsProductsTableViewCell: UITableViewCell {
         let label = UILabel()
         label.text = "500 g"
         label.textColor = .purple
+        label.tag = 1
         label.isHidden = true
         
         return label
@@ -84,6 +101,7 @@ class CatsProductsTableViewCell: UITableViewCell {
         let label = UILabel()
         label.text = "1000 g"
         label.textColor = .purple
+        label.tag = 2
         label.isHidden = true
         
         return label
@@ -92,6 +110,7 @@ class CatsProductsTableViewCell: UITableViewCell {
         let label = UILabel()
         label.text = "2000 g"
         label.textColor = .purple
+        label.tag = 3
         label.isHidden = true
         
         return label
@@ -113,6 +132,27 @@ class CatsProductsTableViewCell: UITableViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func updateValues(product: Product) {
+        productNameLabel.text = product.name
+        productDescription.text = product.description
+        productImageView.image = product.image
+        productPriceLabel.text = product.priceForKg
+        
+        for weight in productWeightLabels.arrangedSubviews {
+            switch weight.tag {
+            case 0:
+                weight.isHidden = !product.isFirstweight
+            case 1:
+                weight.isHidden = !product.isSecondweight
+            case 2:
+                weight.isHidden = !product.isThirdweight
+            default:
+                weight.isHidden = !product.isFourthweight
+            }
+        }
+        
     }
     
     private func setAllConstraints() {
@@ -158,7 +198,7 @@ class CatsProductsTableViewCell: UITableViewCell {
             toItem: .none,
             attribute: .height,
             multiplier: 1,
-            constant: 56)
+            constant: 120)
         
         let widthConstraint = NSLayoutConstraint(
             item: productImageView,
@@ -167,7 +207,7 @@ class CatsProductsTableViewCell: UITableViewCell {
             toItem: .none,
             attribute: .width,
             multiplier: 1,
-            constant: 56)
+            constant: 120)
         
         [topConstraint,
          bottomConstraint,
@@ -233,7 +273,7 @@ class CatsProductsTableViewCell: UITableViewCell {
             attribute: .trailing,
             relatedBy: .equal,
             toItem: productImageView,
-            attribute: .trailingMargin,
+            attribute: .leading,
             multiplier: 1,
             constant: -8)
         
@@ -244,14 +284,14 @@ class CatsProductsTableViewCell: UITableViewCell {
     }
     
     private func productPriceConstraints() {
-        let bottomConstraint = NSLayoutConstraint(
+        let topConstraint = NSLayoutConstraint(
             item: productPriceLabel,
-            attribute: .bottomMargin,
-            relatedBy: .equal,
-            toItem: contentView,
+            attribute: .top,
+            relatedBy: .greaterThanOrEqual,
+            toItem: productDescription,
             attribute: .bottom,
             multiplier: 1,
-            constant: -4)
+            constant: 4)
         
         let leadingConstraint = NSLayoutConstraint(
             item: productPriceLabel,
@@ -262,11 +302,20 @@ class CatsProductsTableViewCell: UITableViewCell {
             multiplier: 1,
             constant: 8)
         
-        [bottomConstraint,
+        [topConstraint,
          leadingConstraint].forEach({ $0.isActive = true })
     }
     
     private func productWeightConstraints() {
+        let topConstraint = NSLayoutConstraint(
+            item: productWeightLabels,
+            attribute: .top,
+            relatedBy: .equal,
+            toItem: productPriceLabel,
+            attribute: .bottom,
+            multiplier: 1,
+            constant: 4)
+        
         let bottomConstraint = NSLayoutConstraint(
             item: productWeightLabels,
             attribute: .bottomMargin,
@@ -280,22 +329,23 @@ class CatsProductsTableViewCell: UITableViewCell {
             item: productWeightLabels,
             attribute: .leading,
             relatedBy: .equal,
-            toItem: productPriceLabel,
-            attribute: .trailing,
+            toItem: contentView,
+            attribute: .leadingMargin,
             multiplier: 1,
             constant: 8)
         
         let traillingConstraint = NSLayoutConstraint(
             item: productWeightLabels,
             attribute: .trailing,
-            relatedBy: .equal,
+            relatedBy: .lessThanOrEqual,
             toItem: productImageView,
             attribute: .leading,
             multiplier: 1,
             constant: -8)
         
         
-        [bottomConstraint,
+        [topConstraint,
+         bottomConstraint,
          traillingConstraint,
          leadingConstraint].forEach({ $0.isActive = true })
     }

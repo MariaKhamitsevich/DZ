@@ -13,6 +13,7 @@
 		4C1DAB0A2819453E0043B08D /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1DAB092819453E0043B08D /* FavoritesViewController.swift */; };
 		4C37E0BA281F057E00D393F5 /* CatsProductsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C37E0B9281F057E00D393F5 /* CatsProductsTableViewController.swift */; };
 		4C37E0BD281F10EA00D393F5 /* CatsProductsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C37E0BC281F10EA00D393F5 /* CatsProductsTableViewCell.swift */; };
+		4C5278492820FC6300BACCB8 /* ProductsTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5278482820FC6300BACCB8 /* ProductsTableHeaderView.swift */; };
 		4CED643628187D250052A2C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CED643528187D250052A2C2 /* AppDelegate.swift */; };
 		4CED643828187D250052A2C2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CED643728187D250052A2C2 /* SceneDelegate.swift */; };
 		4CED643A28187D250052A2C2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CED643928187D250052A2C2 /* ViewController.swift */; };
@@ -29,6 +30,7 @@
 		4C1DAB092819453E0043B08D /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		4C37E0B9281F057E00D393F5 /* CatsProductsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsProductsTableViewController.swift; sourceTree = "<group>"; };
 		4C37E0BC281F10EA00D393F5 /* CatsProductsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsProductsTableViewCell.swift; sourceTree = "<group>"; };
+		4C5278482820FC6300BACCB8 /* ProductsTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsTableHeaderView.swift; sourceTree = "<group>"; };
 		4CED643228187D250052A2C2 /* ZooBazaar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZooBazaar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CED643528187D250052A2C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CED643728187D250052A2C2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 			children = (
 				4C37E0B9281F057E00D393F5 /* CatsProductsTableViewController.swift */,
 				4C37E0BC281F10EA00D393F5 /* CatsProductsTableViewCell.swift */,
+				4C5278482820FC6300BACCB8 /* ProductsTableHeaderView.swift */,
 			);
 			path = CatsProductsTable;
 			sourceTree = "<group>";
@@ -194,6 +197,7 @@
 				4C1DAB0A2819453E0043B08D /* FavoritesViewController.swift in Sources */,
 				4CED643A28187D250052A2C2 /* ViewController.swift in Sources */,
 				4CED644A28187E5E0052A2C2 /* HomeScreenViewController.swift in Sources */,
+				4C5278492820FC6300BACCB8 /* ProductsTableHeaderView.swift in Sources */,
 				4CED644C28187E7F0052A2C2 /* HomeScreenView.swift in Sources */,
 				4CED643628187D250052A2C2 /* AppDelegate.swift in Sources */,
 				4C1DAB08281944AB0043B08D /* NavigationControllers.swift in Sources */,

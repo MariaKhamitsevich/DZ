@@ -14,7 +14,7 @@ struct Product {
     let price: String
     var priceForKg: String {
         get {
-            "\(price) per kg"
+            "\(price) rouble per kg"
         }
     }
     let isFirstweight: Bool
@@ -35,8 +35,9 @@ class CatsProductsTableViewCell: UITableViewCell {
     private lazy var productNameLabel: UILabel = {
         let label = UILabel()
         label.textColor = UIColor(red: 188/255, green: 22/255, blue: 72/255, alpha: 1)
-        label.font = UIFont.boldSystemFont(ofSize: 16)
+        label.font = UIFont.boldSystemFont(ofSize: 18)
         label.textAlignment = .left
+        label.numberOfLines = 2
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
@@ -44,7 +45,7 @@ class CatsProductsTableViewCell: UITableViewCell {
     
     private lazy var productPriceLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 12)
+        label.font = UIFont.systemFont(ofSize: 14)
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
@@ -52,9 +53,9 @@ class CatsProductsTableViewCell: UITableViewCell {
     
     private lazy var productDescription: UILabel = {
         let label = UILabel()
-        label.numberOfLines = 4
+        label.numberOfLines = 5
         label.textAlignment = .left
-        label.font = UIFont.systemFont(ofSize: 12)
+        label.font = UIFont.italicSystemFont(ofSize: 13)
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
@@ -198,7 +199,7 @@ class CatsProductsTableViewCell: UITableViewCell {
             toItem: .none,
             attribute: .height,
             multiplier: 1,
-            constant: 120)
+            constant: 170)
         
         let widthConstraint = NSLayoutConstraint(
             item: productImageView,
@@ -207,7 +208,7 @@ class CatsProductsTableViewCell: UITableViewCell {
             toItem: .none,
             attribute: .width,
             multiplier: 1,
-            constant: 120)
+            constant: 100)
         
         [topConstraint,
          bottomConstraint,
@@ -240,7 +241,7 @@ class CatsProductsTableViewCell: UITableViewCell {
             attribute: .trailing,
             relatedBy: .equal,
             toItem: productImageView,
-            attribute: .trailingMargin,
+            attribute: .leading,
             multiplier: 1,
             constant: -8)
         
@@ -323,7 +324,7 @@ class CatsProductsTableViewCell: UITableViewCell {
             toItem: contentView,
             attribute: .bottom,
             multiplier: 1,
-            constant: -4)
+            constant: -8)
         
         let leadingConstraint = NSLayoutConstraint(
             item: productWeightLabels,

@@ -7,15 +7,19 @@
 
 import UIKit
 
+
 class SettingsViewController: UIViewController {
     
     var redValue: Float = 0
     var greenValue: Float = 0
     var blueValue: Float = 0
     weak var backgroundDelegate: SetBackgroundColor?
+    let settingView = SettingsView()
+  
     
     override func loadView() {
-        view = SettingsView()
+        view = settingView
+        
     }
     
     override func viewDidLoad() {
@@ -26,26 +30,20 @@ class SettingsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        if let view = view as? SettingsView {
-            view.redSlider.value = redValue
-            view.greenSlider.value = greenValue
-            view.blueSlider.value = blueValue
-            view.redValueLabel.text = String(Int(view.redSlider.value))
-            view.greenValueLabel.text = String(Int(view.greenSlider.value))
-            view.blueValueLabel.text = String(Int(view.blueSlider.value))
-        }
-    }
+        settingView.setColors(red: redValue, green: greenValue, blue: blueValue)
+            }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         if let view = view as? SettingsView {
             backgroundDelegate?.setBackgroundColor(
-                red: view.redSlider.value,
-                green: view.greenSlider.value,
-                blue: view.blueSlider.value,
+                red: view.red,
+                green: view.green,
+                blue: view.blue,
                 alpha: 1)
             
         }
     }
 }
+
+

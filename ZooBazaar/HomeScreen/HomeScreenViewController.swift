@@ -11,6 +11,7 @@ class HomeScreenViewController: UIViewController, SetBackgroundColor {
     var greenShadeOfBackground: Float = 190
     var blueShadeOfBackGround: Float = 189
     
+    
     override func loadView() {
         view = HomeScreenView()
     }
@@ -26,6 +27,7 @@ class HomeScreenViewController: UIViewController, SetBackgroundColor {
     
     
     @objc func runToSettings(_ sender: UIButton) {
+        
         let controller = SettingsViewController()
         controller.backgroundDelegate = self
         controller.view.backgroundColor = view.backgroundColor

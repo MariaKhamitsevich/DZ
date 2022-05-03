@@ -9,11 +9,11 @@ import UIKit
 protocol PushToTable:AnyObject {
     func pushToTable(controller: UITableViewController)
     
-
+    
 }
 
 class HomeScreenView: UIView {
-
+    
     private lazy var wellcomeLabel: UILabel = {
         let label = UILabel()
         label.text = "Welcome to ZooBazaar!"
@@ -55,17 +55,21 @@ class HomeScreenView: UIView {
     
     private lazy var catsProductsImage: UIImageView = {
         let image = UIImageView(image: UIImage(named: "cats products"), highlightedImage: UIImage(named: "cats products"))
+        image.layer.cornerRadius = 10
+        image.clipsToBounds = true
         
         return image
     }()
     private lazy var dogsProductsImage: UIImageView = {
         let image = UIImageView(image: UIImage(named: "dogs"), highlightedImage: UIImage(named: "dogs"))
-        
+        image.layer.cornerRadius = 10
+        image.clipsToBounds = true
         return image
     }()
     private lazy var rodentsProductsImage: UIImageView = {
         let image = UIImageView(image: UIImage(named: "Mouse"), highlightedImage: UIImage(named: "Mouse"))
-        
+        image.layer.cornerRadius = 10
+        image.clipsToBounds = true
         return image
     }()
     
@@ -108,12 +112,12 @@ class HomeScreenView: UIView {
             constant: 56)
         
         let leadingConstraint = NSLayoutConstraint(item: wellcomeLabel,
-           attribute: .leading,
-           relatedBy: .equal,
-           toItem: self,
-           attribute: .leadingMargin,
-           multiplier: 1,
-           constant: 24)
+                                                   attribute: .leading,
+                                                   relatedBy: .equal,
+                                                   toItem: self,
+                                                   attribute: .leadingMargin,
+                                                   multiplier: 1,
+                                                   constant: 24)
         
         let traillingConstraint = NSLayoutConstraint(
             item: wellcomeLabel,
@@ -125,12 +129,12 @@ class HomeScreenView: UIView {
             constant: -24)
         
         let heighConstraint = NSLayoutConstraint(item: wellcomeLabel,
-            attribute: .height,
-            relatedBy: .equal,
-            toItem: wellcomeLabel,
-            attribute: .height,
-            multiplier: 1,
-            constant: 24)
+                                                 attribute: .height,
+                                                 relatedBy: .equal,
+                                                 toItem: wellcomeLabel,
+                                                 attribute: .height,
+                                                 multiplier: 1,
+                                                 constant: 24)
         
         [topConstraint,
          leadingConstraint,
@@ -171,15 +175,15 @@ class HomeScreenView: UIView {
             item: settingsButton,
             attribute: .width,
             relatedBy: .equal,
-             toItem: settingsButton,
+            toItem: settingsButton,
             attribute: .width,
-             multiplier: 1,
-             constant: 16)
+            multiplier: 1,
+            constant: 16)
         
         [topConstraint,
          traillingConstraint,
          heighConstraint,
-        widthConstraint].forEach({ $0.isActive = true })
+         widthConstraint].forEach({ $0.isActive = true })
     }
     
     private func basketImageConstraints() {
@@ -216,13 +220,13 @@ class HomeScreenView: UIView {
             relatedBy: .equal,
             toItem: .none,
             attribute: .width,
-             multiplier: 1,
-             constant: 16)
+            multiplier: 1,
+            constant: 16)
         
         [topConstraint,
          traillingConstraint,
          heighConstraint,
-        widthConstraint].forEach({ $0.isActive = true })
+         widthConstraint].forEach({ $0.isActive = true })
     }
     
     private func productsImagesStackConstraints() {
@@ -254,14 +258,14 @@ class HomeScreenView: UIView {
             constant: 24)
         
         for image in productsImagesStack.arrangedSubviews {
-        let heighConstraint = NSLayoutConstraint(
-            item: image,
-            attribute: .height,
-            relatedBy: .equal,
-            toItem: .none,
-            attribute: .height,
-            multiplier: 1,
-            constant: 180)
+            let heighConstraint = NSLayoutConstraint(
+                item: image,
+                attribute: .height,
+                relatedBy: .equal,
+                toItem: .none,
+                attribute: .height,
+                multiplier: 1,
+                constant: 180)
             
             heighConstraint.isActive = true
         }

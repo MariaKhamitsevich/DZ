@@ -18,33 +18,33 @@ class SettingsView: UIView {
     }()
     
     private lazy var telephoneLabel: UILabel = {
-            let label = UILabel()
-            label.text = "Telephone: +375251234567"
-            label.textColor = UIColor(red: 188/255, green: 22/255, blue: 72/255, alpha: 1)
-            label.textAlignment = .left
-            label.font = UIFont.italicSystemFont(ofSize: 16)
-            
-            return label
+        let label = UILabel()
+        label.text = "Telephone: +375251234567"
+        label.textColor = UIColor(red: 188/255, green: 22/255, blue: 72/255, alpha: 1)
+        label.textAlignment = .left
+        label.font = UIFont.italicSystemFont(ofSize: 16)
+        
+        return label
     }()
     
     private lazy var emailLabel: UILabel = {
-            let label = UILabel()
-            label.text = "Email: zoobazaar@zoobazaar.by"
-            label.textColor = UIColor(red: 188/255, green: 22/255, blue: 72/255, alpha: 1)
-            label.textAlignment = .left
-            label.font = UIFont.italicSystemFont(ofSize: 16)
-            
-            return label
+        let label = UILabel()
+        label.text = "Email: zoobazaar@zoobazaar.by"
+        label.textColor = UIColor(red: 188/255, green: 22/255, blue: 72/255, alpha: 1)
+        label.textAlignment = .left
+        label.font = UIFont.italicSystemFont(ofSize: 16)
+        
+        return label
     }()
     
     private lazy var addressLabel: UILabel = {
-            let label = UILabel()
-            label.text = "Address: Pershaya str., 1"
-            label.textColor = UIColor(red: 188/255, green: 22/255, blue: 72/255, alpha: 1)
-            label.textAlignment = .left
-            label.font = UIFont.italicSystemFont(ofSize: 16)
-            
-            return label
+        let label = UILabel()
+        label.text = "Address: Pershaya str., 1"
+        label.textColor = UIColor(red: 188/255, green: 22/255, blue: 72/255, alpha: 1)
+        label.textAlignment = .left
+        label.font = UIFont.italicSystemFont(ofSize: 16)
+        
+        return label
     }()
     
     //ColorLabelsStack
@@ -61,37 +61,37 @@ class SettingsView: UIView {
     }()
     
     private lazy var redTitleLabel: UILabel = {
-            let label = UILabel()
-            label.text = "Red"
-            label.textColor = UIColor(red: 188/255, green: 22/255, blue: 72/255, alpha: 1)
-            label.textAlignment = .left
-            label.font = UIFont.italicSystemFont(ofSize: 16)
-            
-            return label
+        let label = UILabel()
+        label.text = "Red"
+        label.textColor = UIColor(red: 188/255, green: 22/255, blue: 72/255, alpha: 1)
+        label.textAlignment = .left
+        label.font = UIFont.italicSystemFont(ofSize: 16)
+        
+        return label
     }()
     
     private lazy var greenTitleLabel: UILabel = {
-            let label = UILabel()
-            label.text = "Green"
-            label.textColor = UIColor(red: 188/255, green: 22/255, blue: 72/255, alpha: 1)
-            label.textAlignment = .left
-            label.font = UIFont.italicSystemFont(ofSize: 16)
-            
-            return label
+        let label = UILabel()
+        label.text = "Green"
+        label.textColor = UIColor(red: 188/255, green: 22/255, blue: 72/255, alpha: 1)
+        label.textAlignment = .left
+        label.font = UIFont.italicSystemFont(ofSize: 16)
+        
+        return label
     }()
     
     private lazy var blueTitleLabel: UILabel = {
-            let label = UILabel()
-            label.text = "Blue"
-            label.textColor = UIColor(red: 188/255, green: 22/255, blue: 72/255, alpha: 1)
-            label.textAlignment = .left
-            label.font = UIFont.italicSystemFont(ofSize: 16)
-            
-            return label
+        let label = UILabel()
+        label.text = "Blue"
+        label.textColor = UIColor(red: 188/255, green: 22/255, blue: 72/255, alpha: 1)
+        label.textAlignment = .left
+        label.font = UIFont.italicSystemFont(ofSize: 16)
+        
+        return label
     }()
     
     // colorValueStack
-    lazy var colorsValueStack: UIStackView = {
+    private lazy var colorsValueStack: UIStackView = {
         let stackView = UIStackView()
         stackView.addArrangedSubview(redValueLabel)
         stackView.addArrangedSubview(greenValueLabel)
@@ -103,9 +103,9 @@ class SettingsView: UIView {
         return stackView
     }()
     
-    lazy var redValueLabel: UILabel = {
+    private lazy var redValueLabel: UILabel = {
         let label = UILabel()
-        label.text = "0"
+        label.text = String(Int(redSlider.value))
         label.textColor = UIColor(red: 188/255, green: 22/255, blue: 72/255, alpha: 1)
         label.textAlignment = .center
         label.font = UIFont.boldSystemFont(ofSize: 16)
@@ -113,9 +113,9 @@ class SettingsView: UIView {
         return label
     }()
     
-    lazy var greenValueLabel: UILabel = {
+    private lazy var greenValueLabel: UILabel = {
         let label = UILabel()
-        label.text = "0"
+        label.text = String(Int(greenSlider.value))
         label.textColor = UIColor(red: 188/255, green: 22/255, blue: 72/255, alpha: 1)
         label.textAlignment = .center
         label.font = UIFont.boldSystemFont(ofSize: 16)
@@ -123,9 +123,9 @@ class SettingsView: UIView {
         return label
     }()
     
-    lazy var blueValueLabel: UILabel = {
+    private lazy var blueValueLabel: UILabel = {
         let label = UILabel()
-        label.text = "0"
+        label.text = String(Int(blueSlider.value))
         label.textColor = UIColor(red: 188/255, green: 22/255, blue: 72/255, alpha: 1)
         label.textAlignment = .center
         label.font = UIFont.boldSystemFont(ofSize: 16)
@@ -133,7 +133,7 @@ class SettingsView: UIView {
         return label
     }()
     
-    lazy var colorSlidersStack: UIStackView = {
+    private lazy var colorSlidersStack: UIStackView = {
         let stackView = UIStackView()
         stackView.addArrangedSubview(redSlider)
         stackView.addArrangedSubview(greenSlider)
@@ -145,11 +145,11 @@ class SettingsView: UIView {
         return stackView
     }()
     
-    lazy var redSlider: UISlider = {
+    private lazy var redSlider: UISlider = {
         let slider = UISlider()
         slider.minimumValue = 0
         slider.maximumValue = 255
-        slider.value = 0
+        slider.value = 255
         slider.tag = 0
         slider.isContinuous = true
         slider.isEnabled = true
@@ -158,11 +158,11 @@ class SettingsView: UIView {
         return slider
     }()
     
-    lazy var greenSlider: UISlider = {
+    private lazy var greenSlider: UISlider = {
         let slider = UISlider()
         slider.minimumValue = 0
         slider.maximumValue = 255
-        slider.value = 0
+        slider.value = 190
         slider.tag = 1
         slider.isContinuous = true
         slider.isEnabled = true
@@ -171,11 +171,11 @@ class SettingsView: UIView {
         return slider
     }()
     
-    lazy var blueSlider: UISlider = {
+    private lazy var blueSlider: UISlider = {
         let slider = UISlider()
         slider.minimumValue = 0
         slider.maximumValue = 255
-        slider.value = 0
+        slider.value = 189
         slider.tag = 2
         slider.isContinuous = true
         slider.isEnabled = true
@@ -183,6 +183,16 @@ class SettingsView: UIView {
         
         return slider
     }()
+    
+    var red: Float {
+        redSlider.value
+    }
+    var green: Float {
+        greenSlider.value
+    }
+    var blue: Float {
+        blueSlider.value
+    }
     
     // MARK: Init
     override init(frame: CGRect) {
@@ -192,6 +202,11 @@ class SettingsView: UIView {
         addSubview(colorsLabelsStack)
         addSubview(colorsValueStack)
         addSubview(colorSlidersStack)
+        redValueLabel.text = String(Int(redSlider.value))
+        greenValueLabel.text = String(Int(greenSlider.value))
+        blueValueLabel.text = String(Int(blueSlider.value))
+        
+        
         setAllConstraints()
         
         for subview in colorSlidersStack.subviews {
@@ -200,6 +215,9 @@ class SettingsView: UIView {
                 
             }
         }
+        
+        
+        
     }
     
     required init?(coder: NSCoder) {
@@ -390,3 +408,14 @@ class SettingsView: UIView {
     }
 }
 
+extension SettingsView{
+    func setColors(red: Float, green: Float, blue: Float) {
+        redSlider.value = red
+        greenSlider.value = green
+        blueSlider.value = blue
+        redValueLabel.text = String(Int(red))
+        greenValueLabel.text = String(Int(green))
+        blueValueLabel.text = String(Int(blue))
+        
+    }
+}

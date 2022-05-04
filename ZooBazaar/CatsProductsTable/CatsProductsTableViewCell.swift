@@ -34,7 +34,7 @@ class CatsProductsTableViewCell: UITableViewCell {
     
     private lazy var productNameLabel: UILabel = {
         let label = UILabel()
-        label.textColor = UIColor(red: 188/255, green: 22/255, blue: 72/255, alpha: 1)
+        label.textColor = ColorsManager.zbzbTextColor
         label.font = UIFont.boldSystemFont(ofSize: 18)
         label.textAlignment = .left
         label.numberOfLines = 2
@@ -349,17 +349,6 @@ class CatsProductsTableViewCell: UITableViewCell {
          bottomConstraint,
          traillingConstraint,
          leadingConstraint].forEach({ $0.isActive = true })
-    }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
     }
     
 }

@@ -14,7 +14,7 @@ class ProductsTableHeaderView: UIView {
         label.textAlignment = .center
         label.numberOfLines = 1
         label.font = UIFont.boldSystemFont(ofSize: 28)
-        label.textColor = UIColor(red: 188/255, green: 22/255, blue: 72/255, alpha: 1)
+        label.textColor = ColorsManager.zbzbTextColor
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label

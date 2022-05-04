@@ -408,7 +408,7 @@ class SettingsView: UIView {
     }
 }
 
-extension SettingsView{
+extension SettingsView {
     func setColors(red: Float, green: Float, blue: Float) {
         redSlider.value = red
         greenSlider.value = green

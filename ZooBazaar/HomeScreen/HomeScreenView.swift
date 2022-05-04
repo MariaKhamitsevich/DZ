@@ -1,23 +1,17 @@
-//
-//  HomeScreenView.swift
-//  ZooBazaar
-//
-//  Created by  Maria Khamitsevich on 26.04.22.
-//
 
 import UIKit
-protocol PushToTable:AnyObject {
+protocol PushToTable: AnyObject {
     func pushToTable(controller: UITableViewController)
-    
-    
 }
+
+
 
 class HomeScreenView: UIView {
     
     private lazy var wellcomeLabel: UILabel = {
         let label = UILabel()
         label.text = "Welcome to ZooBazaar!"
-        label.textColor = UIColor(red: 188/255, green: 22/255, blue: 72/255, alpha: 1)
+        label.textColor = ColorsManager.zbzbTextColor
         label.textAlignment = .center
         label.font = UIFont.boldSystemFont(ofSize: 24)
         label.numberOfLines = 1
@@ -28,66 +22,37 @@ class HomeScreenView: UIView {
     lazy var settingsButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "ellipsis"), for: .normal)
-        button.imageView?.tintColor = UIColor(red: 188/255, green: 22/255, blue: 72/255, alpha: 1)
+        button.imageView?.tintColor = ColorsManager.zbzbTextColor
         
         return button
     }()
     
     lazy var basketImage: UIImageView = {
         let image = UIImageView(image: UIImage(named: "basket"), highlightedImage: UIImage(named: "basket"))
-        image.tintColor = UIColor(red: 188/255, green: 22/255, blue: 72/255, alpha: 1)
+        image.tintColor = ColorsManager.zbzbTextColor
         
         return image
     }()
     
-    private lazy var productsImagesStack: UIStackView = {
-        let stack = UIStackView()
-        stack.addArrangedSubview(catsProductsImage)
-        stack.addArrangedSubview(dogsProductsImage)
-        stack.addArrangedSubview(rodentsProductsImage)
-        stack.axis = .vertical
-        stack.alignment = .center
-        stack.spacing = 8
-        stack.translatesAutoresizingMaskIntoConstraints = false
+    lazy var tableView: UITableView = {
+        let table = UITableView(frame: .zero, style: .plain)
+        table.backgroundColor = ColorsManager.zbzbBackgroundColor
         
-        return stack
+        return table
     }()
-    
-    private lazy var catsProductsImage: UIImageView = {
-        let image = UIImageView(image: UIImage(named: "cats products"), highlightedImage: UIImage(named: "cats products"))
-        image.layer.cornerRadius = 10
-        image.clipsToBounds = true
-        
-        return image
-    }()
-    private lazy var dogsProductsImage: UIImageView = {
-        let image = UIImageView(image: UIImage(named: "dogs"), highlightedImage: UIImage(named: "dogs"))
-        image.layer.cornerRadius = 10
-        image.clipsToBounds = true
-        return image
-    }()
-    private lazy var rodentsProductsImage: UIImageView = {
-        let image = UIImageView(image: UIImage(named: "Mouse"), highlightedImage: UIImage(named: "Mouse"))
-        image.layer.cornerRadius = 10
-        image.clipsToBounds = true
-        return image
-    }()
-    
-    weak var pushingDelegate: PushToTable?
     
     //MARK: Init
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = UIColor(red: 255/255, green: 190/255, blue: 189/255, alpha: 1)
+        self.backgroundColor = ColorsManager.zbzbBackgroundColor
         
         addSubview(wellcomeLabel)
         addSubview(settingsButton)
         addSubview(basketImage)
-        addSubview(productsImagesStack)
+        addSubview(tableView)
         
         setAllConstrains()
-        setupImageGesture()
-        [wellcomeLabel, settingsButton, basketImage].forEach({$0.translatesAutoresizingMaskIntoConstraints = false})
+        [wellcomeLabel, settingsButton, basketImage, tableView].forEach({$0.translatesAutoresizingMaskIntoConstraints = false})
     }
     
     required init?(coder: NSCoder) {
@@ -98,7 +63,7 @@ class HomeScreenView: UIView {
         wellcomeLabelConstrains()
         settingsButtonConstraints()
         basketImageConstraints()
-        productsImagesStackConstraints()
+        tableViewConstrains()
     }
     
     private func wellcomeLabelConstrains() {
@@ -111,13 +76,14 @@ class HomeScreenView: UIView {
             multiplier: 1,
             constant: 56)
         
-        let leadingConstraint = NSLayoutConstraint(item: wellcomeLabel,
-                                                   attribute: .leading,
-                                                   relatedBy: .equal,
-                                                   toItem: self,
-                                                   attribute: .leadingMargin,
-                                                   multiplier: 1,
-                                                   constant: 24)
+        let leadingConstraint = NSLayoutConstraint(
+            item: wellcomeLabel,
+            attribute: .leading,
+            relatedBy: .equal,
+            toItem: self,
+            attribute: .leadingMargin,
+            multiplier: 1,
+            constant: 24)
         
         let traillingConstraint = NSLayoutConstraint(
             item: wellcomeLabel,
@@ -128,13 +94,14 @@ class HomeScreenView: UIView {
             multiplier: 1,
             constant: -24)
         
-        let heighConstraint = NSLayoutConstraint(item: wellcomeLabel,
-                                                 attribute: .height,
-                                                 relatedBy: .equal,
-                                                 toItem: wellcomeLabel,
-                                                 attribute: .height,
-                                                 multiplier: 1,
-                                                 constant: 24)
+        let heighConstraint = NSLayoutConstraint(
+            item: wellcomeLabel,
+            attribute: .height,
+            relatedBy: .equal,
+            toItem: wellcomeLabel,
+            attribute: .height,
+            multiplier: 1,
+            constant: 24)
         
         [topConstraint,
          leadingConstraint,
@@ -229,74 +196,47 @@ class HomeScreenView: UIView {
          widthConstraint].forEach({ $0.isActive = true })
     }
     
-    private func productsImagesStackConstraints() {
+    private func tableViewConstrains() {
         let topConstraint = NSLayoutConstraint(
-            item: productsImagesStack,
+            item: tableView,
             attribute: .top,
             relatedBy: .equal,
             toItem: wellcomeLabel,
-            attribute: .topMargin,
+            attribute: .bottomMargin,
             multiplier: 1,
-            constant: 32)
+            constant: 24)
         
-        let traillingConstraint = NSLayoutConstraint(
-            item: productsImagesStack,
-            attribute: .trailing,
+        let bottomConstraint = NSLayoutConstraint(
+            item: tableView,
+            attribute: .bottom,
             relatedBy: .equal,
             toItem: self,
-            attribute: .trailingMargin,
+            attribute: .bottomMargin,
             multiplier: 1,
-            constant: -24)
+            constant: -8)
         
         let leadingConstraint = NSLayoutConstraint(
-            item: productsImagesStack,
+            item: tableView,
             attribute: .leading,
             relatedBy: .equal,
             toItem: self,
             attribute: .leadingMargin,
             multiplier: 1,
-            constant: 24)
+            constant: 8)
         
-        for image in productsImagesStack.arrangedSubviews {
-            let heighConstraint = NSLayoutConstraint(
-                item: image,
-                attribute: .height,
-                relatedBy: .equal,
-                toItem: .none,
-                attribute: .height,
-                multiplier: 1,
-                constant: 180)
-            
-            heighConstraint.isActive = true
-        }
+        let traillingConstraint = NSLayoutConstraint(
+            item: tableView,
+            attribute: .trailing,
+            relatedBy: .equal,
+            toItem: self,
+            attribute: .trailingMargin,
+            multiplier: 1,
+            constant: -8)
         
-        for image in productsImagesStack.arrangedSubviews {
-            let widthConstraint = NSLayoutConstraint(
-                item: image,
-                attribute: .width,
-                relatedBy: .equal,
-                toItem: .none,
-                attribute: .width,
-                multiplier: 1,
-                constant: 220)
-            widthConstraint.isActive = true
-        }
         
         [topConstraint,
-         traillingConstraint,
-         leadingConstraint].forEach({ $0.isActive = true })
-    }
-    
-    private func setupImageGesture() {
-        catsProductsImage.isUserInteractionEnabled = true
-        dogsProductsImage.isUserInteractionEnabled = true
-        rodentsProductsImage.isUserInteractionEnabled = true
-        
-        let tapCatsImageGesture = UITapGestureRecognizer(target: self, action: #selector(pushToCatsTable))
-        catsProductsImage.addGestureRecognizer(tapCatsImageGesture)
-    }
-    
-    @objc private func pushToCatsTable(_ gesture: UITapGestureRecognizer) {
-        pushingDelegate?.pushToTable(controller: CatsProductsTableViewController())
+         bottomConstraint,
+         leadingConstraint,
+         traillingConstraint].forEach({ $0.isActive = true })
     }
 }

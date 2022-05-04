@@ -13,7 +13,7 @@ class SettingsViewController: UIViewController {
     var redValue: Float = 0
     var greenValue: Float = 0
     var blueValue: Float = 0
-    weak var backgroundDelegate: SetBackgroundColor?
+    weak var backgroundDelegate: BackgroundColorSetable?
     let settingView = SettingsView()
   
     
@@ -24,7 +24,6 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
     }
     

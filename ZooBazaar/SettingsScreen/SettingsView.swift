@@ -1,5 +1,6 @@
 
 import UIKit
+import SnapKit
 
 class SettingsView: UIView {
     
@@ -233,22 +234,27 @@ class SettingsView: UIView {
     }
     
     private func informationStackViewConstraints() {
-        let topConstraint = NSLayoutConstraint(
-            item: informationStackView,
-            attribute: .top,
-            relatedBy: .equal,
-            toItem: self,
-            attribute: .topMargin,
-            multiplier: 1,
-            constant: 54)
-        let leadingConstraint = NSLayoutConstraint(
-            item: informationStackView,
-            attribute: .leading,
-            relatedBy: .equal,
-            toItem: self,
-            attribute: .leadingMargin,
-            multiplier: 1,
-            constant: 24)
+        
+        self.informationStackView.snp.updateConstraints { make in
+            make.top.equalToSuperview().offset(54)
+            make.leading.equalToSuperview().offset(24)
+        }
+//        let topConstraint = NSLayoutConstraint(
+//            item: informationStackView,
+//            attribute: .top,
+//            relatedBy: .equal,
+//            toItem: self,
+//            attribute: .topMargin,
+//            multiplier: 1,
+//            constant: 54)
+//        let leadingConstraint = NSLayoutConstraint(
+//            item: informationStackView,
+//            attribute: .leading,
+//            relatedBy: .equal,
+//            toItem: self,
+//            attribute: .leadingMargin,
+//            multiplier: 1,
+//            constant: 24)
         
         for label in informationStackView.arrangedSubviews {
             let heighConstraint = NSLayoutConstraint(
@@ -262,8 +268,8 @@ class SettingsView: UIView {
             heighConstraint.isActive = true
         }
         
-        [topConstraint,
-         leadingConstraint].forEach({ $0.isActive = true })
+//        [topConstraint,
+//         leadingConstraint].forEach({ $0.isActive = true })
     }
     
     private func colorStackViewConstraints() {

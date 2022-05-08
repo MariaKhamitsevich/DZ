@@ -26,7 +26,6 @@ class HomeScreenTableViewCell: UITableViewCell {
         
         return image
     }()
-    weak var pushingDelegate: PushToTable?
     var controller: UITableViewController?
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

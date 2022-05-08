@@ -1,10 +1,5 @@
 
 import UIKit
-protocol PushToTable: AnyObject {
-    func pushToTable(controller: UITableViewController)
-}
-
-
 
 class HomeScreenView: UIView {
     

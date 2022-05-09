@@ -1,5 +1,6 @@
 
 import UIKit
+import SnapKit
 
 class HomeScreenView: UIView {
     
@@ -55,183 +56,29 @@ class HomeScreenView: UIView {
     }
     
     private func setAllConstrains() {
-        wellcomeLabelConstrains()
-        settingsButtonConstraints()
-        basketImageConstraints()
-        tableViewConstrains()
-    }
-    
-    private func wellcomeLabelConstrains() {
-        let topConstraint = NSLayoutConstraint(
-            item: wellcomeLabel,
-            attribute: .top,
-            relatedBy: .equal,
-            toItem: self,
-            attribute: .topMargin,
-            multiplier: 1,
-            constant: 56)
-        
-        let leadingConstraint = NSLayoutConstraint(
-            item: wellcomeLabel,
-            attribute: .leading,
-            relatedBy: .equal,
-            toItem: self,
-            attribute: .leadingMargin,
-            multiplier: 1,
-            constant: 24)
-        
-        let traillingConstraint = NSLayoutConstraint(
-            item: wellcomeLabel,
-            attribute: .trailing,
-            relatedBy: .equal,
-            toItem: self,
-            attribute: .trailingMargin,
-            multiplier: 1,
-            constant: -24)
-        
-        let heighConstraint = NSLayoutConstraint(
-            item: wellcomeLabel,
-            attribute: .height,
-            relatedBy: .equal,
-            toItem: wellcomeLabel,
-            attribute: .height,
-            multiplier: 1,
-            constant: 24)
-        
-        [topConstraint,
-         leadingConstraint,
-         traillingConstraint,
-         heighConstraint].forEach({ $0.isActive = true })
-    }
-    
-    
-    private func settingsButtonConstraints() {
-        let topConstraint = NSLayoutConstraint(
-            item: settingsButton,
-            attribute: .top,
-            relatedBy: .equal,
-            toItem: self,
-            attribute: .topMargin,
-            multiplier: 1,
-            constant: 16)
-        
-        let traillingConstraint = NSLayoutConstraint(
-            item: settingsButton,
-            attribute: .trailing,
-            relatedBy: .equal,
-            toItem: self,
-            attribute: .trailingMargin,
-            multiplier: 1,
-            constant: -16)
-        
-        let heighConstraint = NSLayoutConstraint(
-            item: settingsButton,
-            attribute: .height,
-            relatedBy: .equal,
-            toItem: settingsButton,
-            attribute: .height,
-            multiplier: 1,
-            constant: 16)
-        
-        let widthConstraint = NSLayoutConstraint(
-            item: settingsButton,
-            attribute: .width,
-            relatedBy: .equal,
-            toItem: settingsButton,
-            attribute: .width,
-            multiplier: 1,
-            constant: 16)
-        
-        [topConstraint,
-         traillingConstraint,
-         heighConstraint,
-         widthConstraint].forEach({ $0.isActive = true })
-    }
-    
-    private func basketImageConstraints() {
-        let topConstraint = NSLayoutConstraint(
-            item: basketImage,
-            attribute: .top,
-            relatedBy: .equal,
-            toItem: self,
-            attribute: .topMargin,
-            multiplier: 1,
-            constant: 16)
-        
-        let traillingConstraint = NSLayoutConstraint(
-            item: basketImage,
-            attribute: .trailing,
-            relatedBy: .equal,
-            toItem: settingsButton,
-            attribute: .trailingMargin,
-            multiplier: 1,
-            constant: -24)
-        
-        let heighConstraint = NSLayoutConstraint(
-            item: basketImage,
-            attribute: .height,
-            relatedBy: .equal,
-            toItem: .none,
-            attribute: .height,
-            multiplier: 1,
-            constant: 16)
-        
-        let widthConstraint = NSLayoutConstraint(
-            item: basketImage,
-            attribute: .width,
-            relatedBy: .equal,
-            toItem: .none,
-            attribute: .width,
-            multiplier: 1,
-            constant: 16)
-        
-        [topConstraint,
-         traillingConstraint,
-         heighConstraint,
-         widthConstraint].forEach({ $0.isActive = true })
-    }
-    
-    private func tableViewConstrains() {
-        let topConstraint = NSLayoutConstraint(
-            item: tableView,
-            attribute: .top,
-            relatedBy: .equal,
-            toItem: wellcomeLabel,
-            attribute: .bottomMargin,
-            multiplier: 1,
-            constant: 24)
-        
-        let bottomConstraint = NSLayoutConstraint(
-            item: tableView,
-            attribute: .bottom,
-            relatedBy: .equal,
-            toItem: self,
-            attribute: .bottomMargin,
-            multiplier: 1,
-            constant: -8)
-        
-        let leadingConstraint = NSLayoutConstraint(
-            item: tableView,
-            attribute: .leading,
-            relatedBy: .equal,
-            toItem: self,
-            attribute: .leadingMargin,
-            multiplier: 1,
-            constant: 8)
-        
-        let traillingConstraint = NSLayoutConstraint(
-            item: tableView,
-            attribute: .trailing,
-            relatedBy: .equal,
-            toItem: self,
-            attribute: .trailingMargin,
-            multiplier: 1,
-            constant: -8)
-        
-        
-        [topConstraint,
-         bottomConstraint,
-         leadingConstraint,
-         traillingConstraint].forEach({ $0.isActive = true })
+        self.wellcomeLabel.snp.updateConstraints { make in
+            make.topMargin.equalToSuperview().offset(56)
+            make.leading.equalToSuperview().offset(24)
+            make.trailing.equalToSuperview().offset(-24)
+            make.height.equalTo(24)
+        }
+        self.settingsButton.snp.updateConstraints { make in
+            make.topMargin.equalToSuperview().offset(16)
+            make.trailingMargin.equalToSuperview().offset(-16)
+            make.height.equalTo(16)
+            make.width.equalTo(16)
+        }
+        self.basketImage.snp.updateConstraints { make in
+            make.topMargin.equalToSuperview().offset(16)
+            make.trailing.equalTo(settingsButton.snp.trailingMargin).offset(-24)
+            make.height.equalTo(16)
+            make.width.equalTo(16)
+        }
+        self.tableView.snp.updateConstraints { make in
+            make.topMargin.equalTo(wellcomeLabel.snp.bottomMargin).offset(24)
+            make.bottomMargin.equalToSuperview().offset(-8)
+            make.leadingMargin.equalToSuperview().offset(8)
+            make.trailingMargin.equalTo(-8)
+        }
     }
 }

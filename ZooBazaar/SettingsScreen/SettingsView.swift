@@ -227,169 +227,45 @@ class SettingsView: UIView {
     
     //MARK: setAllConstraints()
     private func setAllConstraints() {
-        informationStackViewConstraints()
-        colorStackViewConstraints()
-        colorValueStackViewConstraints()
-        colorSliderStackViewConstraints()
-    }
-    
-    private func informationStackViewConstraints() {
-        
         self.informationStackView.snp.updateConstraints { make in
             make.top.equalToSuperview().offset(54)
             make.leading.equalToSuperview().offset(24)
-        }
-//        let topConstraint = NSLayoutConstraint(
-//            item: informationStackView,
-//            attribute: .top,
-//            relatedBy: .equal,
-//            toItem: self,
-//            attribute: .topMargin,
-//            multiplier: 1,
-//            constant: 54)
-//        let leadingConstraint = NSLayoutConstraint(
-//            item: informationStackView,
-//            attribute: .leading,
-//            relatedBy: .equal,
-//            toItem: self,
-//            attribute: .leadingMargin,
-//            multiplier: 1,
-//            constant: 24)
-        
-        for label in informationStackView.arrangedSubviews {
-            let heighConstraint = NSLayoutConstraint(
-                item: label,
-                attribute: .height,
-                relatedBy: .equal,
-                toItem: .none,
-                attribute: .height,
-                multiplier: 1,
-                constant: 16)
-            heighConstraint.isActive = true
+            for label in informationStackView.arrangedSubviews {
+                label.snp.updateConstraints { make in
+                    make.height.equalTo(label).offset(16)
+                }
+            }
         }
         
-//        [topConstraint,
-//         leadingConstraint].forEach({ $0.isActive = true })
-    }
-    
-    private func colorStackViewConstraints() {
-        let topConstraint = NSLayoutConstraint(
-            item: colorsLabelsStack,
-            attribute: .top,
-            relatedBy: .equal,
-            toItem: informationStackView,
-            attribute: .bottom,
-            multiplier: 1,
-            constant: 32)
-        let leadingConstraint = NSLayoutConstraint(
-            item: colorsLabelsStack,
-            attribute: .leading,
-            relatedBy: .equal,
-            toItem: self,
-            attribute: .leadingMargin,
-            multiplier: 1,
-            constant: 24)
-        
-        for label in colorsLabelsStack.arrangedSubviews {
-            let heighConstraint = NSLayoutConstraint(
-                item: label,
-                attribute: .height,
-                relatedBy: .equal,
-                toItem: .none,
-                attribute: .height,
-                multiplier: 1,
-                constant: 16)
-            heighConstraint.isActive = true
+        self.colorsLabelsStack.snp.updateConstraints { make in
+            make.top.equalTo(informationStackView.snp.bottom).offset(32)
+            make.leading.equalToSuperview().offset(24)
+            for label in colorsLabelsStack.arrangedSubviews {
+                label.snp.updateConstraints { make in
+                    make.height.equalTo(16)
+                }
+            }
         }
-        
-        [topConstraint,
-         leadingConstraint].forEach({ $0.isActive = true })
-    }
-    
-    private func colorValueStackViewConstraints() {
-        let topConstraint = NSLayoutConstraint(
-            item: colorsValueStack,
-            attribute: .top,
-            relatedBy: .equal,
-            toItem: informationStackView,
-            attribute: .bottom,
-            multiplier: 1,
-            constant: 32)
-        let leadingConstraint = NSLayoutConstraint(
-            item: colorsValueStack,
-            attribute: .leading,
-            relatedBy: .equal,
-            toItem: colorsLabelsStack,
-            attribute: .trailingMargin,
-            multiplier: 1,
-            constant: 24)
-        
-        for label in colorsValueStack.arrangedSubviews {
-            let heighConstraint = NSLayoutConstraint(
-                item: label,
-                attribute: .height,
-                relatedBy: .equal,
-                toItem: .none,
-                attribute: .height,
-                multiplier: 1,
-                constant: 16)
-            
-            let widthConstraint = NSLayoutConstraint(
-                item: label,
-                attribute: .width,
-                relatedBy: .equal,
-                toItem: .none,
-                attribute: .width,
-                multiplier: 1,
-                constant: 40)
-            heighConstraint.isActive = true
-            widthConstraint.isActive = true
+        self.colorsValueStack.snp.updateConstraints { make in
+            make.top.equalTo(informationStackView.snp.bottom).offset(32)
+            make.leading.equalTo(colorsLabelsStack.snp_trailingMargin).offset(24)
+            for label in colorsValueStack.arrangedSubviews {
+                label.snp.updateConstraints { make in
+                    make.height.equalTo(16)
+                    make.width.equalTo(40)
+                }
+            }
         }
-        
-        [topConstraint,
-         leadingConstraint].forEach({ $0.isActive = true })
-    }
-    
-    private func colorSliderStackViewConstraints() {
-        let topConstraint = NSLayoutConstraint(
-            item: colorSlidersStack,
-            attribute: .top,
-            relatedBy: .equal,
-            toItem: informationStackView,
-            attribute: .bottom,
-            multiplier: 1,
-            constant: 32)
-        let leadingConstraint = NSLayoutConstraint(
-            item: colorSlidersStack,
-            attribute: .leading,
-            relatedBy: .equal,
-            toItem: colorsValueStack,
-            attribute: .trailingMargin,
-            multiplier: 1,
-            constant: 24)
-        let treallingConstraint = NSLayoutConstraint(
-            item: colorSlidersStack,
-            attribute: .trailing,
-            relatedBy: .equal,
-            toItem: self,
-            attribute: .trailingMargin,
-            multiplier: 1,
-            constant: -24)
-        
-        for label in colorSlidersStack.arrangedSubviews {
-            let heighConstraint = NSLayoutConstraint(
-                item: label,
-                attribute: .height,
-                relatedBy: .equal,
-                toItem: .none,
-                attribute: .height,
-                multiplier: 1,
-                constant: 16)
-            heighConstraint.isActive = true
+        self.colorSlidersStack.snp.updateConstraints { make in
+            make.top.equalTo(colorsValueStack.snp.top)
+            make.leading.equalTo(colorsValueStack.snp_trailingMargin).offset(24)
+            make.trailing.equalToSuperview().offset(-24)
+            for label in colorSlidersStack.arrangedSubviews {
+                label.snp.updateConstraints { make in
+                    make.height.equalTo(16)
+                }
+            }
         }
-        
-        [topConstraint,
-         leadingConstraint, treallingConstraint].forEach({ $0.isActive = true })
     }
     
     // MARK: setColor()

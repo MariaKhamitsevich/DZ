@@ -1,5 +1,7 @@
 
 import UIKit
+import SnapKit
+
 struct HomeScreenCellElements {
     let name: String
     let image: UIImage!
@@ -27,7 +29,7 @@ class HomeScreenTableViewCell: UITableViewCell {
         return image
     }()
     var controller: UITableViewController?
-
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(nameLabel)
@@ -46,93 +48,17 @@ class HomeScreenTableViewCell: UITableViewCell {
     }
     
     private func setAllConstraints() {
-       labelConswtraints()
-        productImageConstraints()
-    }
-    
-    private func labelConswtraints() {
-        let xConstraint = NSLayoutConstraint(
-            item: nameLabel,
-            attribute: .centerY,
-            relatedBy: .equal,
-            toItem: contentView,
-            attribute: .centerYWithinMargins,
-            multiplier: 1,
-            constant: .zero)
-        
-        let leadingConstraint = NSLayoutConstraint(
-            item: nameLabel,
-            attribute: .leading,
-            relatedBy: .equal,
-            toItem: contentView,
-            attribute: .leadingMargin,
-            multiplier: 1,
-            constant: 4)
-        
-        let traillingConstraint = NSLayoutConstraint(
-            item: nameLabel,
-            attribute: .trailing,
-            relatedBy: .equal,
-            toItem: productImage,
-            attribute: .leading,
-            multiplier: 1,
-            constant: -4)
-        
-        [xConstraint,
-         traillingConstraint,
-         leadingConstraint].forEach({ $0.isActive = true })
-    }
-    
-    private func productImageConstraints() {
-        let topConstraint = NSLayoutConstraint(
-            item: productImage,
-            attribute: .top,
-            relatedBy: .equal,
-            toItem: contentView,
-            attribute: .topMargin,
-            multiplier: 1,
-            constant: 4)
-        
-        let traillingConstraint = NSLayoutConstraint(
-            item: productImage,
-            attribute: .trailing,
-            relatedBy: .equal,
-            toItem: contentView,
-            attribute: .trailingMargin,
-            multiplier: 1,
-            constant: -4)
-        
-        let bottomConstraint = NSLayoutConstraint(
-            item: productImage,
-            attribute: .bottom,
-            relatedBy: .equal,
-            toItem: contentView,
-            attribute: .bottom,
-            multiplier: 1,
-            constant: -4)
-        
-        let heighConstraint = NSLayoutConstraint(
-            item: productImage,
-            attribute: .height,
-            relatedBy: .equal,
-            toItem: .none,
-            attribute: .height,
-            multiplier: 1,
-            constant: 200)
-        
-        let widthConstraint = NSLayoutConstraint(
-            item: productImage,
-            attribute: .width,
-            relatedBy: .equal,
-            toItem: .none,
-            attribute: .width,
-            multiplier: 1,
-            constant: 200)
-        
-        [topConstraint,
-         bottomConstraint,
-         traillingConstraint,
-         heighConstraint,
-         widthConstraint].forEach({ $0.isActive = true })
+        self.nameLabel.snp.updateConstraints { make in
+            make.centerY.equalTo(contentView.snp.centerYWithinMargins)
+            make.leading.equalTo(contentView.snp.leadingMargin).offset(4)
+            make.trailing.equalTo(productImage.snp.leading).offset(-4)
+        }
+        self.productImage.snp.updateConstraints { make in
+            make.top.equalTo(contentView.snp.topMargin).offset(4)
+            make.bottom.equalTo(contentView.snp.bottomMargin).offset(-4)
+            make.trailing.equalTo(contentView.snp.trailingMargin).offset(-4)
+            make.height.equalTo(200)
+            make.width.equalTo(200)
+        }
     }
 }

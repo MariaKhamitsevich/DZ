@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 struct Product {
     let name: String
@@ -53,7 +54,7 @@ class CatsProductsTableViewCell: UITableViewCell {
     
     private lazy var productDescription: UILabel = {
         let label = UILabel()
-        label.numberOfLines = 5
+        label.numberOfLines = 4
         label.textAlignment = .left
         label.font = UIFont.italicSystemFont(ofSize: 13)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -157,198 +158,32 @@ class CatsProductsTableViewCell: UITableViewCell {
     }
     
     private func setAllConstraints() {
-        productImageConstraints()
-        productNameConstraints()
-        productDescriptionConstraints()
-        productPriceConstraints()
-        productWeightConstraints()
+        self.productImageView.snp.updateConstraints { make in
+            make.top.equalTo(contentView.snp.topMargin).offset(4)
+            make.trailing.equalTo(contentView.snp.trailingMargin).offset(-4)
+            make.bottom.equalTo(contentView.snp.bottom).offset(-4)
+            make.height.equalTo(170)
+            make.width.equalTo(100)
+        }
+        self.productNameLabel.snp.updateConstraints { make in
+            make.top.equalTo(contentView.snp.topMargin).offset(4)
+            make.leadingMargin.equalTo(contentView.snp.leadingMargin).offset(8)
+            make.trailing.equalTo(productImageView.snp.leading).offset(-8)
+        }
+        self.productDescription.snp.updateConstraints { make in
+            make.top.equalTo(productNameLabel.snp.bottom).offset(4)
+            make.leadingMargin.equalTo(contentView.snp.leadingMargin).offset(8)
+            make.trailingMargin.equalTo(productImageView.snp.leading).offset(-8)
+        }
+        self.productPriceLabel.snp.updateConstraints { make in
+            make.top.greaterThanOrEqualTo(productDescription.snp.bottom).offset(4)
+            make.leadingMargin.equalTo(contentView.snp.leadingMargin).offset(8)
+        }
+        self.productWeightLabels.snp.updateConstraints { make in
+            make.top.equalTo(productPriceLabel.snp.bottom).offset(4)
+            make.bottom.equalTo(contentView.snp.bottomMargin).offset(-8)
+            make.leading.equalTo(contentView.snp.leadingMargin).offset(8)
+            make.trailing.lessThanOrEqualTo(productImageView.snp.leading).offset(-8)
+        }
     }
-    
-    private func productImageConstraints() {
-        let topConstraint = NSLayoutConstraint(
-            item: productImageView,
-            attribute: .top,
-            relatedBy: .equal,
-            toItem: contentView,
-            attribute: .topMargin,
-            multiplier: 1,
-            constant: 4)
-        
-        let traillingConstraint = NSLayoutConstraint(
-            item: productImageView,
-            attribute: .trailing,
-            relatedBy: .equal,
-            toItem: contentView,
-            attribute: .trailingMargin,
-            multiplier: 1,
-            constant: -4)
-        
-        let bottomConstraint = NSLayoutConstraint(
-            item: productImageView,
-            attribute: .bottom,
-            relatedBy: .equal,
-            toItem: contentView,
-            attribute: .bottom,
-            multiplier: 1,
-            constant: -4)
-        
-        let heighConstraint = NSLayoutConstraint(
-            item: productImageView,
-            attribute: .height,
-            relatedBy: .equal,
-            toItem: .none,
-            attribute: .height,
-            multiplier: 1,
-            constant: 170)
-        
-        let widthConstraint = NSLayoutConstraint(
-            item: productImageView,
-            attribute: .width,
-            relatedBy: .equal,
-            toItem: .none,
-            attribute: .width,
-            multiplier: 1,
-            constant: 100)
-        
-        [topConstraint,
-         bottomConstraint,
-         traillingConstraint,
-         heighConstraint,
-         widthConstraint].forEach({ $0.isActive = true })
-    }
-    
-    private func productNameConstraints() {
-        let topConstraint = NSLayoutConstraint(
-            item: productNameLabel,
-            attribute: .top,
-            relatedBy: .equal,
-            toItem: contentView,
-            attribute: .topMargin,
-            multiplier: 1,
-            constant: 4)
-        
-        let leadingConstraint = NSLayoutConstraint(
-            item: productNameLabel,
-            attribute: .leading,
-            relatedBy: .equal,
-            toItem: contentView,
-            attribute: .leadingMargin,
-            multiplier: 1,
-            constant: 8)
-        
-        let traillingConstraint = NSLayoutConstraint(
-            item: productNameLabel,
-            attribute: .trailing,
-            relatedBy: .equal,
-            toItem: productImageView,
-            attribute: .leading,
-            multiplier: 1,
-            constant: -8)
-        
-        [topConstraint,
-         traillingConstraint,
-         leadingConstraint].forEach({ $0.isActive = true })
-    }
-    
-    private func productDescriptionConstraints() {
-        let topConstraint = NSLayoutConstraint(
-            item: productDescription,
-            attribute: .top,
-            relatedBy: .equal,
-            toItem: productNameLabel,
-            attribute: .bottom,
-            multiplier: 1,
-            constant: 4)
-        
-        let leadingConstraint = NSLayoutConstraint(
-            item: productDescription,
-            attribute: .leading,
-            relatedBy: .equal,
-            toItem: contentView,
-            attribute: .leadingMargin,
-            multiplier: 1,
-            constant: 8)
-        
-        let traillingConstraint = NSLayoutConstraint(
-            item: productDescription,
-            attribute: .trailing,
-            relatedBy: .equal,
-            toItem: productImageView,
-            attribute: .leading,
-            multiplier: 1,
-            constant: -8)
-        
-        
-        [topConstraint,
-         traillingConstraint,
-         leadingConstraint].forEach({ $0.isActive = true })
-    }
-    
-    private func productPriceConstraints() {
-        let topConstraint = NSLayoutConstraint(
-            item: productPriceLabel,
-            attribute: .top,
-            relatedBy: .greaterThanOrEqual,
-            toItem: productDescription,
-            attribute: .bottom,
-            multiplier: 1,
-            constant: 4)
-        
-        let leadingConstraint = NSLayoutConstraint(
-            item: productPriceLabel,
-            attribute: .leading,
-            relatedBy: .equal,
-            toItem: contentView,
-            attribute: .leadingMargin,
-            multiplier: 1,
-            constant: 8)
-        
-        [topConstraint,
-         leadingConstraint].forEach({ $0.isActive = true })
-    }
-    
-    private func productWeightConstraints() {
-        let topConstraint = NSLayoutConstraint(
-            item: productWeightLabels,
-            attribute: .top,
-            relatedBy: .equal,
-            toItem: productPriceLabel,
-            attribute: .bottom,
-            multiplier: 1,
-            constant: 4)
-        
-        let bottomConstraint = NSLayoutConstraint(
-            item: productWeightLabels,
-            attribute: .bottomMargin,
-            relatedBy: .equal,
-            toItem: contentView,
-            attribute: .bottom,
-            multiplier: 1,
-            constant: -8)
-        
-        let leadingConstraint = NSLayoutConstraint(
-            item: productWeightLabels,
-            attribute: .leading,
-            relatedBy: .equal,
-            toItem: contentView,
-            attribute: .leadingMargin,
-            multiplier: 1,
-            constant: 8)
-        
-        let traillingConstraint = NSLayoutConstraint(
-            item: productWeightLabels,
-            attribute: .trailing,
-            relatedBy: .lessThanOrEqual,
-            toItem: productImageView,
-            attribute: .leading,
-            multiplier: 1,
-            constant: -8)
-        
-        
-        [topConstraint,
-         bottomConstraint,
-         traillingConstraint,
-         leadingConstraint].forEach({ $0.isActive = true })
-    }
-    
 }

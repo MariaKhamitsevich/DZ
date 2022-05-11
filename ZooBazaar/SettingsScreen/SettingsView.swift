@@ -21,7 +21,7 @@ class SettingsView: UIView {
     private lazy var telephoneLabel: UILabel = {
         let label = UILabel()
         label.text = "Telephone: +375251234567"
-        label.textColor = UIColor(red: 188/255, green: 22/255, blue: 72/255, alpha: 1)
+        label.textColor = ColorsManager.zbzbTextColor
         label.textAlignment = .left
         label.font = UIFont.italicSystemFont(ofSize: 16)
         
@@ -31,7 +31,7 @@ class SettingsView: UIView {
     private lazy var emailLabel: UILabel = {
         let label = UILabel()
         label.text = "Email: zoobazaar@zoobazaar.by"
-        label.textColor = UIColor(red: 188/255, green: 22/255, blue: 72/255, alpha: 1)
+        label.textColor = ColorsManager.zbzbTextColor
         label.textAlignment = .left
         label.font = UIFont.italicSystemFont(ofSize: 16)
         
@@ -41,7 +41,7 @@ class SettingsView: UIView {
     private lazy var addressLabel: UILabel = {
         let label = UILabel()
         label.text = "Address: Pershaya str., 1"
-        label.textColor = UIColor(red: 188/255, green: 22/255, blue: 72/255, alpha: 1)
+        label.textColor = ColorsManager.zbzbTextColor
         label.textAlignment = .left
         label.font = UIFont.italicSystemFont(ofSize: 16)
         
@@ -64,7 +64,7 @@ class SettingsView: UIView {
     private lazy var redTitleLabel: UILabel = {
         let label = UILabel()
         label.text = "Red"
-        label.textColor = UIColor(red: 188/255, green: 22/255, blue: 72/255, alpha: 1)
+        label.textColor = ColorsManager.zbzbTextColor
         label.textAlignment = .left
         label.font = UIFont.italicSystemFont(ofSize: 16)
         
@@ -74,7 +74,7 @@ class SettingsView: UIView {
     private lazy var greenTitleLabel: UILabel = {
         let label = UILabel()
         label.text = "Green"
-        label.textColor = UIColor(red: 188/255, green: 22/255, blue: 72/255, alpha: 1)
+        label.textColor = ColorsManager.zbzbTextColor
         label.textAlignment = .left
         label.font = UIFont.italicSystemFont(ofSize: 16)
         
@@ -84,7 +84,7 @@ class SettingsView: UIView {
     private lazy var blueTitleLabel: UILabel = {
         let label = UILabel()
         label.text = "Blue"
-        label.textColor = UIColor(red: 188/255, green: 22/255, blue: 72/255, alpha: 1)
+        label.textColor = ColorsManager.zbzbTextColor
         label.textAlignment = .left
         label.font = UIFont.italicSystemFont(ofSize: 16)
         
@@ -107,7 +107,7 @@ class SettingsView: UIView {
     private lazy var redValueLabel: UILabel = {
         let label = UILabel()
         label.text = String(Int(redSlider.value))
-        label.textColor = UIColor(red: 188/255, green: 22/255, blue: 72/255, alpha: 1)
+        label.textColor = ColorsManager.zbzbTextColor
         label.textAlignment = .center
         label.font = UIFont.boldSystemFont(ofSize: 16)
         
@@ -117,7 +117,7 @@ class SettingsView: UIView {
     private lazy var greenValueLabel: UILabel = {
         let label = UILabel()
         label.text = String(Int(greenSlider.value))
-        label.textColor = UIColor(red: 188/255, green: 22/255, blue: 72/255, alpha: 1)
+        label.textColor = ColorsManager.zbzbTextColor
         label.textAlignment = .center
         label.font = UIFont.boldSystemFont(ofSize: 16)
         
@@ -127,7 +127,7 @@ class SettingsView: UIView {
     private lazy var blueValueLabel: UILabel = {
         let label = UILabel()
         label.text = String(Int(blueSlider.value))
-        label.textColor = UIColor(red: 188/255, green: 22/255, blue: 72/255, alpha: 1)
+        label.textColor = ColorsManager.zbzbTextColor
         label.textAlignment = .center
         label.font = UIFont.boldSystemFont(ofSize: 16)
         
@@ -163,7 +163,7 @@ class SettingsView: UIView {
         let slider = UISlider()
         slider.minimumValue = 0
         slider.maximumValue = 255
-        slider.value = 190
+        slider.value = 217
         slider.tag = 1
         slider.isContinuous = true
         slider.isEnabled = true
@@ -176,7 +176,7 @@ class SettingsView: UIView {
         let slider = UISlider()
         slider.minimumValue = 0
         slider.maximumValue = 255
-        slider.value = 189
+        slider.value = 221
         slider.tag = 2
         slider.isContinuous = true
         slider.isEnabled = true
@@ -198,7 +198,7 @@ class SettingsView: UIView {
     // MARK: Init
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = UIColor(red: 255/255, green: 190/255, blue: 189/255, alpha: 1)
+        self.backgroundColor = ColorsManager.zbzbBackgroundColor
         addSubview(informationStackView)
         addSubview(colorsLabelsStack)
         addSubview(colorsValueStack)

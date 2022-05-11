@@ -5,7 +5,7 @@ import SnapKit
 struct HomeScreenCellElements {
     let name: String
     let image: UIImage!
-    let controller: UITableViewController
+    
 }
 
 class HomeScreenTableViewCell: UITableViewCell {
@@ -57,8 +57,8 @@ class HomeScreenTableViewCell: UITableViewCell {
             make.top.equalTo(contentView.snp.topMargin).offset(4)
             make.bottom.equalTo(contentView.snp.bottomMargin).offset(-4)
             make.trailing.equalTo(contentView.snp.trailingMargin).offset(-4)
-            make.height.equalTo(200)
-            make.width.equalTo(200)
+            make.height.equalTo(160)
+            make.width.equalTo(160)
         }
     }
 }

@@ -10,10 +10,15 @@
 		081986E12283699EAA7385BD /* Pods_ZooBazaar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DD676816D64993129A1D5D7 /* Pods_ZooBazaar.framework */; };
 		4C1DAB03281928C20043B08D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1DAB02281928C20043B08D /* SettingsViewController.swift */; };
 		4C1DAB05281928D40043B08D /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1DAB04281928D40043B08D /* SettingsView.swift */; };
-		4C1DAB08281944AB0043B08D /* NavigationControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1DAB07281944AB0043B08D /* NavigationControllers.swift */; };
-		4C1DAB0A2819453E0043B08D /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1DAB092819453E0043B08D /* FavoritesViewController.swift */; };
-		4C37E0BA281F057E00D393F5 /* CatsProductsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C37E0B9281F057E00D393F5 /* CatsProductsTableViewController.swift */; };
-		4C37E0BD281F10EA00D393F5 /* CatsProductsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C37E0BC281F10EA00D393F5 /* CatsProductsTableViewCell.swift */; };
+		4C1DAB0A2819453E0043B08D /* CartViewControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1DAB092819453E0043B08D /* CartViewControllerViewController.swift */; };
+		4C21A87028290EFF00C47623 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C21A86F28290EFF00C47623 /* ProfileViewController.swift */; };
+		4C21A873282910C100C47623 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C21A872282910C100C47623 /* ProfileView.swift */; };
+		4C21A875282912DB00C47623 /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C21A874282912DB00C47623 /* CartView.swift */; };
+		4C21A8782829555400C47623 /* MapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C21A8772829555400C47623 /* MapsViewController.swift */; };
+		4C21A87A2829556500C47623 /* MapsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C21A8792829556500C47623 /* MapsView.swift */; };
+		4C21A87C282BAF0400C47623 /* Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C21A87B282BAF0400C47623 /* Products.swift */; };
+		4C37E0BA281F057E00D393F5 /* ProductsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C37E0B9281F057E00D393F5 /* ProductsTableViewController.swift */; };
+		4C37E0BD281F10EA00D393F5 /* ProductsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C37E0BC281F10EA00D393F5 /* ProductsTableViewCell.swift */; };
 		4C5278492820FC6300BACCB8 /* ProductsTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5278482820FC6300BACCB8 /* ProductsTableHeaderView.swift */; };
 		4C5457AB28223B220043205D /* HomeScreenTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5457AA28223B220043205D /* HomeScreenTableViewCell.swift */; };
 		4C5457AD2822CC8D0043205D /* ColorsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5457AC2822CC8D0043205D /* ColorsManager.swift */; };
@@ -31,10 +36,15 @@
 		3DB11383CFEA9546588F2533 /* Pods-ZooBazaar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZooBazaar.debug.xcconfig"; path = "Target Support Files/Pods-ZooBazaar/Pods-ZooBazaar.debug.xcconfig"; sourceTree = "<group>"; };
 		4C1DAB02281928C20043B08D /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		4C1DAB04281928D40043B08D /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		4C1DAB07281944AB0043B08D /* NavigationControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationControllers.swift; sourceTree = "<group>"; };
-		4C1DAB092819453E0043B08D /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
-		4C37E0B9281F057E00D393F5 /* CatsProductsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsProductsTableViewController.swift; sourceTree = "<group>"; };
-		4C37E0BC281F10EA00D393F5 /* CatsProductsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsProductsTableViewCell.swift; sourceTree = "<group>"; };
+		4C1DAB092819453E0043B08D /* CartViewControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewControllerViewController.swift; sourceTree = "<group>"; };
+		4C21A86F28290EFF00C47623 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		4C21A872282910C100C47623 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		4C21A874282912DB00C47623 /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
+		4C21A8772829555400C47623 /* MapsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsViewController.swift; sourceTree = "<group>"; };
+		4C21A8792829556500C47623 /* MapsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsView.swift; sourceTree = "<group>"; };
+		4C21A87B282BAF0400C47623 /* Products.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Products.swift; sourceTree = "<group>"; };
+		4C37E0B9281F057E00D393F5 /* ProductsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsTableViewController.swift; sourceTree = "<group>"; };
+		4C37E0BC281F10EA00D393F5 /* ProductsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsTableViewCell.swift; sourceTree = "<group>"; };
 		4C5278482820FC6300BACCB8 /* ProductsTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsTableHeaderView.swift; sourceTree = "<group>"; };
 		4C5457AA28223B220043205D /* HomeScreenTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenTableViewCell.swift; sourceTree = "<group>"; };
 		4C5457AC2822CC8D0043205D /* ColorsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsManager.swift; sourceTree = "<group>"; };
@@ -79,30 +89,51 @@
 			path = SettingsScreen;
 			sourceTree = "<group>";
 		};
+		4C21A87128290F0700C47623 /* ProfileScreen */ = {
+			isa = PBXGroup;
+			children = (
+				4C21A86F28290EFF00C47623 /* ProfileViewController.swift */,
+				4C21A872282910C100C47623 /* ProfileView.swift */,
+			);
+			path = ProfileScreen;
+			sourceTree = "<group>";
+		};
+		4C21A8762829550400C47623 /* MapsScreen */ = {
+			isa = PBXGroup;
+			children = (
+				4C21A8772829555400C47623 /* MapsViewController.swift */,
+				4C21A8792829556500C47623 /* MapsView.swift */,
+			);
+			path = MapsScreen;
+			sourceTree = "<group>";
+		};
 		4C37E0BB281F058900D393F5 /* CatsProductsTable */ = {
 			isa = PBXGroup;
 			children = (
-				4C37E0B9281F057E00D393F5 /* CatsProductsTableViewController.swift */,
-				4C37E0BC281F10EA00D393F5 /* CatsProductsTableViewCell.swift */,
+				4C37E0B9281F057E00D393F5 /* ProductsTableViewController.swift */,
+				4C37E0BC281F10EA00D393F5 /* ProductsTableViewCell.swift */,
 				4C5278482820FC6300BACCB8 /* ProductsTableHeaderView.swift */,
 			);
 			path = CatsProductsTable;
 			sourceTree = "<group>";
 		};
-		4C37E0BE281F10F600D393F5 /* FavoritesScreen */ = {
+		4C37E0BE281F10F600D393F5 /* BasketScreen */ = {
 			isa = PBXGroup;
 			children = (
-				4C1DAB092819453E0043B08D /* FavoritesViewController.swift */,
+				4C1DAB092819453E0043B08D /* CartViewControllerViewController.swift */,
+				4C21A874282912DB00C47623 /* CartView.swift */,
 			);
-			path = FavoritesScreen;
+			path = BasketScreen;
 			sourceTree = "<group>";
 		};
 		4CED642928187D250052A2C2 = {
 			isa = PBXGroup;
 			children = (
+				4C21A8762829550400C47623 /* MapsScreen */,
 				4C37E0BB281F058900D393F5 /* CatsProductsTable */,
-				4C37E0BE281F10F600D393F5 /* FavoritesScreen */,
+				4C37E0BE281F10F600D393F5 /* BasketScreen */,
 				4C1DAB06281928E40043B08D /* SettingsScreen */,
+				4C21A87128290F0700C47623 /* ProfileScreen */,
 				4CED644D28187E8E0052A2C2 /* HomeScreen */,
 				4CED643428187D250052A2C2 /* ZooBazaar */,
 				4CED643328187D250052A2C2 /* Products */,
@@ -128,8 +159,8 @@
 				4CED643E28187D290052A2C2 /* Assets.xcassets */,
 				4CED644028187D290052A2C2 /* LaunchScreen.storyboard */,
 				4CED644328187D290052A2C2 /* Info.plist */,
-				4C1DAB07281944AB0043B08D /* NavigationControllers.swift */,
 				4C5457AC2822CC8D0043205D /* ColorsManager.swift */,
+				4C21A87B282BAF0400C47623 /* Products.swift */,
 			);
 			path = ZooBazaar;
 			sourceTree = "<group>";
@@ -150,7 +181,6 @@
 				3DB11383CFEA9546588F2533 /* Pods-ZooBazaar.debug.xcconfig */,
 				1C1FC681AABBD42154FDBFD1 /* Pods-ZooBazaar.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -269,18 +299,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C1DAB05281928D40043B08D /* SettingsView.swift in Sources */,
-				4C1DAB0A2819453E0043B08D /* FavoritesViewController.swift in Sources */,
+				4C1DAB0A2819453E0043B08D /* CartViewControllerViewController.swift in Sources */,
 				4CED643A28187D250052A2C2 /* ViewController.swift in Sources */,
+				4C21A875282912DB00C47623 /* CartView.swift in Sources */,
 				4CED644A28187E5E0052A2C2 /* HomeScreenViewController.swift in Sources */,
 				4C5278492820FC6300BACCB8 /* ProductsTableHeaderView.swift in Sources */,
 				4C5457AB28223B220043205D /* HomeScreenTableViewCell.swift in Sources */,
 				4CED644C28187E7F0052A2C2 /* HomeScreenView.swift in Sources */,
 				4CED643628187D250052A2C2 /* AppDelegate.swift in Sources */,
-				4C1DAB08281944AB0043B08D /* NavigationControllers.swift in Sources */,
+				4C21A87A2829556500C47623 /* MapsView.swift in Sources */,
+				4C21A873282910C100C47623 /* ProfileView.swift in Sources */,
+				4C21A8782829555400C47623 /* MapsViewController.swift in Sources */,
 				4C5457AD2822CC8D0043205D /* ColorsManager.swift in Sources */,
-				4C37E0BD281F10EA00D393F5 /* CatsProductsTableViewCell.swift in Sources */,
+				4C37E0BD281F10EA00D393F5 /* ProductsTableViewCell.swift in Sources */,
 				4CED643828187D250052A2C2 /* SceneDelegate.swift in Sources */,
-				4C37E0BA281F057E00D393F5 /* CatsProductsTableViewController.swift in Sources */,
+				4C21A87028290EFF00C47623 /* ProfileViewController.swift in Sources */,
+				4C37E0BA281F057E00D393F5 /* ProductsTableViewController.swift in Sources */,
+				4C21A87C282BAF0400C47623 /* Products.swift in Sources */,
 				4C1DAB03281928C20043B08D /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

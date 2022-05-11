@@ -24,12 +24,16 @@ struct Product {
     let isFourthweight: Bool
 }
 
-class CatsProductsTableViewCell: UITableViewCell {
+class ProductsTableViewCell: UITableViewCell {
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        productDescription.numberOfLines = 4
+    }
     
     private lazy var productImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        
+                
         return imageView
     }()
     
@@ -58,6 +62,7 @@ class CatsProductsTableViewCell: UITableViewCell {
         label.textAlignment = .left
         label.font = UIFont.italicSystemFont(ofSize: 13)
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.isUserInteractionEnabled = true
         
         return label
     }()
@@ -130,6 +135,7 @@ class CatsProductsTableViewCell: UITableViewCell {
         contentView.addSubview(productWeightLabels)
         
         setAllConstraints()
+        setGestureDescriprion()
     }
     
     required init?(coder: NSCoder) {
@@ -163,12 +169,13 @@ class CatsProductsTableViewCell: UITableViewCell {
             make.trailing.equalTo(contentView.snp.trailingMargin).offset(-4)
             make.bottom.equalTo(contentView.snp.bottom).offset(-4)
             make.height.equalTo(170)
-            make.width.equalTo(100)
+            make.width.equalTo(90)
         }
         self.productNameLabel.snp.updateConstraints { make in
             make.top.equalTo(contentView.snp.topMargin).offset(4)
             make.leadingMargin.equalTo(contentView.snp.leadingMargin).offset(8)
             make.trailing.equalTo(productImageView.snp.leading).offset(-8)
+            make.height.equalTo(48)
         }
         self.productDescription.snp.updateConstraints { make in
             make.top.equalTo(productNameLabel.snp.bottom).offset(4)
@@ -181,9 +188,62 @@ class CatsProductsTableViewCell: UITableViewCell {
         }
         self.productWeightLabels.snp.updateConstraints { make in
             make.top.equalTo(productPriceLabel.snp.bottom).offset(4)
-            make.bottom.equalTo(contentView.snp.bottomMargin).offset(-8)
+            make.bottom.equalTo(productImageView.snp.bottom).offset(-4)
             make.leading.equalTo(contentView.snp.leadingMargin).offset(8)
             make.trailing.lessThanOrEqualTo(productImageView.snp.leading).offset(-8)
         }
+    }
+    private var isActive: Bool = false {
+        didSet {
+            isActive.toggle()
+            if isActive {
+                self.productImageView.snp.updateConstraints { make in
+                    make.top.equalTo(contentView.snp.topMargin).offset(4)
+                    make.trailing.equalTo(contentView.snp.trailingMargin).offset(-4)
+                    make.bottom.equalTo(contentView.snp.bottom).offset(-4)
+                    make.height.equalTo(255)
+                    make.width.equalTo(135)
+                }
+                productDescription.numberOfLines = 0
+            } else {
+                self.productImageView.snp.updateConstraints { make in
+                    make.top.equalTo(contentView.snp.topMargin).offset(4)
+                    make.trailing.equalTo(contentView.snp.trailingMargin).offset(-4)
+                    make.bottom.equalTo(contentView.snp.bottom).offset(-4)
+                    make.height.equalTo(170)
+                    make.width.equalTo(90)
+                }
+                productDescription.numberOfLines = 4
+            }
+        }
+    }
+    
+    func setGestureDescriprion() {
+        let tapGesture = UIGestureRecognizer(target: self, action: #selector(self.watchTheDescription))
+        productDescription.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func watchTheDescription(_ gesture: UITapGestureRecognizer) {
+        
+        isActive.toggle()
+//        if isActive {
+//            self.productImageView.snp.updateConstraints { make in
+//                make.top.equalTo(contentView.snp.topMargin).offset(4)
+//                make.trailing.equalTo(contentView.snp.trailingMargin).offset(-4)
+//                make.bottom.equalTo(contentView.snp.bottom).offset(-4)
+//                make.height.equalTo(255)
+//                make.width.equalTo(135)
+//            }
+//            productDescription.numberOfLines = 0
+//        } else {
+//            self.productImageView.snp.updateConstraints { make in
+//                make.top.equalTo(contentView.snp.topMargin).offset(4)
+//                make.trailing.equalTo(contentView.snp.trailingMargin).offset(-4)
+//                make.bottom.equalTo(contentView.snp.bottom).offset(-4)
+//                make.height.equalTo(170)
+//                make.width.equalTo(90)
+//            }
+//            productDescription.numberOfLines = 4
+//        }
     }
 }

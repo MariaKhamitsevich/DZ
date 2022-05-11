@@ -6,14 +6,17 @@ protocol BackgroundColorSetable: AnyObject {
 }
 
 class TableViewSettings: NSObject, UITableViewDelegate, UITableViewDataSource {
-    var arrayOfProducts = [HomeScreenCellElements(name: "Products for cats", image: UIImage(named: "cats products"), controller: CatsProductsTableViewController()),
-                           HomeScreenCellElements(name: "Products for dogs", image: UIImage(named: "dogs"), controller: CatsProductsTableViewController()),
-                           HomeScreenCellElements(name: "Products for rodents", image: UIImage(named: "Mouse"), controller: CatsProductsTableViewController())]
+    var arrayOfProducts = [HomeScreenCellElements(name: "Products for cats", image: UIImage(named: "cats products")),
+                           HomeScreenCellElements(name: "Products for dogs", image: UIImage(named: "dogs")),
+                           HomeScreenCellElements(name: "Products for rodents", image: UIImage(named: "Mouse"))]
+    
+    var cats = Pets.cats
+    var dogs = Pets.dogs
+    var rodents = Pets.rodents
     
     weak var controllerDelegate: UIViewController?
     override init() {
         super.init()
-        
     }
     
     required init?(coder: NSCoder) {
@@ -33,15 +36,25 @@ class TableViewSettings: NSObject, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HomeScreenTableViewCell") as! HomeScreenTableViewCell
-        controllerDelegate?.navigationController?.pushViewController(cell.controller ?? CatsProductsTableViewController(), animated: true)
+        switch indexPath.row {
+        case 0:
+            controllerDelegate?.navigationController?.pushViewController(cell.controller ?? ProductsTableViewController(pets: cats), animated: true)
+        case 1:
+            controllerDelegate?.navigationController?.pushViewController(cell.controller ?? ProductsTableViewController(pets: dogs), animated: true)
+        case 2:
+            controllerDelegate?.navigationController?.pushViewController(cell.controller ?? ProductsTableViewController(pets: rodents), animated: true)
+        default:
+            controllerDelegate?.navigationController?.pushViewController(cell.controller ?? ProductsTableViewController(pets: cats), animated: true)
+        }
+        
     }
 }
 
 class HomeScreenViewController: UIViewController, BackgroundColorSetable {
     
     var redShadeOfBackground: Float = 255
-    var greenShadeOfBackground: Float = 190
-    var blueShadeOfBackGround: Float = 189
+    var greenShadeOfBackground: Float = 217
+    var blueShadeOfBackGround: Float = 221
     var tableDelegate = TableViewSettings()
     private var homeView: HomeScreenView {
         view as! HomeScreenView
@@ -56,6 +69,7 @@ class HomeScreenViewController: UIViewController, BackgroundColorSetable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.isNavigationBarHidden = true
         
         homeView.settingsButton.addTarget(self, action: #selector(runToSettings), for: .touchUpInside)
                       
@@ -66,7 +80,10 @@ class HomeScreenViewController: UIViewController, BackgroundColorSetable {
         
     }
     
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = true
+    }
     @objc func runToSettings(_ sender: UIButton) {
         
         let controller = SettingsViewController()

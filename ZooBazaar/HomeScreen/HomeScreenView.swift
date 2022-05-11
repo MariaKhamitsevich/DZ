@@ -22,14 +22,7 @@ class HomeScreenView: UIView {
         
         return button
     }()
-    
-    lazy var basketImage: UIImageView = {
-        let image = UIImageView(image: UIImage(named: "basket"), highlightedImage: UIImage(named: "basket"))
-        image.tintColor = ColorsManager.zbzbTextColor
-        
-        return image
-    }()
-    
+      
     lazy var tableView: UITableView = {
         let table = UITableView(frame: .zero, style: .plain)
         table.backgroundColor = ColorsManager.zbzbBackgroundColor
@@ -44,11 +37,10 @@ class HomeScreenView: UIView {
         
         addSubview(wellcomeLabel)
         addSubview(settingsButton)
-        addSubview(basketImage)
         addSubview(tableView)
         
         setAllConstrains()
-        [wellcomeLabel, settingsButton, basketImage, tableView].forEach({$0.translatesAutoresizingMaskIntoConstraints = false})
+        [wellcomeLabel, settingsButton, tableView].forEach({$0.translatesAutoresizingMaskIntoConstraints = false})
     }
     
     required init?(coder: NSCoder) {
@@ -57,26 +49,20 @@ class HomeScreenView: UIView {
     
     private func setAllConstrains() {
         self.wellcomeLabel.snp.updateConstraints { make in
-            make.topMargin.equalToSuperview().offset(56)
+            make.topMargin.equalToSuperview().offset(40)
             make.leading.equalToSuperview().offset(24)
             make.trailing.equalToSuperview().offset(-24)
             make.height.equalTo(24)
         }
         self.settingsButton.snp.updateConstraints { make in
-            make.topMargin.equalToSuperview().offset(16)
+            make.topMargin.equalToSuperview().offset(8)
             make.trailingMargin.equalToSuperview().offset(-16)
-            make.height.equalTo(16)
-            make.width.equalTo(16)
-        }
-        self.basketImage.snp.updateConstraints { make in
-            make.topMargin.equalToSuperview().offset(16)
-            make.trailing.equalTo(settingsButton.snp.trailingMargin).offset(-24)
             make.height.equalTo(16)
             make.width.equalTo(16)
         }
         self.tableView.snp.updateConstraints { make in
             make.topMargin.equalTo(wellcomeLabel.snp.bottomMargin).offset(24)
-            make.bottomMargin.equalToSuperview().offset(-8)
+            make.bottom.equalTo(self.snp.bottomMargin)
             make.leadingMargin.equalToSuperview().offset(8)
             make.trailingMargin.equalTo(-8)
         }

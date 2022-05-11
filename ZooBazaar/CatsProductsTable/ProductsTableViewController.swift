@@ -7,76 +7,67 @@
 
 import UIKit
 
-class CatsProductsTableViewController: UITableViewController {
-    
-    lazy var allProducts: [[Product]] = {
-        var array: [[Product]] = []
-        array.append(royalCaninProducts)
-        array.append(whiskasProducts)
-        
-        return array
-    }()
-    
-    var royalCaninProducts: [Product] = [Product(name: "Roayl Canin Sterilized", description: "Royal Canin Sterilized 37 food for sterilized cats from 1 to 7 years old.", image: UIImage(named: "roal canin"), price: "17", isFirstweight: true, isSecondweight: true, isThirdweight: true, isFourthweight: true), Product(name: "Royal Canin Maine Coon", description: "Royal Canin Maine Coon is designed specifically for Maine Coon cats over the age of 15 months.", image: UIImage(named: "Royal Canin Maine Coon"), price: "30.5", isFirstweight: true, isSecondweight: false, isThirdweight: false, isFourthweight: true), Product(name: "Royal Canin Exigent Savour Sensation", description: "Savor sensation is designed for finicky cats. These are two different types of croquette that differ in shape, texture and composition.", image: UIImage(named: "Royal Canin Exigent Savour Sensation"), price: "25.5", isFirstweight: true, isSecondweight: false, isThirdweight: true, isFourthweight: true)]
-    
-    var whiskasProducts: [Product] = [Product(name: "Whiskas for adult cats (Beef)", description: "Whiskas for sterilized cats (Beef) is a complete dry food for adult cats and cats. Whiskas contains all the necessary vitamins and minerals, proteins, fats and carbohydrates in the right proportions to keep your pet healthy from whiskers to tail.", image: UIImage(named: "Whiskas for adult cats (Beef)"), price: "7.25", isFirstweight: false, isSecondweight: false, isThirdweight: true, isFourthweight: true)]
 
+class ProductsTableViewController: UITableViewController {
+    
+    var pets: Pets
+    var products: [[Product]] {
+        pets.items
+    }
+    
+    
+    init(pets: Pets) {
+        self.pets = pets
+        super.init(style: UITableView.Style.plain)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.separatorStyle = .none
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.register(CatsProductsTableViewCell.self, forCellReuseIdentifier: "CatsProductsTableViewCell")
+        tableView.register(ProductsTableViewCell.self, forCellReuseIdentifier: "ProductsTableViewCell")
+        
+
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+//         self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = false
+    }
+    
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return allProducts.count
+                    return products.count
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = ProductsTableHeaderView()
-        if section == 0 {
-            view.title = "Royal Canin"
-        }
-        else {
-            view.title = "Whiskas"
-        }
+        view.title = pets.titles[section]
         return view
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        switch section {
-        case 0:
-            return royalCaninProducts.count
-        case 1:
-            return whiskasProducts.count
-        default:
-            return 0
-        }
-        
+        products[section].count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CatsProductsTableViewCell") as! CatsProductsTableViewCell
-        switch indexPath.section{
-        case 0:
-            cell.updateValues(product: royalCaninProducts[indexPath.row])
-            return cell
-            //        case royalCaninProducts.count..<(royalCaninProducts.count + whiskasProducts.count):
-        default:
-            cell.updateValues(product: whiskasProducts[indexPath.row])
-            return cell
-            
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ProductsTableViewCell") as! ProductsTableViewCell
+        cell.updateValues(product: (products[indexPath.section])[indexPath.row])
+        return cell
     }
    
 

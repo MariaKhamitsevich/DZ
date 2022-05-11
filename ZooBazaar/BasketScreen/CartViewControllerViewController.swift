@@ -7,12 +7,13 @@
 
 import UIKit
 
-class FavoritesViewController: UIViewController {
-
+class CartViewController: UIViewController {
+    override func loadView() {
+        view = CartView()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+                
     }
     
 

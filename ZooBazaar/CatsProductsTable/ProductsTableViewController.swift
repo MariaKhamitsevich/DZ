@@ -7,8 +7,13 @@
 
 import UIKit
 
+protocol TableDataReloading: AnyObject {
+    func reload()
+}
 
-class ProductsTableViewController: UITableViewController {
+class ProductsTableViewController: UITableViewController, TableDataReloading {
+    
+    
     
     var pets: Pets
     var products: [[Product]] {
@@ -30,8 +35,8 @@ class ProductsTableViewController: UITableViewController {
         tableView.separatorStyle = .none
         tableView.rowHeight = UITableView.automaticDimension
         tableView.register(ProductsTableViewCell.self, forCellReuseIdentifier: "ProductsTableViewCell")
-        
 
+       
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -65,19 +70,31 @@ class ProductsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProductsTableViewCell") as! ProductsTableViewCell
+        cell.tableReloadDelegate = self
         cell.updateValues(product: (products[indexPath.section])[indexPath.row])
         return cell
     }
-   
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    func reload() {
+        if let index = tableView.indexPathForSelectedRow {
+        self.tableView.reloadRows(at: [index], with: .none)
+        } else {
+            self.tableView.reloadRows(at: [], with: .none)
+        }
     }
-    */
+
+    
+    
+   
+    // Override to support conditional editing of the table view.
+//    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+////         Return false if you do not want the specified item to be editable.
+//
+//        return true
+//    }
+   
 
     /*
     // Override to support editing the table view.

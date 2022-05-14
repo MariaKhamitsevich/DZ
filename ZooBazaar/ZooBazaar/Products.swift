@@ -36,7 +36,7 @@ enum Pets {
                 ]
             case .whiskas:
                 array = [
-                    Product(name: "Whiskas for adult cats (Beef)", description: "Whiskas for sterilized cats (Beef) is a complete dry food for adult cats and cats. Whiskas contains all the necessary vitamins and minerals, proteins, fats and carbohydrates in the right proportions to keep your pet healthy from whiskers to tail.", image: UIImage(named: "Whiskas for adult cats (Beef)"), price: "7.25", isFirstweight: false, isSecondweight: false, isThirdweight: true, isFourthweight: true)
+                    Product(name: "Whiskas for adult cats (Beef)", description: "Whiskas for sterilized cats (Beef) is a complete dry food for adult cats and cats. Whiskas contains all the necessary vitamins and minerals, proteins, fats and carbohydrates in the right proportions to keep your pet healthy from whiskers to tail.", image: UIImage(named: "Whiskas for adult cats (Beef)"), price: "7.25", isFirstweight: true, isSecondweight: false, isThirdweight: true, isFourthweight: true)
                 ]
             }
             return array
@@ -86,7 +86,7 @@ enum Pets {
             switch self {
             case .littleKing:
                 array = [
-                    Product(name: "Little King лакомство для грызунов (корзинка зерновая)", description: "Подходит для всех видов грызунов, т.к не содержит сладких ингридиентов.Благодаря твердой структуре позволяет удовлетворить естественные потребности зверьков что-то грызть, при этом стачивать острые зубы.", image: UIImage(named: "Little King лакомство для грызунов (корзинка зерновая)"), price: "38", isFirstweight: true, isSecondweight: true, isThirdweight: false, isFourthweight: false),
+                    Product(name: "Little King лакомство для грызунов", description: "Подходит для всех видов грызунов, т.к не содержит сладких ингридиентов.Благодаря твердой структуре позволяет удовлетворить естественные потребности зверьков что-то грызть, при этом стачивать острые зубы.", image: UIImage(named: "Little King лакомство для грызунов (корзинка зерновая)"), price: "38", isFirstweight: true, isSecondweight: true, isThirdweight: false, isFourthweight: false),
                 ]
             case .littleOne:
                 array = [

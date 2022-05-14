@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class ProductsTableHeaderView: UIView {
 
@@ -39,35 +40,10 @@ class ProductsTableHeaderView: UIView {
     }
     
     private func setConstraints() {
-        let topConstraint = NSLayoutConstraint(
-            item: headerLabel,
-            attribute: .top,
-            relatedBy: .equal,
-            toItem: self,
-            attribute: .topMargin,
-            multiplier: 1,
-            constant: 8)
-        
-        let centerConstraint = NSLayoutConstraint(
-            item: headerLabel,
-            attribute: .centerX,
-            relatedBy: .equal,
-            toItem: self,
-            attribute: .centerX,
-            multiplier: 1,
-            constant: 0)
-        
-        let botomConstraint = NSLayoutConstraint(
-            item: headerLabel,
-            attribute: .bottom,
-            relatedBy: .equal,
-            toItem: self,
-            attribute: .bottom,
-            multiplier: 1,
-            constant: .zero)
-        
-        [topConstraint,
-         botomConstraint,
-         centerConstraint].forEach({ $0.isActive = true })
+        self.headerLabel.snp.updateConstraints { make in
+            make.top.equalToSuperview().offset(6)
+            make.centerX.equalToSuperview()
+            make.bottom.equalToSuperview()
+        }
     }
 }

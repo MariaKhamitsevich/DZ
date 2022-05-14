@@ -15,16 +15,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
-        let tabBarController = UITabBarController()
-        tabBarController.viewControllers = [UINavigationController(rootViewController: HomeScreenViewController()),
-                                            UINavigationController(rootViewController: CartViewController()),
-                                            UINavigationController(rootViewController: MapsViewController()),
-                                            UINavigationController(rootViewController: ProfileViewController())]
-        
-        tabBarController.tabBar.items![0].image = UIImage(systemName: "house.fill")
-        tabBarController.tabBar.items![1].image = UIImage(systemName: "cart.fill")
-        tabBarController.tabBar.items![2].image = UIImage(systemName: "map.fill")
-        tabBarController.tabBar.items![3].image = UIImage(systemName: "person.fill")
+        let tabBarController = MainTabBarController()
         
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene

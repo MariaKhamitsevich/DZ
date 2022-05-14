@@ -23,7 +23,7 @@ class ProductsTableViewController: UITableViewController, TableDataReloading {
     
     init(pets: Pets) {
         self.pets = pets
-        super.init(style: UITableView.Style.plain)
+        super.init(style: UITableView.Style.grouped)
     }
     
     required init?(coder: NSCoder) {
@@ -35,6 +35,7 @@ class ProductsTableViewController: UITableViewController, TableDataReloading {
         tableView.separatorStyle = .none
         tableView.rowHeight = UITableView.automaticDimension
         tableView.register(ProductsTableViewCell.self, forCellReuseIdentifier: "ProductsTableViewCell")
+        tableView.backgroundColor = ColorsManager.zbzbBackgroundColor
 
        
 
@@ -48,6 +49,10 @@ class ProductsTableViewController: UITableViewController, TableDataReloading {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = false
+        navigationController?.navigationBar.backItem?.title = "Other pats"
+        navigationController?.navigationBar.tintColor = ColorsManager.zbzbTextColor
+        navigationController?.navigationBar.barTintColor = ColorsManager.zbzbBackgroundColor
+        
     }
     
 

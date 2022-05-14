@@ -172,6 +172,7 @@ class ProductsTableViewCell: UITableViewCell {
         contentView.addSubview(productStackView)
         contentView.addSubview(fakeButton)
         contentView.isUserInteractionEnabled = true
+        contentView.backgroundColor = ColorsManager.zbzbBackgroundColor
         
         setAllConstraints()
         fakeButton.addTarget(self, action: #selector(watchTheDescription(_:)), for: .touchUpInside)

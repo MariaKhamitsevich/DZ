@@ -63,7 +63,8 @@ class ProductsTableViewCell: UITableViewCell {
     
     private lazy var productPriceLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14)
+        label.font = UIFont.italicSystemFont(ofSize: 14)
+        label.textColor = ColorsManager.zbzbTextColor
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
@@ -235,9 +236,11 @@ class ProductsTableViewCell: UITableViewCell {
         
         isActive.toggle()
         if isActive {
+            productNameLabel.numberOfLines = 0
             productDescription.numberOfLines = 0
 
         } else {
+            productNameLabel.numberOfLines = 2
             productDescription.numberOfLines = 4
         }
         tableReloadDelegate?.reload()

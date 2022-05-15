@@ -30,13 +30,13 @@ enum Pets {
             switch self {
             case .royalCanin:
                 array = [
-                    Product(name: "Roayl Canin Sterilized", description: "Royal Canin Sterilized 37 food for sterilized cats from 1 to 7 years old.", image: UIImage(named: "roal canin"), price: "17", isFirstweight: true, isSecondweight: true, isThirdweight: true, isFourthweight: true),
-                    Product(name: "Royal Canin Maine Coon", description: "Royal Canin Maine Coon is designed specifically for Maine Coon cats over the age of 15 months.", image: UIImage(named: "Royal Canin Maine Coon"), price: "30.5", isFirstweight: true, isSecondweight: false, isThirdweight: false, isFourthweight: true),
-                    Product(name: "Royal Canin Exigent Savour Sensation", description: "Savor sensation is designed for finicky cats. These are two different types of croquette that differ in shape, texture and composition.", image: UIImage(named: "Royal Canin Exigent Savour Sensation"), price: "25.5", isFirstweight: true, isSecondweight: false, isThirdweight: true, isFourthweight: true)
+                    Product(name: "Roayl Canin Sterilized", description: "Корм Royal Canin Sterilized 37 для стерилизованных кошек в возрасте от 1 до 7 лет.", image: UIImage(named: "roal canin"), price: "17", isFirstweight: true, isSecondweight: true, isThirdweight: true, isFourthweight: true),
+                    Product(name: "Royal Canin Maine Coon", description: "Корм Royal Canin Maine Coon разработан специально для кошек породы мейн-кун старше 15 месяцев.", image: UIImage(named: "Royal Canin Maine Coon"), price: "30.5", isFirstweight: true, isSecondweight: false, isThirdweight: false, isFourthweight: true),
+                    Product(name: "Royal Canin Exigent Savour Sensation", description: "Вкус создан для привередливых кошек. Это два разных вида крокетов, отличающихся по форме, текстуре и составу.", image: UIImage(named: "Royal Canin Exigent Savour Sensation"), price: "25.5", isFirstweight: true, isSecondweight: false, isThirdweight: true, isFourthweight: true)
                 ]
             case .whiskas:
                 array = [
-                    Product(name: "Whiskas for adult cats (Beef)", description: "Whiskas for sterilized cats (Beef) is a complete dry food for adult cats and cats. Whiskas contains all the necessary vitamins and minerals, proteins, fats and carbohydrates in the right proportions to keep your pet healthy from whiskers to tail.", image: UIImage(named: "Whiskas for adult cats (Beef)"), price: "7.25", isFirstweight: true, isSecondweight: false, isThirdweight: true, isFourthweight: true)
+                    Product(name: "Whiskas for adult cats (Говядина)", description: "Whiskas для стерилизованных кошек (Говядина) — полноценный сухой корм для взрослых кошек и кошек. Whiskas содержит все необходимые витамины и минералы, белки, жиры и углеводы в правильных пропорциях, чтобы поддерживать здоровье вашего питомца от усов до хвоста.", image: UIImage(named: "Whiskas for adult cats (Beef)"), price: "7.25", isFirstweight: true, isSecondweight: false, isThirdweight: true, isFourthweight: true)
                 ]
             }
             return array

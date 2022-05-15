@@ -14,6 +14,7 @@ class TableViewSettings: NSObject, UITableViewDelegate, UITableViewDataSource {
     var dogs = Pets.dogs
     var rodents = Pets.rodents
     
+    
     weak var controllerDelegate: UIViewController?
     override init() {
         super.init()

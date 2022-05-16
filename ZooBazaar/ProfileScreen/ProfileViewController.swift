@@ -2,35 +2,36 @@
 //  ProfileViewController.swift
 //  ZooBazaar
 //
-//  Created by Maria Khamitsevich on 9.05.22.
+//  Created by Maria Khamitsevich on 16.05.22.
 //
 
 import UIKit
 
 class ProfileViewController: UIViewController {
+    
+    private var profileView: ProfileView {
+        view as! ProfileView
+    }
+    
     override func loadView() {
         view = ProfileView()
-        
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-        // Do any additional setup after loading the view.
+        navigationController?.isNavigationBarHidden = true
+        navigationController?.viewControllers.removeFirst()
+
+        
+//        navigationController?.viewControllers.enumerated().first(where: <#T##(EnumeratedSequence<[UIViewController]>.Iterator.Element) throws -> Bool#>)
+        
+        
+        profileView.exitButton.addTarget(self, action: #selector(returnToRegistration), for: .touchUpInside)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-    }
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @objc func returnToRegistration() {
+        navigationController?.pushViewController(RegistrationViewController(), animated: false)
+        navigationController?.viewControllers.removeFirst()
     }
-    */
-
 }

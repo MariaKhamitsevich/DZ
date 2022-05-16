@@ -15,7 +15,7 @@ class MainTabBarController: UITabBarController {
         self.viewControllers = [UINavigationController(rootViewController: HomeScreenViewController()),
                                 UINavigationController(rootViewController: CartViewController()),
                                 UINavigationController(rootViewController: MapsViewController()),
-                                UINavigationController(rootViewController: ProfileViewController())]
+                                UINavigationController(rootViewController: RegistrationViewController())]
         
         self.tabBar.barTintColor = ColorsManager.zbzbBackgroundColor
         self.tabBar.tintColor = ColorsManager.zbzbTextColor

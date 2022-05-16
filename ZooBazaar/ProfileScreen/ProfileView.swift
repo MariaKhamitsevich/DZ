@@ -2,196 +2,94 @@
 //  ProfileView.swift
 //  ZooBazaar
 //
-//  Created by Maria Khamitsevich on 9.05.22.
+//  Created by Maria Khamitsevich on 16.05.22.
 //
 
 import UIKit
 import SnapKit
 
-class ProfileView: UIView, UITextFieldDelegate {
+class ProfileView: UIView {
     
-    private lazy var logoImageView: UIImageView = {
-        let image = UIImageView()
-        image.image = UIImage(named: "launchScreen")
-        image.alpha = 0.3
-        
-        
-        return image
-    }()
-    
-    private lazy var registrationSegmentedControl: UISegmentedControl = {
-        var segmentedControl = UISegmentedControl()
-        segmentedControl.insertSegment(withTitle: "Вход", at: 0, animated: false)
-        segmentedControl.insertSegment(withTitle: "Регистрация", at: 1, animated: false)
-        segmentedControl.selectedSegmentIndex = 0
-
-                
-        return segmentedControl
-    }()
-    
-    private lazy var emailPasswordStack: UIStackView = {
-        let stack = UIStackView()
-        stack.addArrangedSubview(emailTextField)
-        stack.addArrangedSubview(passwordTextField)
-        
-        stack.axis = .vertical
-        stack.spacing = 16
-        
-        
-        return stack
-    }()
-    
-    private lazy var emailTextField: UITextField = {
-        let textField = UITextField()
-        textField.placeholder = "E-mail"
-        textField.keyboardType = .emailAddress
-        textField.backgroundColor = .white
-        textField.textColor = ColorsManager.zbzbTextColor
-        textField.layer.cornerRadius = 4
-        textField.becomeFirstResponder()
-        textField.returnKeyType = .done
-        textField.enablesReturnKeyAutomatically = true
-        
-        return textField
-    }()
-    private lazy var passwordTextField: UITextField = {
-        let textField = UITextField()
-        textField.placeholder = "Пароль"
-        textField.keyboardType = .numbersAndPunctuation
-        textField.backgroundColor = .white
-        textField.textColor = ColorsManager.zbzbTextColor
-        textField.layer.cornerRadius = 4
-        textField.becomeFirstResponder()
-        textField.returnKeyType = .done
-        textField.enablesReturnKeyAutomatically = true
-        
-        return textField
-    }()
-    
-    private lazy var registrationStack: UIStackView = {
-        let stack = UIStackView()
-        stack.addArrangedSubview(nameTextField)
-        stack.addArrangedSubview(emailForRegistrationTextField)
-        stack.addArrangedSubview(passwordForRegistrationTextField)
-        stack.addArrangedSubview(confirmPasswordTextField)
-     
-        stack.axis = .vertical
-        stack.spacing = 16
-        
-        stack.isHidden = true
-        
-        return stack
-    }()
-    private lazy var nameTextField: UITextField = {
-        let textField = UITextField()
-        textField.placeholder = "Имя"
-        textField.keyboardType = .alphabet
-        textField.backgroundColor = .white
-        textField.textColor = ColorsManager.zbzbTextColor
-        textField.layer.cornerRadius = 4
-        textField.becomeFirstResponder()
-        textField.returnKeyType = .done
-        textField.enablesReturnKeyAutomatically = true
-        
-        return textField
-    }()
-    private lazy var emailForRegistrationTextField: UITextField = {
-        let textField = UITextField()
-        textField.placeholder = "E-mail"
-        textField.keyboardType = .emailAddress
-        textField.backgroundColor = .white
-        textField.textColor = ColorsManager.zbzbTextColor
-        textField.layer.cornerRadius = 4
-        textField.becomeFirstResponder()
-        textField.returnKeyType = .done
-        textField.enablesReturnKeyAutomatically = true
-        
-        return textField
-    }()
-    private lazy var passwordForRegistrationTextField: UITextField = {
-        let textField = UITextField()
-        textField.placeholder = "Пароль"
-        textField.keyboardType = .numbersAndPunctuation
-        textField.backgroundColor = .white
-        textField.textColor = ColorsManager.zbzbTextColor
-        textField.layer.cornerRadius = 4
-        textField.becomeFirstResponder()
-        textField.returnKeyType = .done
-        textField.enablesReturnKeyAutomatically = true
-        
-        return textField
-    }()
-    private lazy var confirmPasswordTextField: UITextField = {
-        let textField = UITextField()
-        textField.placeholder = "Подтвердите пароль"
-        textField.keyboardType = .numbersAndPunctuation
-        textField.backgroundColor = .white
-        textField.textColor = ColorsManager.zbzbTextColor
-        textField.layer.cornerRadius = 4
-        textField.becomeFirstResponder()
-        textField.returnKeyType = .done
-        textField.enablesReturnKeyAutomatically = true
-        
-        return textField
-    }()
-    
-    private lazy var confirmButton: UIButton = {
-        let button = UIButton()
-        button.backgroundColor = ColorsManager.zbzbTextColor
-        button.setTitle("Вход", for: .normal)
-        button.setTitleColor(UIColor.white, for: .normal)
-        button.layer.cornerRadius = 8
-        
-        return button
-    }()
-    
-    private lazy var rememberLabel: UILabel = {
+    private lazy var profileLabel: UILabel = {
         let label = UILabel()
-        label.text = "Забыли пароль?"
+        label.text = "Профиль"
         label.textColor = ColorsManager.zbzbTextColor
-        label.font = UIFont.italicSystemFont(ofSize: 16)
+        label.font = UIFont.italicSystemFont(ofSize: 20)
+        label.textAlignment = .center
         
         return label
     }()
     
-    private lazy var registrationButton: UIButton = {
-        let button = UIButton()
-        button.backgroundColor = ColorsManager.zbzbTextColor
-        button.setTitle("Регистрация", for: .normal)
-        button.setTitleColor(UIColor.white, for: .normal)
-        button.layer.cornerRadius = 8
-        button.isHidden = true
+    private lazy var profileImage: UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage(named: "emptyProfile")
+        image.backgroundColor = ColorsManager.zbzbBackgroundColor
         
+        return image
+    }()
+    
+    private lazy var nameStack: UIStackView = {
+        let stack = UIStackView()
+        stack.addArrangedSubview(nameLabel)
+        stack.addArrangedSubview(emailLabel)
+        stack.axis = .vertical
+        stack.alignment = .leading
+        stack.spacing = 16
+        
+        return stack
+    }()
+    
+    private lazy var nameLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Профиль"
+        label.textColor = ColorsManager.zbzbTextColor
+        label.font = UIFont.italicSystemFont(ofSize: 16)
+        label.textAlignment = .left
+        
+        return label
+    }()
+    
+    private lazy var emailLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Профиль"
+        label.textColor = ColorsManager.zbzbTextColor
+        label.font = UIFont.italicSystemFont(ofSize: 16)
+        label.textAlignment = .left
+        
+        return label
+    }()
+    
+    lazy var exitButton: UIButton = {
+        let button = UIButton()
+        let title = "Выйти из профиля"
+        button.setTitle(title, for: .normal)
+        button.setTitleColor(ColorsManager.zbzbTextColor, for: .normal)
+        button.backgroundColor = .clear
+        
+        let font = UIFont.italicSystemFont(ofSize: 16)
+        let attributedSring = NSMutableAttributedString(string: title)
+        let range = NSRange(location: 0, length: title.count)
+
+//        attributedSring.addAttribute(.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: range)
+//        attributedSring.addAttribute(.font, value: font, range: range)
+        attributedSring.addAttributes([.underlineStyle : NSUnderlineStyle.single.rawValue, .font : font], range: range)
+
+        
+        button.titleLabel?.attributedText = attributedSring
+
         return button
     }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = ColorsManager.zbzbBackgroundColor
-        addSubview(logoImageView)
-        addSubview(registrationSegmentedControl)
-        addSubview(emailPasswordStack)
-        addSubview(registrationStack)
-        addSubview(confirmButton)
-        addSubview(rememberLabel)
-        addSubview(registrationButton)
-        
-        emailTextField.delegate = self
-        passwordTextField.delegate = self
+        addSubview(profileLabel)
+        addSubview(profileImage)
+        addSubview(nameStack)
+        addSubview(exitButton)
         
         
-        registrationStack.arrangedSubviews.forEach( { subview in
-            if let subview = subview as? UITextField {
-                subview.addTarget(self, action: #selector(pressReturn), for: .primaryActionTriggered)
-            }
-        })
-        emailPasswordStack.arrangedSubviews.forEach( { subview in
-            if let subview = subview as? UITextField {
-                subview.addTarget(self, action: #selector(pressReturn), for: .primaryActionTriggered)
-            }
-        })
         
-        registrationSegmentedControl.addTarget(self, action: #selector(chooseSegmentedControl), for: .valueChanged)
         setAllConstraints()
     }
     
@@ -200,71 +98,28 @@ class ProfileView: UIView, UITextFieldDelegate {
     }
     
     
-    
     private func setAllConstraints() {
-        self.logoImageView.snp.updateConstraints { make in
-            make.top.equalTo(self.snp.topMargin)
-            make.trailing.equalToSuperview()
-            make.leading.equalToSuperview()
-            make.bottom.equalTo(self.snp.bottomMargin)
-        }
-        
-        self.registrationSegmentedControl.snp.updateConstraints { make in
+        self.profileLabel.snp.updateConstraints { make in
             make.top.equalTo(self.snp.topMargin).offset(24)
-            make.leading.equalToSuperview().offset(32)
-            make.trailing.equalToSuperview().offset(-32)
+            make.centerX.equalTo(self.snp.centerX)
         }
-        self.emailPasswordStack.snp.updateConstraints { make in
-            make.top.equalTo(registrationSegmentedControl.snp.bottom).offset(32)
-            make.leading.equalToSuperview().offset(32)
-            make.trailing.equalToSuperview().offset(-32)
+        self.profileImage.snp.updateConstraints { make in
+            make.top.equalTo(profileLabel.snp.bottom).offset(24)
+            make.leading.equalTo(self.snp.leading).offset(16)
+            make.height.equalTo(120)
+            make.width.equalTo(120)
         }
-        self.registrationStack.snp.updateConstraints { make in
-            make.top.equalTo(registrationSegmentedControl.snp.bottom).offset(32)
-            make.leading.equalToSuperview().offset(32)
-            make.trailing.equalToSuperview().offset(-32)
+        self.nameStack.snp.updateConstraints { make in
+            make.top.equalTo(profileImage.snp.top).offset(16)
+            make.leading.equalTo(profileImage.snp.trailing).offset(24)
+            make.trailing.equalToSuperview().offset(-16)
         }
-        self.confirmButton.snp.updateConstraints { make in
-            make.top.equalTo(emailPasswordStack.snp.bottom).offset(20)
-            make.centerX.equalTo(emailPasswordStack.snp.centerX)
-            make.width.equalTo(160)
-        }
-        self.rememberLabel.snp.updateConstraints { make in
-            make.top.equalTo(confirmButton.snp.bottom).offset(16)
-            make.centerX.equalTo(emailPasswordStack.snp.centerX)
-        }
-        self.registrationButton.snp.updateConstraints { make in
-            make.top.equalTo(registrationStack.snp.bottom).offset(20)
-            make.centerX.equalTo(registrationStack.snp.centerX)
-            make.width.equalTo(160)
-        }
-    }
-    
-    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-    @objc func pressReturn() {
-        self.endEditing(true)
-    }
-    
-   @objc private func chooseSegmentedControl(_ sender: UISegmentedControl) {
-        switch sender.selectedSegmentIndex {
-        case 0:
-            emailPasswordStack.isHidden = false
-            confirmButton.isHidden = false
-            rememberLabel.isHidden = false
-            registrationStack.isHidden = true
-            registrationButton.isHidden = true
-        case 1:
-            emailPasswordStack.isHidden = true
-            confirmButton.isHidden = true
-            rememberLabel.isHidden = true
-            registrationStack.isHidden = false
-            registrationButton.isHidden = false
-            
-        default:
-            registrationStack.isHidden = true
+        self.exitButton.snp.updateConstraints { make in
+            make.top.equalTo(profileImage.snp.bottom).offset(24)
+            make.leading.equalTo(self.snp.leading).offset(16)
         }
     }
 }
+
+
+

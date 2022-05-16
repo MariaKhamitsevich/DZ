@@ -8,11 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		081986E12283699EAA7385BD /* Pods_ZooBazaar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DD676816D64993129A1D5D7 /* Pods_ZooBazaar.framework */; };
+		4C039B512832A3C1001EEDB6 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C039B502832A3C1001EEDB6 /* ProfileView.swift */; };
+		4C039B532832A3D3001EEDB6 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C039B522832A3D3001EEDB6 /* ProfileViewController.swift */; };
+		4C039B562832D48B001EEDB6 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C039B552832D48B001EEDB6 /* UIFont.swift */; };
 		4C1DAB03281928C20043B08D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1DAB02281928C20043B08D /* SettingsViewController.swift */; };
 		4C1DAB05281928D40043B08D /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1DAB04281928D40043B08D /* SettingsView.swift */; };
 		4C1DAB0A2819453E0043B08D /* CartViewControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1DAB092819453E0043B08D /* CartViewControllerViewController.swift */; };
-		4C21A87028290EFF00C47623 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C21A86F28290EFF00C47623 /* ProfileViewController.swift */; };
-		4C21A873282910C100C47623 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C21A872282910C100C47623 /* ProfileView.swift */; };
+		4C21A87028290EFF00C47623 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C21A86F28290EFF00C47623 /* RegistrationViewController.swift */; };
+		4C21A873282910C100C47623 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C21A872282910C100C47623 /* RegistrationView.swift */; };
 		4C21A875282912DB00C47623 /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C21A874282912DB00C47623 /* CartView.swift */; };
 		4C21A8782829555400C47623 /* MapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C21A8772829555400C47623 /* MapsViewController.swift */; };
 		4C21A87A2829556500C47623 /* MapsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C21A8792829556500C47623 /* MapsView.swift */; };
@@ -35,11 +38,14 @@
 /* Begin PBXFileReference section */
 		1C1FC681AABBD42154FDBFD1 /* Pods-ZooBazaar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZooBazaar.release.xcconfig"; path = "Target Support Files/Pods-ZooBazaar/Pods-ZooBazaar.release.xcconfig"; sourceTree = "<group>"; };
 		3DB11383CFEA9546588F2533 /* Pods-ZooBazaar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZooBazaar.debug.xcconfig"; path = "Target Support Files/Pods-ZooBazaar/Pods-ZooBazaar.debug.xcconfig"; sourceTree = "<group>"; };
+		4C039B502832A3C1001EEDB6 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		4C039B522832A3D3001EEDB6 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		4C039B552832D48B001EEDB6 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		4C1DAB02281928C20043B08D /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		4C1DAB04281928D40043B08D /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		4C1DAB092819453E0043B08D /* CartViewControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewControllerViewController.swift; sourceTree = "<group>"; };
-		4C21A86F28290EFF00C47623 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		4C21A872282910C100C47623 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		4C21A86F28290EFF00C47623 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		4C21A872282910C100C47623 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		4C21A874282912DB00C47623 /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
 		4C21A8772829555400C47623 /* MapsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsViewController.swift; sourceTree = "<group>"; };
 		4C21A8792829556500C47623 /* MapsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsView.swift; sourceTree = "<group>"; };
@@ -82,6 +88,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		4C039B542832D472001EEDB6 /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				4C039B552832D48B001EEDB6 /* UIFont.swift */,
+			);
+			name = Extentions;
+			sourceTree = "<group>";
+		};
 		4C1DAB06281928E40043B08D /* SettingsScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -94,8 +108,10 @@
 		4C21A87128290F0700C47623 /* ProfileScreen */ = {
 			isa = PBXGroup;
 			children = (
-				4C21A86F28290EFF00C47623 /* ProfileViewController.swift */,
-				4C21A872282910C100C47623 /* ProfileView.swift */,
+				4C21A86F28290EFF00C47623 /* RegistrationViewController.swift */,
+				4C21A872282910C100C47623 /* RegistrationView.swift */,
+				4C039B522832A3D3001EEDB6 /* ProfileViewController.swift */,
+				4C039B502832A3C1001EEDB6 /* ProfileView.swift */,
 			);
 			path = ProfileScreen;
 			sourceTree = "<group>";
@@ -139,6 +155,7 @@
 				4CED644D28187E8E0052A2C2 /* HomeScreen */,
 				4CED643428187D250052A2C2 /* ZooBazaar */,
 				4CED643328187D250052A2C2 /* Products */,
+				4C039B542832D472001EEDB6 /* Extentions */,
 				9E944BA0E07B591C3A4390CE /* Pods */,
 				41E637AD8ABB0084763E3891 /* Frameworks */,
 			);
@@ -303,23 +320,26 @@
 			files = (
 				4C1DAB05281928D40043B08D /* SettingsView.swift in Sources */,
 				4C1DAB0A2819453E0043B08D /* CartViewControllerViewController.swift in Sources */,
+				4C039B562832D48B001EEDB6 /* UIFont.swift in Sources */,
 				4CED643A28187D250052A2C2 /* ViewController.swift in Sources */,
 				4C21A875282912DB00C47623 /* CartView.swift in Sources */,
 				4CED644A28187E5E0052A2C2 /* HomeScreenViewController.swift in Sources */,
 				4C5278492820FC6300BACCB8 /* ProductsTableHeaderView.swift in Sources */,
+				4C039B532832A3D3001EEDB6 /* ProfileViewController.swift in Sources */,
 				4C5457AB28223B220043205D /* HomeScreenTableViewCell.swift in Sources */,
 				4CED644C28187E7F0052A2C2 /* HomeScreenView.swift in Sources */,
 				4CA247F32830232A00D8D8B6 /* MainTabBarController.swift in Sources */,
 				4CED643628187D250052A2C2 /* AppDelegate.swift in Sources */,
 				4C21A87A2829556500C47623 /* MapsView.swift in Sources */,
-				4C21A873282910C100C47623 /* ProfileView.swift in Sources */,
+				4C21A873282910C100C47623 /* RegistrationView.swift in Sources */,
 				4C21A8782829555400C47623 /* MapsViewController.swift in Sources */,
 				4C5457AD2822CC8D0043205D /* ColorsManager.swift in Sources */,
 				4C37E0BD281F10EA00D393F5 /* ProductsTableViewCell.swift in Sources */,
 				4CED643828187D250052A2C2 /* SceneDelegate.swift in Sources */,
-				4C21A87028290EFF00C47623 /* ProfileViewController.swift in Sources */,
+				4C21A87028290EFF00C47623 /* RegistrationViewController.swift in Sources */,
 				4C37E0BA281F057E00D393F5 /* ProductsTableViewController.swift in Sources */,
 				4C21A87C282BAF0400C47623 /* Products.swift in Sources */,
+				4C039B512832A3C1001EEDB6 /* ProfileView.swift in Sources */,
 				4C1DAB03281928C20043B08D /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

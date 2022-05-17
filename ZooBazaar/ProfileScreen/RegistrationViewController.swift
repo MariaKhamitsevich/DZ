@@ -9,6 +9,8 @@ import UIKit
 
 class RegistrationViewController: UIViewController {
     
+    weak var dataDelegate: ProfileDataSettable?
+    
     private var registrationView: RegistrationView {
         view as! RegistrationView
     }
@@ -22,6 +24,7 @@ class RegistrationViewController: UIViewController {
         navigationController?.isNavigationBarHidden = true
         
         registrationView.confirmButton.addTarget(self, action: #selector(runToProfile), for: .touchUpInside)
+        registrationView.registrationButton.addTarget(self, action: #selector(runToProfile), for: .touchUpInside)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -29,9 +32,11 @@ class RegistrationViewController: UIViewController {
         
     }
     
+  
     
    @objc private func runToProfile() {
-        navigationController?.pushViewController(ProfileViewController(), animated: true)
-       
+       dataDelegate?.setName(name: RegistrationView().name)
+       dataDelegate?.setEmail(email: RegistrationView().email)
+       navigationController?.pushViewController(ProfileViewController(), animated: true)
     }
 }

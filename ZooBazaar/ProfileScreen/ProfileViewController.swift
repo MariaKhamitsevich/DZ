@@ -19,12 +19,10 @@ class ProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         navigationController?.isNavigationBarHidden = true
         navigationController?.viewControllers.removeFirst()
-
-        
-//        navigationController?.viewControllers.enumerated().first(where: <#T##(EnumeratedSequence<[UIViewController]>.Iterator.Element) throws -> Bool#>)
-        
+              
         
         profileView.exitButton.addTarget(self, action: #selector(returnToRegistration), for: .touchUpInside)
     }

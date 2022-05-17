@@ -82,9 +82,10 @@ class RegistrationView: UIView, UITextFieldDelegate {
         
         return stack
     }()
-    private lazy var nameTextField: UITextField = {
+   private lazy var nameTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "Имя"
+//        textField.text = ""
         textField.keyboardType = .alphabet
         textField.backgroundColor = .white
         textField.textColor = ColorsManager.zbzbTextColor
@@ -92,12 +93,14 @@ class RegistrationView: UIView, UITextFieldDelegate {
         textField.becomeFirstResponder()
         textField.returnKeyType = .done
         textField.enablesReturnKeyAutomatically = true
+        textField.tag = 0
         
         return textField
     }()
-    private lazy var emailForRegistrationTextField: UITextField = {
+   private lazy var emailForRegistrationTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "E-mail"
+//        textField.text = ""
         textField.keyboardType = .emailAddress
         textField.backgroundColor = .white
         textField.textColor = ColorsManager.zbzbTextColor
@@ -105,6 +108,7 @@ class RegistrationView: UIView, UITextFieldDelegate {
         textField.becomeFirstResponder()
         textField.returnKeyType = .done
         textField.enablesReturnKeyAutomatically = true
+        textField.tag = 1
         
         return textField
     }()
@@ -164,7 +168,11 @@ class RegistrationView: UIView, UITextFieldDelegate {
         
         return button
     }()
-
+    
+    var name = ""
+    var email = ""
+    
+    //MARK: Init
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = ColorsManager.zbzbBackgroundColor
@@ -185,6 +193,9 @@ class RegistrationView: UIView, UITextFieldDelegate {
                 subview.addTarget(self, action: #selector(pressReturn), for: .primaryActionTriggered)
             }
         })
+        nameTextField.addTarget(self, action: #selector(setName(_:)), for: .editingChanged)
+        emailForRegistrationTextField.addTarget(self, action: #selector(setEmail(_:)), for: .editingChanged)
+        
         emailPasswordStack.arrangedSubviews.forEach( { subview in
             if let subview = subview as? UITextField {
                 subview.addTarget(self, action: #selector(pressReturn), for: .primaryActionTriggered)
@@ -192,7 +203,10 @@ class RegistrationView: UIView, UITextFieldDelegate {
         })
         
         registrationSegmentedControl.addTarget(self, action: #selector(chooseSegmentedControl), for: .valueChanged)
+        
         setAllConstraints()
+        
+        
     }
     
     required init?(coder: NSCoder) {
@@ -201,6 +215,7 @@ class RegistrationView: UIView, UITextFieldDelegate {
     
     
     
+//   MARK: Constraints
     private func setAllConstraints() {
         self.logoImageView.snp.updateConstraints { make in
             make.top.equalTo(self.snp.topMargin)
@@ -265,6 +280,17 @@ class RegistrationView: UIView, UITextFieldDelegate {
             
         default:
             registrationStack.isHidden = true
+        }
+    }
+    
+    @objc private func setName(_ sender: UITextField) {
+        if let text = sender.text {
+            self.name = text
+        }
+    }
+    @objc private func setEmail(_ sender: UITextField) {
+        if let text = sender.text {
+            self.email = text
         }
     }
 }

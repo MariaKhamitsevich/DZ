@@ -8,7 +8,12 @@
 import UIKit
 import SnapKit
 
-class ProfileView: UIView {
+protocol ProfileDataSettable: AnyObject {
+    func setEmail(email: String)
+    func setName(name: String)
+}
+
+class ProfileView: UIView, ProfileDataSettable {
     
     private lazy var profileLabel: UILabel = {
         let label = UILabel()
@@ -39,9 +44,9 @@ class ProfileView: UIView {
         return stack
     }()
     
-    private lazy var nameLabel: UILabel = {
+     private lazy var nameLabel: UILabel = {
         let label = UILabel()
-        label.text = "Профиль"
+//        label.text = RegistrationView().name
         label.textColor = ColorsManager.zbzbTextColor
         label.font = UIFont.italicSystemFont(ofSize: 16)
         label.textAlignment = .left
@@ -51,7 +56,7 @@ class ProfileView: UIView {
     
     private lazy var emailLabel: UILabel = {
         let label = UILabel()
-        label.text = "Профиль"
+//        label.text = RegistrationView().email 
         label.textColor = ColorsManager.zbzbTextColor
         label.font = UIFont.italicSystemFont(ofSize: 16)
         label.textAlignment = .left
@@ -73,13 +78,14 @@ class ProfileView: UIView {
 //        attributedSring.addAttribute(.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: range)
 //        attributedSring.addAttribute(.font, value: font, range: range)
         attributedSring.addAttributes([.underlineStyle : NSUnderlineStyle.single.rawValue, .font : font], range: range)
-
-        
         button.titleLabel?.attributedText = attributedSring
 
         return button
     }()
+    
+    
 
+//    MARK: Init
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = ColorsManager.zbzbBackgroundColor
@@ -88,16 +94,24 @@ class ProfileView: UIView {
         addSubview(nameStack)
         addSubview(exitButton)
         
-        
-        
         setAllConstraints()
+        
+        RegistrationViewController().dataDelegate = self
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func setEmail(email: String) {
+            emailLabel.text = email
+    }
+
+    func setName(name: String) {
+            nameLabel.text = name
+    }
     
+//  MARK: Constraints
     private func setAllConstraints() {
         self.profileLabel.snp.updateConstraints { make in
             make.top.equalTo(self.snp.topMargin).offset(24)
@@ -120,6 +134,8 @@ class ProfileView: UIView {
         }
     }
 }
+
+
 
 
 

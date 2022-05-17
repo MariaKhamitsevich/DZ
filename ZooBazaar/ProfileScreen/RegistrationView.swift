@@ -48,7 +48,6 @@ class RegistrationView: UIView, UITextFieldDelegate {
         textField.backgroundColor = .white
         textField.textColor = ColorsManager.zbzbTextColor
         textField.layer.cornerRadius = 4
-        textField.becomeFirstResponder()
         textField.returnKeyType = .done
         textField.enablesReturnKeyAutomatically = true
         
@@ -61,7 +60,6 @@ class RegistrationView: UIView, UITextFieldDelegate {
         textField.backgroundColor = .white
         textField.textColor = ColorsManager.zbzbTextColor
         textField.layer.cornerRadius = 4
-        textField.becomeFirstResponder()
         textField.returnKeyType = .done
         textField.enablesReturnKeyAutomatically = true
         
@@ -85,12 +83,10 @@ class RegistrationView: UIView, UITextFieldDelegate {
    private lazy var nameTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "Имя"
-//        textField.text = ""
         textField.keyboardType = .alphabet
         textField.backgroundColor = .white
         textField.textColor = ColorsManager.zbzbTextColor
         textField.layer.cornerRadius = 4
-        textField.becomeFirstResponder()
         textField.returnKeyType = .done
         textField.enablesReturnKeyAutomatically = true
         textField.tag = 0
@@ -100,12 +96,10 @@ class RegistrationView: UIView, UITextFieldDelegate {
    private lazy var emailForRegistrationTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "E-mail"
-//        textField.text = ""
         textField.keyboardType = .emailAddress
         textField.backgroundColor = .white
         textField.textColor = ColorsManager.zbzbTextColor
         textField.layer.cornerRadius = 4
-        textField.becomeFirstResponder()
         textField.returnKeyType = .done
         textField.enablesReturnKeyAutomatically = true
         textField.tag = 1
@@ -119,7 +113,6 @@ class RegistrationView: UIView, UITextFieldDelegate {
         textField.backgroundColor = .white
         textField.textColor = ColorsManager.zbzbTextColor
         textField.layer.cornerRadius = 4
-        textField.becomeFirstResponder()
         textField.returnKeyType = .done
         textField.enablesReturnKeyAutomatically = true
         
@@ -132,7 +125,6 @@ class RegistrationView: UIView, UITextFieldDelegate {
         textField.backgroundColor = .white
         textField.textColor = ColorsManager.zbzbTextColor
         textField.layer.cornerRadius = 4
-        textField.becomeFirstResponder()
         textField.returnKeyType = .done
         textField.enablesReturnKeyAutomatically = true
         

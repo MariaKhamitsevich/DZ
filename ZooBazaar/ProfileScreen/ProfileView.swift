@@ -46,7 +46,6 @@ class ProfileView: UIView, ProfileDataSettable {
     
      private lazy var nameLabel: UILabel = {
         let label = UILabel()
-//        label.text = RegistrationView().name
         label.textColor = ColorsManager.zbzbTextColor
         label.font = UIFont.italicSystemFont(ofSize: 16)
         label.textAlignment = .left
@@ -56,7 +55,6 @@ class ProfileView: UIView, ProfileDataSettable {
     
     private lazy var emailLabel: UILabel = {
         let label = UILabel()
-//        label.text = RegistrationView().email 
         label.textColor = ColorsManager.zbzbTextColor
         label.font = UIFont.italicSystemFont(ofSize: 16)
         label.textAlignment = .left
@@ -96,7 +94,6 @@ class ProfileView: UIView, ProfileDataSettable {
         
         setAllConstraints()
         
-        RegistrationViewController().dataDelegate = self
     }
     
     required init?(coder: NSCoder) {

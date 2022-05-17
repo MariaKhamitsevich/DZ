@@ -9,10 +9,10 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     
-    private var profileView: ProfileView {
+    var profileView: ProfileView {
         view as! ProfileView
     }
-    
+            
     override func loadView() {
         view = ProfileView()
     }

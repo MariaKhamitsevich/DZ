@@ -9,8 +9,6 @@ import UIKit
 
 class RegistrationViewController: UIViewController {
     
-    weak var dataDelegate: ProfileDataSettable?
-    
     private var registrationView: RegistrationView {
         view as! RegistrationView
     }
@@ -18,7 +16,7 @@ class RegistrationViewController: UIViewController {
     override func loadView() {
         view = RegistrationView()
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = true
@@ -32,11 +30,14 @@ class RegistrationViewController: UIViewController {
         
     }
     
-  
     
-   @objc private func runToProfile() {
-       dataDelegate?.setName(name: RegistrationView().name)
-       dataDelegate?.setEmail(email: RegistrationView().email)
-       navigationController?.pushViewController(ProfileViewController(), animated: true)
+    
+    @objc private func runToProfile() {
+        let controller = ProfileViewController()
+        controller.profileView.setEmail(email: registrationView.email)
+        controller.profileView.setName(name: registrationView.name)
+        navigationController?.pushViewController(controller, animated: true)
+        print(registrationView.name)
+        print(registrationView.email)
     }
 }

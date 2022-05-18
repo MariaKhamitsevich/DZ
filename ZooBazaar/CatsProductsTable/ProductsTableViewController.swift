@@ -15,13 +15,12 @@ class ProductsTableViewController: UITableViewController, TableDataReloading {
     
     
     
-    var pets: Pets
-    var products: [[Product]] {
-        pets.items
-    }
+    var pets: PetProvider
     
     
-    init(pets: Pets) {
+    
+    
+    init(pets: PetProvider) {
         self.pets = pets
         super.init(style: UITableView.Style.grouped)
     }
@@ -60,25 +59,25 @@ class ProductsTableViewController: UITableViewController, TableDataReloading {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-                    return products.count
+        return pets.numberOfSections
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = ProductsTableHeaderView()
-        view.title = pets.titles[section]
+        view.title = pets.headerInSection(numberOfSection: section)
         return view
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        products[section].count
+        pets.numberOfRowsInSection(numberOfSection: section)
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProductsTableViewCell") as! ProductsTableViewCell
         cell.tableReloadDelegate = self
-        cell.updateValues(product: (products[indexPath.section])[indexPath.row])
+        cell.updateValues(product: pets.getProduct(numberOfSection: indexPath))
         return cell
     }
     

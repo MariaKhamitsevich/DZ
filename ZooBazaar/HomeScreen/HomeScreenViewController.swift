@@ -10,9 +10,9 @@ class TableViewSettings: NSObject, UITableViewDelegate, UITableViewDataSource {
                            HomeScreenCellElements(name: "Products for dogs", image: UIImage(named: "dogs")),
                            HomeScreenCellElements(name: "Products for rodents", image: UIImage(named: "Mouse"))]
     
-    var cats = Pets.cats
-    var dogs = Pets.dogs
-    var rodents = Pets.rodents
+    var cats = catsProvider
+    var dogs = dogsProvider
+    var rodents = rodentsProvider
     
     
     weak var controllerDelegate: UIViewController?

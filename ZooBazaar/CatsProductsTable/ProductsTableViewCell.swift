@@ -10,21 +10,7 @@ import SnapKit
 
 
 
-struct Product {
-    let name: String
-    let description: String
-    let image: UIImage!
-    let price: String
-    var priceForKg: String {
-        get {
-            "\(price) rouble per kg"
-        }
-    }
-    let isFirstweight: Bool
-    let isSecondweight: Bool
-    let isThirdweight: Bool
-    let isFourthweight: Bool
-}
+
 
 class ProductsTableViewCell: UITableViewCell {
     override func prepareForReuse() {

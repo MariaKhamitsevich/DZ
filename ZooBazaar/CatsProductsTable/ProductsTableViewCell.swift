@@ -216,7 +216,7 @@ class ProductsTableViewCell: UITableViewCell {
     
     private var isActive: Bool = false
     weak var tableReloadDelegate: TableDataReloading?
-
+    
     
     @objc func watchTheDescription(_ gesture: UITapGestureRecognizer) {
         
@@ -224,11 +224,12 @@ class ProductsTableViewCell: UITableViewCell {
         if isActive {
             productNameLabel.numberOfLines = 0
             productDescription.numberOfLines = 0
-
+            
         } else {
             productNameLabel.numberOfLines = 2
             productDescription.numberOfLines = 4
         }
+        
         tableReloadDelegate?.reload()
     }
 }

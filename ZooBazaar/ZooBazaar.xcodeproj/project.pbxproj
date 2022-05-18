@@ -29,6 +29,9 @@
 		4C71F15D2834D3C800F1A524 /* BackendObtainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C71F15C2834D3C800F1A524 /* BackendObtainer.swift */; };
 		4C71F15F2835169D00F1A524 /* PetProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C71F15E2835169D00F1A524 /* PetProvider.swift */; };
 		4C71F1612835485700F1A524 /* Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C71F1602835485700F1A524 /* Products.swift */; };
+		4C71F16328355A4500F1A524 /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C71F16228355A4500F1A524 /* CartTableViewCell.swift */; };
+		4C71F1672835607200F1A524 /* DescroptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C71F1662835607200F1A524 /* DescroptionViewController.swift */; };
+		4C71F1692835608F00F1A524 /* DescriprionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C71F1682835608F00F1A524 /* DescriprionView.swift */; };
 		4CA247F32830232A00D8D8B6 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA247F22830232A00D8D8B6 /* MainTabBarController.swift */; };
 		4CED643628187D250052A2C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CED643528187D250052A2C2 /* AppDelegate.swift */; };
 		4CED643828187D250052A2C2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CED643728187D250052A2C2 /* SceneDelegate.swift */; };
@@ -63,6 +66,9 @@
 		4C71F15C2834D3C800F1A524 /* BackendObtainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackendObtainer.swift; sourceTree = "<group>"; };
 		4C71F15E2835169D00F1A524 /* PetProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetProvider.swift; sourceTree = "<group>"; };
 		4C71F1602835485700F1A524 /* Products.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Products.swift; path = /Users/maria/Developer/DZ/ZooBazaar/ZooBazaar/Products.swift; sourceTree = "<absolute>"; };
+		4C71F16228355A4500F1A524 /* CartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
+		4C71F1662835607200F1A524 /* DescroptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescroptionViewController.swift; sourceTree = "<group>"; };
+		4C71F1682835608F00F1A524 /* DescriprionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriprionView.swift; sourceTree = "<group>"; };
 		4CA247F22830232A00D8D8B6 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		4CED643228187D250052A2C2 /* ZooBazaar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZooBazaar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CED643528187D250052A2C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -139,6 +145,8 @@
 				4C37E0B9281F057E00D393F5 /* ProductsTableViewController.swift */,
 				4C37E0BC281F10EA00D393F5 /* ProductsTableViewCell.swift */,
 				4C5278482820FC6300BACCB8 /* ProductsTableHeaderView.swift */,
+				4C71F1662835607200F1A524 /* DescroptionViewController.swift */,
+				4C71F1682835608F00F1A524 /* DescriprionView.swift */,
 			);
 			path = CatsProductsTable;
 			sourceTree = "<group>";
@@ -148,6 +156,7 @@
 			children = (
 				4C1DAB092819453E0043B08D /* CartViewControllerViewController.swift */,
 				4C21A874282912DB00C47623 /* CartView.swift */,
+				4C71F16228355A4500F1A524 /* CartTableViewCell.swift */,
 			);
 			path = BasketScreen;
 			sourceTree = "<group>";
@@ -333,10 +342,12 @@
 				4C71F1612835485700F1A524 /* Products.swift in Sources */,
 				4C1DAB05281928D40043B08D /* SettingsView.swift in Sources */,
 				4C1DAB0A2819453E0043B08D /* CartViewControllerViewController.swift in Sources */,
+				4C71F1672835607200F1A524 /* DescroptionViewController.swift in Sources */,
 				4C039B562832D48B001EEDB6 /* UIFont.swift in Sources */,
 				4CED643A28187D250052A2C2 /* ViewController.swift in Sources */,
 				4C21A875282912DB00C47623 /* CartView.swift in Sources */,
 				4CED644A28187E5E0052A2C2 /* HomeScreenViewController.swift in Sources */,
+				4C71F16328355A4500F1A524 /* CartTableViewCell.swift in Sources */,
 				4C5278492820FC6300BACCB8 /* ProductsTableHeaderView.swift in Sources */,
 				4C039B532832A3D3001EEDB6 /* ProfileViewController.swift in Sources */,
 				4C5457AB28223B220043205D /* HomeScreenTableViewCell.swift in Sources */,
@@ -355,6 +366,7 @@
 				4C37E0BA281F057E00D393F5 /* ProductsTableViewController.swift in Sources */,
 				4C21A87C282BAF0400C47623 /* Pets.swift in Sources */,
 				4C039B512832A3C1001EEDB6 /* ProfileView.swift in Sources */,
+				4C71F1692835608F00F1A524 /* DescriprionView.swift in Sources */,
 				4C71F15B2834D0EA00F1A524 /* BackendData.swift in Sources */,
 				4C1DAB03281928C20043B08D /* SettingsViewController.swift in Sources */,
 			);

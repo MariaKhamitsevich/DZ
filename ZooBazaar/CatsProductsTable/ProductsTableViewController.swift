@@ -82,15 +82,21 @@ class ProductsTableViewController: UITableViewController, TableDataReloading {
     }
     
     func reload() {
-        if let index = tableView.indexPathForSelectedRow {
-        self.tableView.reloadRows(at: [index], with: .none)
+        
+        if let index = self.tableView.indexPathForSelectedRow {
+            self.tableView.reloadRows(at: [index], with: .none)
         } else {
             self.tableView.reloadRows(at: [], with: .none)
         }
+        
     }
 
     
-    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let controller = DescroptionViewController()
+        controller.descriprionVeiw.update(product: pets.getProduct(numberOfSection: indexPath))
+        present(controller, animated: true)
+    }
    
     // Override to support conditional editing of the table view.
 //    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

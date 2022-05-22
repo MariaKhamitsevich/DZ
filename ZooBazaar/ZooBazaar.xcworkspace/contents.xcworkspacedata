@@ -2,12 +2,8 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/maria/Developer/DZ/ZooBazaar/ZooBazaar/Products.swift">
+      location = "group:/Users/maria/Developer/DZ/ZooBazaar/ZooBazaar/Products/Products.swift">
    </FileRef>
-   <Group
-      location = "container:"
-      name = "Extentions">
-   </Group>
    <FileRef
       location = "group:ZooBazaar.xcodeproj">
    </FileRef>

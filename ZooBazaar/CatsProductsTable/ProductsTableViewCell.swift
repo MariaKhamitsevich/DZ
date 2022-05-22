@@ -141,14 +141,7 @@ class ProductsTableViewCell: UITableViewCell {
         return label
     }()
     
-    private lazy var fakeButton: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.clipsToBounds = true
-
-        
-        return button
-    }()
+    
     
     //MARK: Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -157,12 +150,11 @@ class ProductsTableViewCell: UITableViewCell {
         
         contentView.addSubview(productImageView)
         contentView.addSubview(productStackView)
-        contentView.addSubview(fakeButton)
         contentView.isUserInteractionEnabled = true
         contentView.backgroundColor = ColorsManager.zbzbBackgroundColor
         
         setAllConstraints()
-        fakeButton.addTarget(self, action: #selector(watchTheDescription(_:)), for: .touchUpInside)
+        addDescriptionGesture()
     }
     
     required init?(coder: NSCoder) {
@@ -206,16 +198,16 @@ class ProductsTableViewCell: UITableViewCell {
             make.trailing.lessThanOrEqualTo(productImageView.snp.leading).offset(-8)
             make.bottom.equalTo(contentView.snp.bottom).offset(-8)
         }
-        self.fakeButton.snp.updateConstraints { make in
-            make.top.equalTo(productDescription.snp.top)
-            make.leading.equalTo(productDescription.snp.leading)
-            make.trailing.equalTo(productDescription.snp.trailing)
-            make.bottom.equalTo(productDescription.snp.bottom)
-        }
+
     }
     
     private var isActive: Bool = false
     weak var tableReloadDelegate: TableDataReloading?
+    
+    private func addDescriptionGesture() {
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(watchTheDescription))
+        productDescription.addGestureRecognizer(gesture)
+    }
     
     
     @objc func watchTheDescription(_ gesture: UITapGestureRecognizer) {

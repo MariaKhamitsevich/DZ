@@ -22,13 +22,15 @@
 		4C21A87C282BAF0400C47623 /* Pets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C21A87B282BAF0400C47623 /* Pets.swift */; };
 		4C37E0BA281F057E00D393F5 /* ProductsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C37E0B9281F057E00D393F5 /* ProductsTableViewController.swift */; };
 		4C37E0BD281F10EA00D393F5 /* ProductsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C37E0BC281F10EA00D393F5 /* ProductsTableViewCell.swift */; };
+		4C4A3F3F2838FA9A005C5F8E /* Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4A3F3E2838FA9A005C5F8E /* Products.swift */; };
+		4C4A3F4128390164005C5F8E /* SomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4A3F4028390164005C5F8E /* SomeViewController.swift */; };
+		4C4A3F4328390280005C5F8E /* SomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4A3F4228390280005C5F8E /* SomeView.swift */; };
 		4C5278492820FC6300BACCB8 /* ProductsTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5278482820FC6300BACCB8 /* ProductsTableHeaderView.swift */; };
 		4C5457AB28223B220043205D /* HomeScreenTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5457AA28223B220043205D /* HomeScreenTableViewCell.swift */; };
 		4C5457AD2822CC8D0043205D /* ColorsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5457AC2822CC8D0043205D /* ColorsManager.swift */; };
 		4C71F15B2834D0EA00F1A524 /* BackendData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C71F15A2834D0EA00F1A524 /* BackendData.swift */; };
 		4C71F15D2834D3C800F1A524 /* BackendObtainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C71F15C2834D3C800F1A524 /* BackendObtainer.swift */; };
 		4C71F15F2835169D00F1A524 /* PetProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C71F15E2835169D00F1A524 /* PetProvider.swift */; };
-		4C71F1612835485700F1A524 /* Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C71F1602835485700F1A524 /* Products.swift */; };
 		4C71F16328355A4500F1A524 /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C71F16228355A4500F1A524 /* CartTableViewCell.swift */; };
 		4C71F1672835607200F1A524 /* DescroptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C71F1662835607200F1A524 /* DescroptionViewController.swift */; };
 		4C71F1692835608F00F1A524 /* DescriprionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C71F1682835608F00F1A524 /* DescriprionView.swift */; };
@@ -59,13 +61,15 @@
 		4C21A87B282BAF0400C47623 /* Pets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pets.swift; sourceTree = "<group>"; };
 		4C37E0B9281F057E00D393F5 /* ProductsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsTableViewController.swift; sourceTree = "<group>"; };
 		4C37E0BC281F10EA00D393F5 /* ProductsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsTableViewCell.swift; sourceTree = "<group>"; };
+		4C4A3F3E2838FA9A005C5F8E /* Products.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Products.swift; path = /Users/maria/Developer/DZ/ZooBazaar/ZooBazaar/Products/Products.swift; sourceTree = "<absolute>"; };
+		4C4A3F4028390164005C5F8E /* SomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomeViewController.swift; sourceTree = "<group>"; };
+		4C4A3F4228390280005C5F8E /* SomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomeView.swift; sourceTree = "<group>"; };
 		4C5278482820FC6300BACCB8 /* ProductsTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsTableHeaderView.swift; sourceTree = "<group>"; };
 		4C5457AA28223B220043205D /* HomeScreenTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenTableViewCell.swift; sourceTree = "<group>"; };
 		4C5457AC2822CC8D0043205D /* ColorsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsManager.swift; sourceTree = "<group>"; };
 		4C71F15A2834D0EA00F1A524 /* BackendData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackendData.swift; sourceTree = "<group>"; };
 		4C71F15C2834D3C800F1A524 /* BackendObtainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackendObtainer.swift; sourceTree = "<group>"; };
 		4C71F15E2835169D00F1A524 /* PetProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetProvider.swift; sourceTree = "<group>"; };
-		4C71F1602835485700F1A524 /* Products.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Products.swift; path = /Users/maria/Developer/DZ/ZooBazaar/ZooBazaar/Products.swift; sourceTree = "<absolute>"; };
 		4C71F16228355A4500F1A524 /* CartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
 		4C71F1662835607200F1A524 /* DescroptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescroptionViewController.swift; sourceTree = "<group>"; };
 		4C71F1682835608F00F1A524 /* DescriprionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriprionView.swift; sourceTree = "<group>"; };
@@ -145,8 +149,7 @@
 				4C37E0B9281F057E00D393F5 /* ProductsTableViewController.swift */,
 				4C37E0BC281F10EA00D393F5 /* ProductsTableViewCell.swift */,
 				4C5278482820FC6300BACCB8 /* ProductsTableHeaderView.swift */,
-				4C71F1662835607200F1A524 /* DescroptionViewController.swift */,
-				4C71F1682835608F00F1A524 /* DescriprionView.swift */,
+				4C4A3F44283A3A01005C5F8E /* Description */,
 			);
 			path = CatsProductsTable;
 			sourceTree = "<group>";
@@ -159,6 +162,36 @@
 				4C71F16228355A4500F1A524 /* CartTableViewCell.swift */,
 			);
 			path = BasketScreen;
+			sourceTree = "<group>";
+		};
+		4C4A3F44283A3A01005C5F8E /* Description */ = {
+			isa = PBXGroup;
+			children = (
+				4C71F1662835607200F1A524 /* DescroptionViewController.swift */,
+				4C71F1682835608F00F1A524 /* DescriprionView.swift */,
+				4C4A3F4028390164005C5F8E /* SomeViewController.swift */,
+				4C4A3F4228390280005C5F8E /* SomeView.swift */,
+			);
+			path = Description;
+			sourceTree = "<group>";
+		};
+		4C71F16A28356BBF00F1A524 /* BackendProvider */ = {
+			isa = PBXGroup;
+			children = (
+				4C71F15A2834D0EA00F1A524 /* BackendData.swift */,
+				4C71F15C2834D3C800F1A524 /* BackendObtainer.swift */,
+				4C71F15E2835169D00F1A524 /* PetProvider.swift */,
+			);
+			path = BackendProvider;
+			sourceTree = "<group>";
+		};
+		4C71F16B28356BE700F1A524 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4C21A87B282BAF0400C47623 /* Pets.swift */,
+				4C4A3F3E2838FA9A005C5F8E /* Products.swift */,
+			);
+			path = Products;
 			sourceTree = "<group>";
 		};
 		4CED642928187D250052A2C2 = {
@@ -195,13 +228,10 @@
 				4CED643E28187D290052A2C2 /* Assets.xcassets */,
 				4CED644028187D290052A2C2 /* LaunchScreen.storyboard */,
 				4CED644328187D290052A2C2 /* Info.plist */,
+				4C71F16A28356BBF00F1A524 /* BackendProvider */,
 				4CA247F22830232A00D8D8B6 /* MainTabBarController.swift */,
 				4C5457AC2822CC8D0043205D /* ColorsManager.swift */,
-				4C71F15A2834D0EA00F1A524 /* BackendData.swift */,
-				4C71F15C2834D3C800F1A524 /* BackendObtainer.swift */,
-				4C71F15E2835169D00F1A524 /* PetProvider.swift */,
-				4C21A87B282BAF0400C47623 /* Pets.swift */,
-				4C71F1602835485700F1A524 /* Products.swift */,
+				4C71F16B28356BE700F1A524 /* Products */,
 			);
 			path = ZooBazaar;
 			sourceTree = "<group>";
@@ -339,7 +369,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4C71F1612835485700F1A524 /* Products.swift in Sources */,
 				4C1DAB05281928D40043B08D /* SettingsView.swift in Sources */,
 				4C1DAB0A2819453E0043B08D /* CartViewControllerViewController.swift in Sources */,
 				4C71F1672835607200F1A524 /* DescroptionViewController.swift in Sources */,
@@ -349,6 +378,7 @@
 				4CED644A28187E5E0052A2C2 /* HomeScreenViewController.swift in Sources */,
 				4C71F16328355A4500F1A524 /* CartTableViewCell.swift in Sources */,
 				4C5278492820FC6300BACCB8 /* ProductsTableHeaderView.swift in Sources */,
+				4C4A3F4128390164005C5F8E /* SomeViewController.swift in Sources */,
 				4C039B532832A3D3001EEDB6 /* ProfileViewController.swift in Sources */,
 				4C5457AB28223B220043205D /* HomeScreenTableViewCell.swift in Sources */,
 				4CED644C28187E7F0052A2C2 /* HomeScreenView.swift in Sources */,
@@ -362,6 +392,8 @@
 				4C5457AD2822CC8D0043205D /* ColorsManager.swift in Sources */,
 				4C37E0BD281F10EA00D393F5 /* ProductsTableViewCell.swift in Sources */,
 				4CED643828187D250052A2C2 /* SceneDelegate.swift in Sources */,
+				4C4A3F3F2838FA9A005C5F8E /* Products.swift in Sources */,
+				4C4A3F4328390280005C5F8E /* SomeView.swift in Sources */,
 				4C21A87028290EFF00C47623 /* RegistrationViewController.swift in Sources */,
 				4C37E0BA281F057E00D393F5 /* ProductsTableViewController.swift in Sources */,
 				4C21A87C282BAF0400C47623 /* Pets.swift in Sources */,

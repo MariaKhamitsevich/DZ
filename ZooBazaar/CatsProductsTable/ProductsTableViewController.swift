@@ -17,9 +17,6 @@ class ProductsTableViewController: UITableViewController, TableDataReloading {
     
     var pets: PetProvider
     
-    
-    
-    
     init(pets: PetProvider) {
         self.pets = pets
         super.init(style: UITableView.Style.grouped)

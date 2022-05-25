@@ -32,6 +32,7 @@ class ProductsTableViewController: UITableViewController, TableDataReloading {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.register(ProductsTableViewCell.self, forCellReuseIdentifier: "ProductsTableViewCell")
         tableView.backgroundColor = ColorsManager.zbzbBackgroundColor
+        
 
        
 
@@ -92,6 +93,7 @@ class ProductsTableViewController: UITableViewController, TableDataReloading {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let controller = DescroptionViewController()
         controller.descriprionVeiw.update(product: pets.getProduct(numberOfSection: indexPath))
+        controller.descriprionVeiw.currentProduct = pets.getProduct(numberOfSection: indexPath)
         present(controller, animated: true)
     }
    

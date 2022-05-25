@@ -21,11 +21,22 @@ class DescroptionViewController: UIViewController {
         super.viewDidLoad()
 
         descriprionVeiw.exampleButton.addTarget(self, action: #selector(presentToController), for: .touchUpInside)
+        descriprionVeiw.addToCartButton.addTarget(self, action: #selector(addToCart), for: .touchUpInside)
     }
     
     @objc func presentToController() {
         let controller = SomeViewController()
         present(controller, animated: true)
+    }
+    
+    @objc func addToCart() {
+        let controller = CartViewController()
+        if let currentProduct = descriprionVeiw.currentProduct {
+        cartManager.addProduct(product: currentProduct)
+        }
+        if let view = controller.view as? CartView {
+            view.cartTable.reloadData()
+        }
     }
 
 }

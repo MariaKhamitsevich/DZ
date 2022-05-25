@@ -28,6 +28,7 @@
 		4C5278492820FC6300BACCB8 /* ProductsTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5278482820FC6300BACCB8 /* ProductsTableHeaderView.swift */; };
 		4C5457AB28223B220043205D /* HomeScreenTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5457AA28223B220043205D /* HomeScreenTableViewCell.swift */; };
 		4C5457AD2822CC8D0043205D /* ColorsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5457AC2822CC8D0043205D /* ColorsManager.swift */; };
+		4C54F28B283E9FEA0056E9B7 /* CartManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C54F28A283E9FEA0056E9B7 /* CartManager.swift */; };
 		4C71F15B2834D0EA00F1A524 /* BackendData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C71F15A2834D0EA00F1A524 /* BackendData.swift */; };
 		4C71F15D2834D3C800F1A524 /* BackendObtainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C71F15C2834D3C800F1A524 /* BackendObtainer.swift */; };
 		4C71F15F2835169D00F1A524 /* PetProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C71F15E2835169D00F1A524 /* PetProvider.swift */; };
@@ -67,6 +68,7 @@
 		4C5278482820FC6300BACCB8 /* ProductsTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsTableHeaderView.swift; sourceTree = "<group>"; };
 		4C5457AA28223B220043205D /* HomeScreenTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenTableViewCell.swift; sourceTree = "<group>"; };
 		4C5457AC2822CC8D0043205D /* ColorsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsManager.swift; sourceTree = "<group>"; };
+		4C54F28A283E9FEA0056E9B7 /* CartManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartManager.swift; sourceTree = "<group>"; };
 		4C71F15A2834D0EA00F1A524 /* BackendData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackendData.swift; sourceTree = "<group>"; };
 		4C71F15C2834D3C800F1A524 /* BackendObtainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackendObtainer.swift; sourceTree = "<group>"; };
 		4C71F15E2835169D00F1A524 /* PetProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetProvider.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 				4C1DAB092819453E0043B08D /* CartViewControllerViewController.swift */,
 				4C21A874282912DB00C47623 /* CartView.swift */,
 				4C71F16228355A4500F1A524 /* CartTableViewCell.swift */,
+				4C54F28A283E9FEA0056E9B7 /* CartManager.swift */,
 			);
 			path = BasketScreen;
 			sourceTree = "<group>";
@@ -394,6 +397,7 @@
 				4CED643828187D250052A2C2 /* SceneDelegate.swift in Sources */,
 				4C4A3F3F2838FA9A005C5F8E /* Products.swift in Sources */,
 				4C4A3F4328390280005C5F8E /* SomeView.swift in Sources */,
+				4C54F28B283E9FEA0056E9B7 /* CartManager.swift in Sources */,
 				4C21A87028290EFF00C47623 /* RegistrationViewController.swift in Sources */,
 				4C37E0BA281F057E00D393F5 /* ProductsTableViewController.swift in Sources */,
 				4C21A87C282BAF0400C47623 /* Pets.swift in Sources */,

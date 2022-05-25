@@ -29,7 +29,7 @@ class CartView: UIView {
         return label
     }()
     
-    private lazy var cartTable: UITableView = {
+     lazy var cartTable: UITableView = {
         let table = UITableView()
         table.backgroundColor = .clear
         

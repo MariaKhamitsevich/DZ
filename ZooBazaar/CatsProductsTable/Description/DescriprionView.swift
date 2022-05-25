@@ -62,6 +62,8 @@ class DescriprionView: UIView {
         return button
     }()
     
+    var currentProduct: Product?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = ColorsManager.unselectedBackgroundColor

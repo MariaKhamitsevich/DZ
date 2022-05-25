@@ -25,7 +25,9 @@ struct ProductsForPets {
     var products: [Product]
 }
 
-struct Product {
+struct Product: Equatable {
+    
+    
     let name: String
     let description: String
     let image: UIImage!
